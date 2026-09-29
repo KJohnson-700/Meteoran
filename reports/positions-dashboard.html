@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="utf-8">
+<title>Meteoran — Your Positions</title>
+<meta http-equiv="refresh" content="60">
+<style>
+body { font: 14px/1.5 -apple-system, system-ui, sans-serif; background: #0e0e10; color: #e6e6e6; margin: 0; padding: 24px; }
+h1 { font-size: 22px; margin: 0 0 4px; }
+h2 { font-size: 16px; margin: 24px 0 8px; color: #a8a8a8; text-transform: uppercase; letter-spacing: 1px; }
+.sub { color: #888; font-size: 12px; margin-bottom: 16px; }
+.summary { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 24px; }
+.card { background: #1a1a1d; border-radius: 8px; padding: 16px; }
+.card .label { color: #888; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; }
+.card .value { font-size: 22px; font-weight: 600; margin-top: 4px; font-family: ui-monospace, monospace; }
+.card .delta { font-size: 12px; margin-top: 4px; }
+.pos { color: #7ddc7d; }
+.neg { color: #ff7d7d; }
+.neutral { color: #ffd966; }
+.action { background: #1a1a1d; border-left: 3px solid; padding: 12px 16px; margin: 12px 0; font-size: 13px; }
+.act-close { border-color: #ff7d7d; }
+.act-keep { border-color: #7ddc7d; }
+.warn { background: #2a1f0a; border-left: 3px solid #ff9933; padding: 12px 16px; margin: 12px 0; font-size: 13px; }
+.chip { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; }
+.kv { display: grid; grid-template-columns: max-content auto; gap: 6px 16px; font-size: 13px; margin-top: 8px; }
+.kv .k { color: #888; }
+.kv .v { font-family: ui-monospace, SF Mono, monospace; }
+a { color: #4ea1ff; }
+</style></head>
+<body>
+<h1>📊 Meteoran — Your Open Positions</h1><div class="sub">Wallet: <code>GFH45uzb…ycP4mK</code> · Auto-refresh: 60s · Scan: 2026-09-27 18:31:18 PT</div><div class="summary"><div class="card"><div class="label">Open Positions</div><div class="value">1</div></div><div class="card"><div class="label">Total Deposited</div><div class="value">0.4120 SOL</div></div><div class="card"><div class="label">Total PnL (SOL)</div><div class="value pos">+0.0000</div><div class="delta pos">+0.01%</div></div><div class="card"><div class="label">SOL Price</div><div class="value">$2635</div></div></div><h2>🎯 Position Status & Action</h2><div class="action act-close"><b>MINI-SOL</b> <span class="chip" style="background:#ffd96620;color:#ffd966">OUT OF RANGE — ABOVE</span> — Dep: 0.4120 SOL · PnL: +0.0000 (+0.01%) · TVL: $23,108</div>
+<div class="warn">
+<b>Position is STILL OPEN, just OUT OF RANGE (above).</b>
+<ul>
+<li>Holding <b>50.25 MINI</b> tokens (= <b>0.002115 SOL</b>) + <b>0.4099 SOL</b> native.</li>
+<li>The position is <b>not earning fees</b> because price has moved above your upper bin.</li>
+<li>It has <b>not exited</b> — Meteora did not auto-close or convert it. Your tokens and SOL are still locked in the position pubkey until you manually close.</li>
+<li>Current PnL: <b>+0.01%</b> in SOL terms.</li>
+</ul>
+</div>
+<div class="action act-close">
+<b>Action: close it (your call, not the bot's).</b><br>
+The position will sit there not earning anything until you close it manually in the Meteora UI. Per Claude's exit rule, out-of-range upside → collect the profit. If you want to redeploy, close first, claim unclaimed fees (<b>0.000063 SOL</b>), then re-enter at a fresh pool.
+</div><div class="action act-close"><b>⚠ Fee curve collapsing:</b> 1h trend = 0.1x of 12h. NPC/GO pattern.</div><div class="kv"><div class="k">Contract:</div><div class="v">64BSmy7BESiHnWYzLdPso6FuXymh7H8jTkaiyfbBg1YD</div><div class="k">Position ID:</div><div class="v">['GBD7S6qTuZT9joTm2ZZkkBEaWnRayJ8Yzp6Znjxcx6A2']</div><div class="k">Current price:</div><div class="v">4.2098523943535e-05</div><div class="k">Bin step:</div><div class="v">125</div><div class="k">Fee (1h/12h):</div><div class="v">13.89% / 11.13%</div><div class="k">Trend:</div><div class="v">0.1x</div><div class="k">Unclaimed fees:</div><div class="v">0.000063 SOL</div></div><h2>📋 The Exit Rule (Claude's measurement, 111k positions)</h2>
+<div class="warn">
+<ul>
+<li><b>Out of range DOWN → close (your call).</b> 21,165 positions ended below their floor; <b>20% finished green</b> (median loss −6.94%).</li>
+<li><b>Out of range UP → close</b>, that's a profit you're collecting.</li>
+<li><b>No percentage stop-loss.</b> The range IS the stop.</li>
+<li><b>I never broadcast txs</b> — read-only monitoring. You click close in the Meteora UI.</li>
+</ul>
+</div>
+<h2>🔄 Re-entry Settings (Bid Ask, Auto-Fill OFF, −50%)</h2>
+<div class="warn">
+<ul>
+<li><b>Auto-Fill:</b> OFF · <b>&lt;TOKEN&gt;:</b> 0.00 · <b>SOL:</b> 0.3–0.5</li>
+<li><b>Strategy:</b> Bid Ask · <b>Max:</b> current price (never above) · <b>Min:</b> current × 0.5</li>
+<li><b>Stop-loss:</b> blank</li>
+</ul>
+</div>
+</body></html>

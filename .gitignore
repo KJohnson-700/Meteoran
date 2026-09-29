@@ -32,3 +32,12 @@ __pycache__/
 *.tmp
 .DS_Store
 data/board_url.txt
+
+# ---- PROJECT BOUNDARY (added 2026-09-29) ----
+# Meteoran is Meteora DLMM ONLY. These belong elsewhere and have leaked in before:
+#   fluffberg_*      -> ~/Documents/mint-doctor   (OpenSea NFT drop watcher)
+#   counterfactual   -> ~/Documents/Oracle-3      (Polymarket)
+# If a file here mentions opensea/nft/polymarket/hyperliquid, it is in the wrong repo.
+tools/fluffberg_*
+data/fluffberg_*
+tools/counterfactual.py

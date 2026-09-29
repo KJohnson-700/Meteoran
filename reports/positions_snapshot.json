@@ -1,0 +1,33 @@
+{
+  "wallet": "GFH45uzbixQWdLbjKdSE6z1VE7qWcRskh5CXSNycP4mK",
+  "scanned_at": "2026-09-27T18:31:18.022519-07:00",
+  "positions": [
+    {
+      "pool_addr": "64BSmy7BESiHnWYzLdPso6FuXymh7H8jTkaiyfbBg1YD",
+      "name": "MINI-SOL",
+      "dep": 0.411999967,
+      "pnl_sol": 4.864542611709988e-05,
+      "pnl_pct": 0.01180714320714979,
+      "token_x": "MINI",
+      "bal_raw": 50.24620486829416,
+      "bal_sol": 0.411985552,
+      "token_value_sol": 0.0021152910587196464,
+      "sol_value_pct": 99.48656183488696,
+      "side": "above",
+      "chip_color": "#ffd966",
+      "chip_text": "OUT OF RANGE \u2014 ABOVE",
+      "fee_1h": 13.89,
+      "fee_12h": 11.13,
+      "trend": 0.1,
+      "tvl": 23107.51711910143,
+      "current_price": 4.2098523943535e-05,
+      "bin_step": 125,
+      "unclaimed_fees_sol": 6.306042611712227e-05,
+      "list_positions": [
+        "GBD7S6qTuZT9joTm2ZZkkBEaWnRayJ8Yzp6Znjxcx6A2"
+      ]
+    }
+  ],
+  "total_dep": 0.411999967,
+  "total_pnl": 4.864542611709988e-05
+}
