@@ -1,0 +1,436 @@
+[
+ {
+  "w": "E67mtq97uUqRjYif9dRqnFhzMQbin8nmcBjAkVm3z4vp",
+  "n": 250,
+  "delays": {
+   "60": {
+    "catchable": 0.98,
+    "life_left": 0.9480982994367301
+   },
+   "300": {
+    "catchable": 0.908,
+    "life_left": 0.9151487464662065
+   },
+   "900": {
+    "catchable": 0.844,
+    "life_left": 0.8491078316350618
+   },
+   "1800": {
+    "catchable": 0.768,
+    "life_left": 0.8126038384213152
+   },
+   "3600": {
+    "catchable": 0.708,
+    "life_left": 0.7133618409546209
+   }
+  },
+  "in_range_0m": 0.7575757575757576,
+  "in_range_5m": 0.78,
+  "drift_5m": 0.022424242424242458,
+  "probed": 100,
+  "edge_kept_5m": 0.8495885995405753
+ },
+ {
+  "w": "Dc386eft7NJiYvvx8HBRbnya9BTnoKbnJnbvPK8xXHcr",
+  "n": 250,
+  "delays": {
+   "60": {
+    "catchable": 0.988,
+    "life_left": 0.9506580469589233
+   },
+   "300": {
+    "catchable": 0.908,
+    "life_left": 0.908403725345142
+   },
+   "900": {
+    "catchable": 0.832,
+    "life_left": 0.8460952860948342
+   },
+   "1800": {
+    "catchable": 0.764,
+    "life_left": 0.7886136109609692
+   },
+   "3600": {
+    "catchable": 0.648,
+    "life_left": 0.7603074778487438
+   }
+  },
+  "in_range_0m": 0.5959595959595959,
+  "in_range_5m": 0.6161616161616161,
+  "drift_5m": 0.02020202020202022,
+  "probed": 100,
+  "edge_kept_5m": 0.8414938267065888
+ },
+ {
+  "w": "37VFiTF8ziMY1vqdB6f4jyH6qvx9ng3LkvQFfR64wiMz",
+  "n": 250,
+  "delays": {
+   "60": {
+    "catchable": 0.944,
+    "life_left": 0.8292622404598063
+   },
+   "300": {
+    "catchable": 0.64,
+    "life_left": 0.7458615007943682
+   },
+   "900": {
+    "catchable": 0.452,
+    "life_left": 0.697577578503021
+   },
+   "1800": {
+    "catchable": 0.336,
+    "life_left": 0.706321685751117
+   },
+   "3600": {
+    "catchable": 0.252,
+    "life_left": 0.6744981511771778
+   }
+  },
+  "in_range_0m": 0.5555555555555556,
+  "in_range_5m": 0.5903614457831325,
+  "drift_5m": 0.03480589022757696,
+  "probed": 84,
+  "edge_kept_5m": 0.4939659995622354
+ },
+ {
+  "w": "4Cho1WQiU82dEcaFSkKJGaC1h37pGKXF5rj4BHjFMSLv",
+  "n": 250,
+  "delays": {
+   "60": {
+    "catchable": 0.976,
+    "life_left": 0.9668891775724329
+   },
+   "300": {
+    "catchable": 0.928,
+    "life_left": 0.9452908687611925
+   },
+   "900": {
+    "catchable": 0.876,
+    "life_left": 0.9287272922183177
+   },
+   "1800": {
+    "catchable": 0.848,
+    "life_left": 0.9055489508027527
+   },
+   "3600": {
+    "catchable": 0.808,
+    "life_left": 0.8727867510232292
+   }
+  },
+  "in_range_0m": 0.6989247311827957,
+  "in_range_5m": 0.6989247311827957,
+  "drift_5m": 0.0,
+  "probed": 100,
+  "edge_kept_5m": 0.8772299262103866
+ },
+ {
+  "w": "9aLFTaA5J6H1knWq6HSkWPo92J2yHfkePVEkZ1nHKcX7",
+  "n": 250,
+  "delays": {
+   "60": {
+    "catchable": 0.856,
+    "life_left": 0.8319845202322429
+   },
+   "300": {
+    "catchable": 0.632,
+    "life_left": 0.7182564134363812
+   },
+   "900": {
+    "catchable": 0.424,
+    "life_left": 0.7444075002480448
+   },
+   "1800": {
+    "catchable": 0.344,
+    "life_left": 0.7242654752888704
+   },
+   "3600": {
+    "catchable": 0.268,
+    "life_left": 0.7073433514745315
+   }
+  },
+  "in_range_0m": 0.8372093023255814,
+  "in_range_5m": 0.8604651162790697,
+  "drift_5m": 0.023255813953488302,
+  "probed": 86,
+  "edge_kept_5m": 0.4644947522055556
+ },
+ {
+  "w": "3dVGbM26uqx625Ec7rNbDCNfzmT2TPsxvKvW3Gxk3Eqz",
+  "n": 250,
+  "delays": {
+   "60": {
+    "catchable": 1.0,
+    "life_left": 0.9739125630975823
+   },
+   "300": {
+    "catchable": 0.956,
+    "life_left": 0.9317833640114667
+   },
+   "900": {
+    "catchable": 0.896,
+    "life_left": 0.8980264392896947
+   },
+   "1800": {
+    "catchable": 0.844,
+    "life_left": 0.8747099149185998
+   },
+   "3600": {
+    "catchable": 0.796,
+    "life_left": 0.8243627370440372
+   }
+  },
+  "in_range_0m": 0.5102040816326531,
+  "in_range_5m": 0.55,
+  "drift_5m": 0.03979591836734697,
+  "probed": 100,
+  "edge_kept_5m": 0.9262344989988432
+ },
+ {
+  "w": "68zXQchynHGwx8HrYd2FCaqSFBizUYWhvRydKeTLChDv",
+  "n": 250,
+  "delays": {
+   "60": {
+    "catchable": 0.996,
+    "life_left": 0.957699227003973
+   },
+   "300": {
+    "catchable": 0.932,
+    "life_left": 0.9159625198307649
+   },
+   "900": {
+    "catchable": 0.852,
+    "life_left": 0.8831370402328589
+   },
+   "1800": {
+    "catchable": 0.8,
+    "life_left": 0.8472258329476561
+   },
+   "3600": {
+    "catchable": 0.732,
+    "life_left": 0.8071874965567513
+   }
+  },
+  "in_range_0m": 0.5816326530612245,
+  "in_range_5m": 0.5408163265306123,
+  "drift_5m": -0.04081632653061218,
+  "probed": 100,
+  "edge_kept_5m": 0.8188331065034048
+ },
+ {
+  "w": "F2UU5oogdhay7aLKyGCrbnKFyyK7PfgGspbvxgFwfyjU",
+  "n": 250,
+  "delays": {
+   "60": {
+    "catchable": 0.932,
+    "life_left": 0.9320540917158626
+   },
+   "300": {
+    "catchable": 0.828,
+    "life_left": 0.8782664324334286
+   },
+   "900": {
+    "catchable": 0.732,
+    "life_left": 0.8194848814221108
+   },
+   "1800": {
+    "catchable": 0.648,
+    "life_left": 0.775517949351957
+   },
+   "3600": {
+    "catchable": 0.552,
+    "life_left": 0.7331572086138781
+   }
+  },
+  "in_range_0m": 0.6464646464646465,
+  "in_range_5m": 0.6060606060606061,
+  "drift_5m": -0.04040404040404044,
+  "probed": 100,
+  "edge_kept_5m": 0.6978226017698331
+ },
+ {
+  "w": "8JNfpTgAqbbm7yMNg8fj4sB9zm9NzDss3v4xq6y6DybQ",
+  "n": 250,
+  "delays": {
+   "60": {
+    "catchable": 0.92,
+    "life_left": 0.8606499633716942
+   },
+   "300": {
+    "catchable": 0.7,
+    "life_left": 0.7840256270311818
+   },
+   "900": {
+    "catchable": 0.52,
+    "life_left": 0.7532196899584049
+   },
+   "1800": {
+    "catchable": 0.424,
+    "life_left": 0.6896670389949227
+   },
+   "3600": {
+    "catchable": 0.304,
+    "life_left": 0.7193916708234545
+   }
+  },
+  "in_range_0m": 0.7419354838709677,
+  "in_range_5m": 0.7526881720430108,
+  "drift_5m": 0.010752688172043001,
+  "probed": 100,
+  "edge_kept_5m": 0.5547192070822771
+ },
+ {
+  "w": "EpHVY9dF1uKsoFRk86dAcnzarM8vqz5jua9Ch732Hh6c",
+  "n": 250,
+  "delays": {
+   "60": {
+    "catchable": 0.932,
+    "life_left": 0.9464100436265562
+   },
+   "300": {
+    "catchable": 0.848,
+    "life_left": 0.9117291872484338
+   },
+   "900": {
+    "catchable": 0.768,
+    "life_left": 0.8724535088950275
+   },
+   "1800": {
+    "catchable": 0.72,
+    "life_left": 0.822989706102346
+   },
+   "3600": {
+    "catchable": 0.632,
+    "life_left": 0.7973287563002082
+   }
+  },
+  "in_range_0m": 0.7448979591836735,
+  "in_range_5m": 0.7346938775510204,
+  "drift_5m": -0.010204081632653073,
+  "probed": 100,
+  "edge_kept_5m": 0.7652571023092568
+ },
+ {
+  "w": "GTYLBKAdRNex46now6TdKt5c7iiwmSV8G6rvHM7xuhYX",
+  "n": 250,
+  "delays": {
+   "60": {
+    "catchable": 1.0,
+    "life_left": 0.9937279754822224
+   },
+   "300": {
+    "catchable": 0.992,
+    "life_left": 0.9935236334893354
+   },
+   "900": {
+    "catchable": 0.988,
+    "life_left": 0.9872649626299493
+   },
+   "1800": {
+    "catchable": 0.988,
+    "life_left": 0.9745299252598987
+   },
+   "3600": {
+    "catchable": 0.984,
+    "life_left": 0.9555873125635396
+   }
+  },
+  "in_range_0m": 0.5,
+  "in_range_5m": 0.5,
+  "drift_5m": 0.0,
+  "probed": 100,
+  "edge_kept_5m": 0.9855754444214206
+ },
+ {
+  "w": "66assuHVJGjxL7uFHYQh1sfxtZj9sd5HuAAdRjgt5no2",
+  "n": 250,
+  "delays": {
+   "60": {
+    "catchable": 0.98,
+    "life_left": 0.9373337921391228
+   },
+   "300": {
+    "catchable": 0.892,
+    "life_left": 0.8359910866346401
+   },
+   "900": {
+    "catchable": 0.736,
+    "life_left": 0.7591789826042148
+   },
+   "1800": {
+    "catchable": 0.628,
+    "life_left": 0.661398854090649
+   },
+   "3600": {
+    "catchable": 0.46,
+    "life_left": 0.6041302837394924
+   }
+  },
+  "in_range_0m": 0.8020833333333334,
+  "in_range_5m": 0.7525773195876289,
+  "drift_5m": -0.049506013745704514,
+  "probed": 100,
+  "edge_kept_5m": 0.7087872143643099
+ },
+ {
+  "w": "CE8q8PXB6wHPWRdUKH8RgPVQJaP3F41zXk5jKSu1EiFB",
+  "n": 250,
+  "delays": {
+   "60": {
+    "catchable": 0.972,
+    "life_left": 0.955627989006951
+   },
+   "300": {
+    "catchable": 0.908,
+    "life_left": 0.9124276830847923
+   },
+   "900": {
+    "catchable": 0.832,
+    "life_left": 0.8677832866912495
+   },
+   "1800": {
+    "catchable": 0.764,
+    "life_left": 0.8294692455313338
+   },
+   "3600": {
+    "catchable": 0.664,
+    "life_left": 0.8263388739744667
+   }
+  },
+  "in_range_0m": 0.37,
+  "in_range_5m": 0.37,
+  "drift_5m": 0.0,
+  "probed": 100,
+  "edge_kept_5m": 0.8284843362409914
+ },
+ {
+  "w": "AEspQJjHgZYtzAPju9DLdMCgTJozPhYSo7NH7VSCdt5N",
+  "n": 250,
+  "delays": {
+   "60": {
+    "catchable": 0.956,
+    "life_left": 0.8617658788734806
+   },
+   "300": {
+    "catchable": 0.708,
+    "life_left": 0.7991527332778954
+   },
+   "900": {
+    "catchable": 0.556,
+    "life_left": 0.7375477379502121
+   },
+   "1800": {
+    "catchable": 0.436,
+    "life_left": 0.7437536627347633
+   },
+   "3600": {
+    "catchable": 0.364,
+    "life_left": 0.6989262019293099
+   }
+  },
+  "in_range_0m": 0.7653061224489796,
+  "in_range_5m": 0.797979797979798,
+  "drift_5m": 0.03267367553081846,
+  "probed": 100,
+  "edge_kept_5m": 0.5842869051922854
+ }
+]

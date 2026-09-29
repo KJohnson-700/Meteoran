@@ -1,0 +1,34 @@
+# ---- SECRETS AND PERSONAL DATA -- never commit ----
+data/operator_wallet.txt       # the operator's wallet address
+data/board_state.json          # snapshot of his live positions
+tools/notify.py                # carries his private ntfy alert topic
+reports/                       # rendered dashboards containing his wallet + positions
+.env
+.env.*
+*.pem
+*.key
+
+# ---- not part of this project ----
+tools/fluffberg_watch.py       # OpenSea NFT watcher, unrelated, holds an API key slot
+tools/fluffberg_loop.sh
+data/fluffberg_watch.log
+
+# ---- large regenerable API caches (320MB+, all rebuildable) ----
+data/t2_pools.json
+data/t2_positions.json
+data/dlmm_universe.json
+data/dlmm_pnl.json
+data/verify/
+data/monitor/
+data/forward/
+data/pool_alert_seen.json
+
+# ---- runtime ----
+logs/
+__pycache__/
+*.pyc
+*.bak
+*.bak.*
+*.tmp
+.DS_Store
+data/board_url.txt

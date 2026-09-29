@@ -1,0 +1,38 @@
+{
+ "68zXQchynHGwx8HrYd2FCaqSFBizUYWhvRydKeTLChDv": {
+  "nick": "Metronome",
+  "why": "most diversified of any finalist - top 3 pools are only 20% of its skill, ex-top3 +1.76%. 6.7h holds, 1.00-1.61 SOL size band, 75% SOL-only. Nothing dramatic, spread very wide. DRIFTED 2026-09-20: 8 of 19 recent pools are USDC-quoted (xBTC-USDC, xHYPE-USDC, xSOL-USDC...) which SOL-only mode cannot copy at all. Recent SOL share 58%, not the lifetime 75%. Produces ~1 copy where Shift Worker produces 16."
+ },
+ "HKdmXq9gVf964Rov3GhNuL4bmsvNpge73Je7CL7vqLmy": {
+  "nick": "Shift Worker",
+  "why": "89% SOL-only across 928 entries, 1.7h holds, 4.4 closes/day, 70% round sizes - clocks in, takes a short shift in a pool, clocks out. The most copyable wallet in the dataset."
+ },
+ "BUD6rK8RBuu4E2obasNnqyUB39bYfiw33vCeBJi6bVYH": {
+  "nick": "Minnow",
+  "why": "median position 0.30 SOL, p90 only 0.50 - the smallest sizer that still clears every gate. 77% SOL-only, 1.4h holds, ex-top3 +2.15%. Sizes where a 5 SOL bankroll lives."
+ },
+ "3VuT7Hg7dxhDrH8P2emqeSs5R6HK54LE5aCCAfdQhija": {
+  "nick": "Two-Token Pony",
+  "why": "WATCHLIST ONLY. 99% SOL-only and 15.3h holds look ideal, but 99% of its 120d skill is OTC-SOL plus two fone-SOL positions; ex-top3 is +0.05%. 96% round sizes. One narrative, not an edge (rule 13)."
+ },
+ "4Cho1WQiU82dEcaFSkKJGaC1h37pGKXF5rj4BHjFMSLv": {
+  "nick": "Magpie",
+  "why": "collects everything - 51 open positions at once, 8.0 closes/day, size CV 3.14 (wildly variable). Only 13% SOL-only, so 87% of its entries force a copier to BUY the token (rule 22). Great wallet, poor copy target."
+ },
+ "E67mtq97uUqRjYif9dRqnFhzMQbin8nmcBjAkVm3z4vp": {
+  "nick": "Powder Keg",
+  "why": "3.0h holds on fresh memecoin pools at 1.97 SOL a clip. Highest headline edge, fattest tail - p5 of its positions is -61%. Source of the QEPE -51% on 2026-09-18. Only 30% SOL-only."
+ },
+ "Dc386eft7NJiYvvx8HBRbnya9BTnoKbnJnbvPK8xXHcr": {
+  "nick": "Sweeper",
+  "why": "RETIRED from the roster 2026-09-17. Books winners fast (2.7h holds, 1,083 positions) and sweeps losers into the open book - carried 25 SOL at -78%, censoring drag -0.87pp against a -1.0pp gate."
+ },
+ "AEspQJjHgZYtzAPju9DLdMCgTJozPhYSo7NH7VSCdt5N": {
+  "nick": "Assembly Line",
+  "why": "deposits 1.00 SOL on nearly every entry (p10=p50=p90=1.00, 84% round sizes) across 447 pools at 1.2h holds. Tool-driven and utterly uniform - rule 17 says do NOT gate on round sizing, it is what the operator's own Valhalla produces. 527 out-of-sample positions, open-book drag +0.20pp (positive), 0.9% capital open."
+ },
+ "3XqscBSeEYX2Ng32MuSUrTjtUYFd7cMagKbyus2ER7hZ": {
+  "nick": "The Closer",
+  "why": "books its losers instead of parking them - open-book drag +0.69pp POSITIVE, only 2 open positions at 0.6% of capital, the least-deferring wallet measured. That is the exact trait that made the others diverge from a copier in a drawdown (2026-09-20). 28m holds, 384 pools, ex-top3 +2.77% at only 45% top-3 concentration, B skill +4.83-5.39% over 549 out-of-sample positions."
+ }
+}

@@ -1,0 +1,128 @@
+[
+ {
+  "w": "E67mtq97uUqRjYif9dRqnFhzMQbin8nmcBjAkVm3z4vp",
+  "n": 566,
+  "one_sided": 0.3568904593639576,
+  "sol_only": 0.2950530035335689,
+  "med_tvl": 12160.441652839054,
+  "pos_share": 0.01644677107211042,
+  "deep_share": 1.0
+ },
+ {
+  "w": "Dc386eft7NJiYvvx8HBRbnya9BTnoKbnJnbvPK8xXHcr",
+  "n": 1083,
+  "one_sided": 0.5678670360110804,
+  "sol_only": 0.38134810710988,
+  "med_tvl": 2597.562406124895,
+  "pos_share": 0.0769952627618925,
+  "deep_share": 0.7
+ },
+ {
+  "w": "37VFiTF8ziMY1vqdB6f4jyH6qvx9ng3LkvQFfR64wiMz",
+  "n": 1120,
+  "one_sided": 0.7553571428571428,
+  "sol_only": 0.5089285714285714,
+  "med_tvl": 53413.195757430214,
+  "pos_share": 0.003744393069238482,
+  "deep_share": 0.8333333333333334
+ },
+ {
+  "w": "4Cho1WQiU82dEcaFSkKJGaC1h37pGKXF5rj4BHjFMSLv",
+  "n": 1085,
+  "one_sided": 0.759447004608295,
+  "sol_only": 0.1327188940092166,
+  "med_tvl": 18420.62079020549,
+  "pos_share": 0.010857397385127374,
+  "deep_share": 0.7435897435897436
+ },
+ {
+  "w": "9aLFTaA5J6H1knWq6HSkWPo92J2yHfkePVEkZ1nHKcX7",
+  "n": 763,
+  "one_sided": 0.6985583224115334,
+  "sol_only": 0.5517693315858454,
+  "med_tvl": 2550.44970711052,
+  "pos_share": 0.0784175431659799,
+  "deep_share": 1.0
+ },
+ {
+  "w": "3dVGbM26uqx625Ec7rNbDCNfzmT2TPsxvKvW3Gxk3Eqz",
+  "n": 1072,
+  "one_sided": 0.26399253731343286,
+  "sol_only": 0.007462686567164179,
+  "med_tvl": 394187.4442355985,
+  "pos_share": 0.0005073728322012807,
+  "deep_share": 1.0
+ },
+ {
+  "w": "68zXQchynHGwx8HrYd2FCaqSFBizUYWhvRydKeTLChDv",
+  "n": 1200,
+  "one_sided": 0.7533333333333333,
+  "sol_only": 0.7458333333333333,
+  "med_tvl": 236155.9348736648,
+  "pos_share": 0.0008468980468646406,
+  "deep_share": 0.8333333333333334
+ },
+ {
+  "w": "F2UU5oogdhay7aLKyGCrbnKFyyK7PfgGspbvxgFwfyjU",
+  "n": 437,
+  "one_sided": 0.43249427917620137,
+  "sol_only": 0.20594965675057209,
+  "med_tvl": 1217610.142274575,
+  "pos_share": 0.0001642561876385055,
+  "deep_share": 1.0
+ },
+ {
+  "w": "8JNfpTgAqbbm7yMNg8fj4sB9zm9NzDss3v4xq6y6DybQ",
+  "n": 1226,
+  "one_sided": 0.9282218597063622,
+  "sol_only": 0.732463295269168,
+  "med_tvl": 106477.78028847148,
+  "pos_share": 0.0018783261583605187,
+  "deep_share": 1.0
+ },
+ {
+  "w": "EpHVY9dF1uKsoFRk86dAcnzarM8vqz5jua9Ch732Hh6c",
+  "n": 1500,
+  "one_sided": 0.7446666666666667,
+  "sol_only": 0.672,
+  "med_tvl": 647805.2497331484,
+  "pos_share": 0.00030873476261945447,
+  "deep_share": 1.0
+ },
+ {
+  "w": "GTYLBKAdRNex46now6TdKt5c7iiwmSV8G6rvHM7xuhYX",
+  "n": 658,
+  "one_sided": 0.7036474164133738,
+  "sol_only": 0.1945288753799392,
+  "med_tvl": 36057.76694922171,
+  "pos_share": 0.005546655184766424,
+  "deep_share": 0.75
+ },
+ {
+  "w": "66assuHVJGjxL7uFHYQh1sfxtZj9sd5HuAAdRjgt5no2",
+  "n": 1215,
+  "one_sided": 0.8839506172839506,
+  "sol_only": 0.8806584362139918,
+  "med_tvl": 96714.77079212455,
+  "pos_share": 0.002067936452332325,
+  "deep_share": 1.0
+ },
+ {
+  "w": "CE8q8PXB6wHPWRdUKH8RgPVQJaP3F41zXk5jKSu1EiFB",
+  "n": 1367,
+  "one_sided": 0.8924652523774689,
+  "sol_only": 0.6510607168983175,
+  "med_tvl": 2550.44970711052,
+  "pos_share": 0.0784175431659799,
+  "deep_share": 1.0
+ },
+ {
+  "w": "AEspQJjHgZYtzAPju9DLdMCgTJozPhYSo7NH7VSCdt5N",
+  "n": 1336,
+  "one_sided": 0.9348802395209581,
+  "sol_only": 0.8555389221556886,
+  "med_tvl": 54777.79158843032,
+  "pos_share": 0.00365111469813694,
+  "deep_share": 0.75
+ }
+]

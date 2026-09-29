@@ -1,0 +1,39 @@
+{
+ "started_utc": "2026-09-20 22:59 UTC",
+ "note": "CLEAN BASELINE. Everything before this ran on broken config and must not be mixed into any evaluation of the copy strategy.",
+ "config": {
+  "entry_mode": "SOL only",
+  "max_trade_size": 0.5,
+  "global_slots": 7,
+  "max_per_token": 1.0,
+  "stop_loss_pct": 20,
+  "stop_timer_min": 1,
+  "take_profit": "off",
+  "infinite_add_liquidity": "OFF",
+  "min_price_range_pct": 2,
+  "oor_timer_min": {
+   "Metronome": 1200,
+   "Shift Worker": 300,
+   "Minnow": 240
+  }
+ },
+ "known_losses_under_old_config_sol": {
+  "QEPE (Powder Keg, token-side entry, stop overshot 35->55%)": -0.346,
+  "GP (Magpie, token-side entry, cut manually at -38.6%)": -0.25,
+  "Metronome single 1.4 SOL position": -0.2194,
+  "HEV (1.25 SOL via Infinite Add Liquidity, correct size would be -0.06)": -0.1489,
+  "JeanPhil (correctly sized 0.5, stop fired -26.6% on 20% threshold)": -0.1292
+ },
+ "what_to_measure_next": [
+  "copy win rate vs each target's own win rate -- the gap IS execution leakage",
+  "positions per day: should be ~10-15 with 7 slots on 1.2-1.7h holders, not 1-2",
+  "stop overshoot: 5min gave 20.1pp, 2min gave 6.6pp, 1min should give less",
+  "whether OOR timer (240-300min) exits stale positions before the stop has to"
+ ],
+ "roster": [
+  "Metronome (68zXQchy)",
+  "Shift Worker (HKdmXq9g)",
+  "Minnow (BUD6rK8R)"
+ ],
+ "not_in_use": "Assembly Line (AEspQJjH) - vetted and cleared all 12 gates, held in reserve"
+}
