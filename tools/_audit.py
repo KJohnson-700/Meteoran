@@ -47,7 +47,10 @@ def main() -> int:
     check("no external stylesheet",
           "<link" not in s.lower(),
           "found <link> -- inline it or the file is not self-contained")
-    check("no external script", "<script" not in s.lower())
+    # An INLINE script is fine and does not break self-containment -- nothing
+    # is fetched. What breaks it is a src= pointing at someone else's server.
+    check("no external script", " src=" not in s.lower(),
+          "found a src= -- inline it or the file is not self-contained")
     check("no @import", "@import" not in s)
     check("no webfont fetch",
           not re.search(r"fonts\.(googleapis|gstatic)", s))
@@ -73,7 +76,12 @@ def main() -> int:
 
     # Template leakage: an f-string brace that failed to interpolate shows up
     # as literal {foo} in the output and reads as broken copy to a judge.
+    #
+    # Strip <script> as well as <style>. Inline JS legitimately contains braces
+    # and the token NaN (isNaN), so scanning it produced false failures that
+    # would have trained the reader to ignore this check.
     body = re.sub(r"<style.*?</style>", "", s, flags=re.S)
+    body = re.sub(r"<script.*?</script>", "", body, flags=re.S)
     check("no unresolved template braces", "{" not in body,
           next((m.group(0) for m in re.finditer(r"\{[a-zA-Z_][^}]*\}", body)),
                ""))

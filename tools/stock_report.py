@@ -44,6 +44,34 @@ OUT = os.path.join(ROOT, "docs", "stock-pairs.html")
 # and the page states how many pools the floor excluded.
 MIN_TVL = 1000.0
 
+# Which windows to show, and which one to rank on.
+#
+# Ranking on 24h alone was a category error: it is an average over a window in
+# which the pool may have been dead for most of it. On one pull the top-ranked
+# stock pool printed 8.5% over 24h and 0.05% over the last hour -- its yield
+# had already evaporated and the ranking was still calling it the best payer.
+#
+# 1h is the default because it answers "what is paying now" without being a
+# single-trade artifact the way 30m is. It is a default, not a ruling: every
+# window is a clickable sort header, because an LP who wants the last 30
+# minutes should not have to re-run the tool to get them.
+SHOW_WINDOWS = ("30m", "1h", "2h", "4h", "12h", "24h")
+RANK_WINDOW = "1h"
+
+
+def usd(v):
+    """Dollar amount that stays honest below one dollar.
+
+    The pools that prove the TVL floor exists are sub-dollar. Formatting those
+    with :,0f printed "$0 of TVL", which reads as a rendering bug rather than
+    as the point being made.
+    """
+    if v >= 1:
+        return f"${v:,.0f}"
+    if v >= 0.01:
+        return f"${v:,.2f}"
+    return f"${v:.6f}"
+
 # --- Open Props subset (v1.7.7), verbatim values -------------------------
 # https://unpkg.com/open-props@1.7.7/open-props.min.css
 CSS = """
@@ -151,6 +179,10 @@ h1 em { font-style:normal; color:var(--fg-3); }
 }
 
 /* ---- charts ---- */
+.hint {
+  color:var(--fg-3); font-size:var(--font-size-0); margin:var(--size-2) 0 0;
+}
+figure { margin:0; }
 .fig { margin:var(--size-6) 0 0; }
 .fig svg { display:block; overflow:visible; }
 .sv-t { font-size:12px; font-weight:600; letter-spacing:.06em;
@@ -194,6 +226,13 @@ tbody tr { transition:background .12s var(--ease-out-3); }
 tbody tr:hover { background:var(--bg-2); }
 td.num { text-align:right; font-variant-numeric:tabular-nums;
          white-space:nowrap; }
+/* Sortable headers. The caret sits inline so the column widths never shift. */
+th.sort { cursor:pointer; user-select:none; white-space:nowrap; }
+th.sort:hover { color:var(--fg); }
+th.sort[aria-sort="descending"] { color:var(--link); }
+th.sort[aria-sort="ascending"] { color:var(--link); }
+.car { opacity:.45; font-size:.8em; margin-left:.25em; }
+td.dim { color:var(--fg-3); }
 .pair { font-weight:var(--font-weight-6); }
 .pair a { color:var(--fg); text-decoration:none; border-bottom:1px solid var(--line-2); }
 .pair a:hover { color:var(--link); border-bottom-color:var(--link); }
@@ -226,7 +265,7 @@ footer {
   line-height:1.7;
 }
 @media print {
-  .top, .dot { display:none; }
+  .top, .dot, .hint { display:none; }
   body { background:#fff; color:#000; }
 }
 """
@@ -254,7 +293,7 @@ def live(rows):
     return [r for r in rows if r.get("volume_24h", 0) > 0]
 
 
-def strip_svg(series, w=760, pad_l=92, pad_r=26, row_h=64, title=""):
+def strip_svg(series, w=760, pad_l=148, pad_r=26, row_h=64, title=""):
     """One row per class: every live pool as a dot on a log APR axis.
 
     A median on its own hides the thing that matters here -- whether one class
@@ -306,13 +345,21 @@ def strip_svg(series, w=760, pad_l=92, pad_r=26, row_h=64, title=""):
 
     for i, (label, color, xs) in enumerate(series):
         cy = pad_t + i * row_h + 30
-        p.append(f'<text x="0" y="{cy + 4}" class="sv-lab">{label}</text>')
+        # Zeros cannot sit on a log axis, so they are dropped from the plot --
+        # which would quietly turn "most pools earned nothing" into "few pools
+        # earned something". Count them onto the label so the gap is visible
+        # instead of inferred from absent dots.
+        zeros = sum(1 for v in xs if not v or v <= 0)
+        pos_n = len(xs) - zeros
+        lab = (f"{label} — {zeros}/{len(xs)} zero"
+               if zeros else label)
+        p.append(f'<text x="0" y="{cy + 4}" class="sv-lab">{lab}</text>')
         p.append(f'<line x1="{pad_l}" y1="{cy}" x2="{w - pad_r}" y2="{cy}" '
                  f'class="sv-base"/>')
         xs = [v for v in xs if v > 0]
         if not xs:
             p.append(f'<text x="{pad_l + 8}" y="{cy + 4}" class="sv-ax">'
-                     f'no pools with 24h volume</text>')
+                     f'every pool in this class is at zero</text>')
             continue
         # nudge near-identical points into lanes so a cluster stays countable
         for v in sorted(xs):
@@ -360,27 +407,43 @@ def tvl_svg(stock, smeme, w=760, h=104):
     return "\n".join(p)
 
 
+def yld(r, w="24h"):
+    """Windowed fee/TVL yield in percent. Tolerates rows predating the
+    multi-window capture, which only ever stored a flat 24h number."""
+    y = r.get("yield_w")
+    if not y:
+        return float(r.get("apr") or 0.0) if w == "24h" else 0.0
+    return float(y.get(w) or 0.0)
+
+
+def traded(r):
+    """Any window with volume. A pool idle for 24h but active an hour ago has
+    traded -- excluding on 24h alone dropped exactly the pools someone scanning
+    right now would want."""
+    v = r.get("volume_w")
+    if not v:
+        return r.get("volume_24h", 0) > 0
+    return any(x > 0 for x in v.values())
+
+
 def rows_html(rows, limit=18):
-    """Ranked by what the pool paid, which is the whole job.
+    """Ranked by the default window, with every window sortable.
 
-    Sorted on 24h APR descending, NOT on TVL. TVL says how deep a pool is,
-    not what it pays, and a page whose first row is the biggest pool is
-    answering a question nobody opened it to ask. TVL stays as a column so
-    depth is still visible next to yield.
-
-    Only pools at or above MIN_TVL are rankable -- see the note on that
-    constant. Pools with no 24h volume carry no APR and land at the bottom,
-    which is correct: there is nothing to compare about them.
+    Rows carry their numbers in data-y attributes so the sort control can
+    reorder them without a round trip. Sorted client-side on click, re-sorted
+    server-side at render, because the page is a file and has to be right the
+    moment it is opened.
     """
     rows = sorted([r for r in rows if r["tvl"] >= MIN_TVL],
-                  key=lambda r: -(r["apr"] if r["apr"] else -1.0))
+                  key=lambda r: -yld(r, RANK_WINDOW))
     out = []
     for r in rows[:limit]:
         tvl = r["tvl"]
-        apr = r["apr"]
-        vtvl = r["volume_24h"] / tvl if tvl else 0
         h = (r.get("holders") or {}).get("holders") or 0
         addr = r["pool"]
+        cells = "".join(
+            f"<td class='num' data-y='{yld(r, w):.6f}'>{yld(r, w):.3f}%</td>"
+            for w in SHOW_WINDOWS)
         # Every row is clickable. A number nobody can audit is a claim.
         out.append(
             f"<tr>"
@@ -388,23 +451,30 @@ def rows_html(rows, limit=18):
             f"<a href='https://solscan.io/account/{addr}' target='_blank' "
             f"rel='noopener'>{r['name']}</a>"
             f"<div class='mint'>{addr[:6]}…{addr[-6:]}</div></td>"
-            f"<td class='num'>{apr:.3f}%</td>"
-            f"<td class='num'>${tvl:,.0f}</td>"
-            f"<td class='num'>{vtvl:.2f}</td>"
+            f"{cells}"
+            f"<td class='num' data-y='{tvl:.6f}'>${tvl:,.0f}</td>"
             f"<td class='num'>{h:,}</td></tr>")
     return "\n".join(out)
 
 
-def top_of(rows):
-    """Best-paying RANKABLE pool in a class, or None.
+def top_of(rows, w=RANK_WINDOW):
+    """Best-paying RANKABLE pool in a class on a given window, or None.
 
     Ranked within the class on its own terms -- this is the tool doing its job,
     not a verdict about the class.
     """
-    livep = [r for r in rows
-             if r.get("volume_24h", 0) > 0 and r["apr"] > 0
-             and r["tvl"] >= MIN_TVL]
-    return max(livep, key=lambda r: r["apr"]) if livep else None
+    c = [r for r in rows if traded(r) and yld(r, w) > 0 and r["tvl"] >= MIN_TVL]
+    return max(c, key=lambda r: yld(r, w)) if c else None
+
+
+def table_head(cls=""):
+    ths = "".join(
+        f"<th class='num sort' data-w='{w}'>"
+        f"{w}<span class='car'>\u25be</span></th>" for w in SHOW_WINDOWS)
+    return (f"<thead><tr><th>pair</th>{ths}"
+            f"<th class='num sort' data-w='__tvl'>TVL"
+            f"<span class='car'>\u25be</span></th>"
+            f"<th class='num'>holders</th></tr></thead>")
 
 
 def main() -> int:
@@ -426,24 +496,29 @@ def main() -> int:
     s_rank, m_rank = rankable(stock), rankable(smeme)
     dropped = len(stock) + len(smeme) - len(s_rank) - len(m_rank)
 
-    stock_live = [r["apr"] for r in live(s_rank)]
-    smeme_live = [r["apr"] for r in live(m_rank)]
+    def yvals(rows, w):
+        return [yld(r, w) for r in rows if traded(r)]
+
+    s_live = yvals(s_rank, RANK_WINDOW)
+    m_live = yvals(m_rank, RANK_WINDOW)
+    s_live24 = yvals(s_rank, "24h")
+    m_live24 = yvals(m_rank, "24h")
     stock_tvl = sum(r["tvl"] for r in s_rank)
     smeme_tvl = sum(r["tvl"] for r in m_rank)
     total_tvl = stock_tvl + smeme_tvl
 
-    ms, mm = med(stock_live), med(smeme_live)
+    ms, mm = med(s_live), med(m_live)
 
     strip = strip_svg([
-        ("stock", "var(--c-stock)", stock_live),
-        ("stock x meme", "var(--c-smeme)", smeme_live),
-    ], title="every live pool's 24h APR — one dot per pool")
+        ("stock", "var(--c-stock)", s_live),
+        ("stock x meme", "var(--c-smeme)", m_live),
+    ], title=f"{RANK_WINDOW} yield per pool — one dot per pool that earned anything")
     bar = tvl_svg(s_rank, m_rank)
 
     # Both captions below state a measured quantity, so both are computed here
     # rather than written by hand. A caption that drifts from its own chart is
     # the fastest way to lose a judge who checks.
-    every = stock_live + smeme_live
+    every = s_live + m_live
     pos = [v for v in every if v > 0]
     decades = (math.log10(max(pos) / min(pos)) if len(pos) > 1 else 0.0)
     smeme_share = (smeme_tvl / total_tvl * 100) if total_tvl else 0.0
@@ -452,35 +527,48 @@ def main() -> int:
     # an example here would go stale within one refresh and quietly start
     # describing a pool that is no longer in the data.
     sub = [r for r in (stock + smeme)
-           if r["tvl"] < MIN_TVL and r.get("volume_24h", 0) > 0 and r["apr"] > 0]
+           if r["tvl"] < MIN_TVL and traded(r) and yld(r, "24h") > 0]
     if sub:
-        w = max(sub, key=lambda r: r["apr"])
-        floor_evidence = (f"Ranked on raw APR the top earner across those was "
-                          f"<b>{w['name']}</b> at {w['apr']:.3f}% on "
-                          f"${w['tvl']:,.0f} of TVL")
+        w = max(sub, key=lambda r: yld(r, "24h"))
+        floor_evidence = (f"Ranked on raw 24h yield the top earner across those was "
+                          f"<b>{w['name']}</b> at {yld(w, '24h'):,.0f}% on "
+                          f"{usd(w['tvl'])} of TVL")
     else:
-        floor_evidence = "Every pool below the floor had no 24h volume"
+        floor_evidence = "Every pool below the floor was idle"
 
     # Each class leads with its own best payer. Ranked within the class, not
     # against each other -- cross-class comparison is analysis, and analysis
     # belongs in the writeup, not on the tool.
     def lead(rows):
-        t = top_of(rows)
+        t = top_of(rows, RANK_WINDOW)
         if not t:
-            return "No pool in this class traded in the last 24 hours."
-        return (f"Best right now: <b>{t['name']}</b> at {t['apr']:.3f}% on "
-                f"${t['tvl']:,.0f}.")
+            return "No pool in this class traded recently."
+        return (f"Best on the {RANK_WINDOW} window: <b>{t['name']}</b> at "
+                f"{yld(t, RANK_WINDOW):.3f}% on ${t['tvl']:,.0f} "
+                f"(24h: {yld(t, '24h'):.3f}%).")
 
     top_stock_line = lead(stock)
     top_smeme_line = lead(smeme)
+
+    # The decay case, named from the current pull: the pool a 24h-only ranking
+    # would have put first, and what it is actually paying now.
+    by24 = [r for r in (s_rank + m_rank) if traded(r) and yld(r, "24h") > 0]
+    if by24:
+        d = max(by24, key=lambda r: yld(r, "24h"))
+        top24_evidence = (f"<b>{d['name']}</b> {yld(d, '24h'):.3f}% over 24h "
+                          f"against {yld(d, RANK_WINDOW):.3f}% over "
+                          f"{RANK_WINDOW}")
+
+    win_heads = " ".join(f"{w}" for w in SHOW_WINDOWS)
 
     html = f"""<!doctype html>
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="color-scheme" content="light dark">
 <meta name="description" content="Every tokenized-equity DLMM pool on Meteora,
-classified by beta source and ranked by measured 24h yield. Refreshed every 30
-minutes from the public DLMM API. No wallet, no key.">
+classified by beta source and ranked across the 30m/1h/4h/12h/24h windows the
+gates read. Refreshed every 30 minutes from the public DLMM API. No wallet,
+no key.">
 <title>Meteoran — which equity DLMM pools are worth providing liquidity to</title>
 <style>{CSS}</style></head><body><div class="wrap">
 
@@ -495,7 +583,8 @@ minutes from the public DLMM API. No wallet, no key.">
 <h1>Which tokenized-equity pools on Meteora are
 worth <em>providing liquidity to.</em></h1>
 <p class="lede">Every DLMM pool quoting a verified equity token, classified by
-where its beta comes from and ranked by what it actually paid over 24 hours.
+where its beta comes from and ranked on what it actually paid — over the last 30
+minutes, hour, four hours, day, and every window between.
 {scanned:,} pools scanned, {len(stock) + len(smeme)} equity pools found,
 {len(s_rank) + len(m_rank)} of them rankable. Refreshed every 30 minutes. No
 wallet, no key, standard library only — open the file and it works.</p>
@@ -505,8 +594,8 @@ wallet, no key, standard library only — open the file and it works.</p>
   <div><b>${stock_tvl:,.0f}</b><span>stock TVL</span></div>
   <div><b>{len(m_rank)}</b><span>stock × meme</span></div>
   <div><b>${smeme_tvl:,.0f}</b><span>stock × meme TVL</span></div>
-  <div><b>{ms:.3f}%</b><span>median APR, stock</span></div>
-  <div><b>{mm:.3f}%</b><span>median APR, stock × meme</span></div>
+  <div><b>{ms:.3f}%</b><span>median {RANK_WINDOW} yield, stock</span></div>
+  <div><b>{mm:.3f}%</b><span>median {RANK_WINDOW} yield, stock × meme</span></div>
 </div>
 
 <div class="flag"><b>Why {dropped} of the {len(stock) + len(smeme)} pools are
@@ -517,11 +606,13 @@ deleted; raise <code>MIN_TVL</code> in <code>tools/stock_report.py</code> to
 change the cutoff.</div>
 
 <figure class="fig">{strip}
-<figcaption>One dot per pool with 24h volume, on a log scale — the live pools
-span {decades:.1f} orders of magnitude in APR, so on a linear axis almost every
-dot would stack onto the left edge and the two classes would be indistinguishable.
-The tick is the median. Dead pools are excluded: a pool with no volume has no APR
-to compare and would drag both medians toward zero.</figcaption>
+<figcaption>One dot per pool that earned anything on the {RANK_WINDOW} window,
+on a log scale — zero cannot be plotted, so the pools sitting at exactly zero
+are counted onto the row label instead. That gap is the finding: most of these
+pools are not trading. The tick is the median of the non-zero values. These are
+fee/TVL over the window, not an annualised APR: Meteora's own <code>apr</code>
+field is exactly <code>fee_tvl_ratio["24h"]</code>, with no annualisation
+applied, so this page does not apply one either.</figcaption>
 </figure>
 
 <figure class="fig">{bar}
@@ -530,25 +621,32 @@ ${smeme_tvl:,.0f} of ${total_tvl:,.0f} ({smeme_share:.0f}%), {len(s_rank)}
 stock-quoted pools hold ${stock_tvl:,.0f}.</figcaption>
 </figure>
 
-<h2>Stock-quoted pools — best 24h APR first</h2>
+<h2>Stock-quoted pools</h2>
 <p class="note">Beta is the listed equity. It is bounded rather than uncapped,
 and it moves on the underlying's schedule instead of continuously.
 {top_stock_line}</p>
-<div class="tw"><table><thead><tr><th>pair</th><th class="num">APR</th>
-<th class="num">TVL</th><th class="num">vol24/TVL</th><th class="num">holders</th>
-</tr></thead><tbody>{rows_html(stock)}</tbody></table></div>
+<p class="hint">Every window is a sort header — click one to re-rank this table.
+Ranked on {RANK_WINDOW} to match the rolling windows the gates read; the
+disagreement between windows is the signal.</p>
+<div class="tw"><table>{table_head()}<tbody>{rows_html(stock)}</tbody></table></div>
 
-<h2>Stock × memecoin pools — best 24h APR first</h2>
+<h2>Stock × memecoin pools</h2>
 <p class="note">Both betas live at once, ranked on the same terms.
 {top_smeme_line} GOOGLx-GOOGLon is the same company across two issuers, in two
 liquidity silos.</p>
-<div class="tw"><table><thead><tr><th>pair</th><th class="num">APR</th>
-<th class="num">TVL</th><th class="num">vol24/TVL</th><th class="num">holders</th>
-</tr></thead><tbody>{rows_html(smeme)}</tbody></table></div>
+<div class="tw"><table>{table_head()}<tbody>{rows_html(smeme)}</tbody></table></div>
+
+<div class="flag"><b>Why one window is not enough.</b> A pool's 24h figure is an
+average over a day in which it may have been idle for most of it. On this pull
+the highest-24h stock pool paid {top24_evidence} — its yield had already fallen
+away by the time the day was done, and a 24h-only ranking would still have put
+it first. Conversely a pool that sat quiet all day and woke up an hour ago has
+no 24h volume at all, so a 24h-only view drops exactly the pool someone scanning
+right now wants to see. Both are shown, on every window.</div>
 
 <div class="flag"><b>Data quality, and why it matters here.</b> A large and
 moving fraction of the raw <code>/pools</code> pull is structurally corrupt — TVL
-of 3e-12, APR of 6e13. Every figure on this page is post-filter. A single
+of 3e-12, yields of 6e13. Every figure on this page is post-filter. A single
 unfiltered row sorts an entire table, which is why a public leaderboard built on
 the same endpoint can look precise and be meaningless.</div>
 
@@ -587,7 +685,57 @@ chain state. Reproduce with
 · {scanned:,} pools scanned, ${total_tvl:,.0f} TVL in the two classes above.
 </footer>
 
-</div></body></html>"""
+</div>
+<script>
+// Click-to-sort. Inline and dependency-free on purpose: this page has to work
+// as a single file opened straight off disk, so nothing here may fetch.
+//
+// Rows are sorted server-side at render, so the page is already correct before
+// any of this runs. This only reorders what is already on screen.
+(function () {{
+  var CAR = ['\\u25be', '\\u25b4'];
+  document.querySelectorAll('table').forEach(function (tbl) {{
+    var tb = tbl.tBodies[0];
+    if (!tb) return;
+    tbl.querySelectorAll('th.sort').forEach(function (th) {{
+      var w = th.getAttribute('data-w');
+      var idx = Array.prototype.indexOf.call(th.parentNode.children, th);
+      var dir = -1;
+      var mark = function () {{
+        tbl.querySelectorAll('th.sort').forEach(function (o) {{
+          o.removeAttribute('aria-sort');
+          var c = o.querySelector('.car');
+          if (c) c.textContent = CAR[0];
+        }});
+        th.setAttribute('aria-sort', dir === -1 ? 'descending' : 'ascending');
+        var c = th.querySelector('.car');
+        if (c) c.textContent = dir === -1 ? CAR[0] : CAR[1];
+      }};
+      mark();
+      th.setAttribute('tabindex', '0');
+      th.setAttribute('role', 'button');
+      var go = function () {{ dir = -dir; mark(); sort(); }};
+      var sort = function () {{
+        var rows = Array.prototype.slice.call(tb.rows);
+        rows.sort(function (a, b) {{
+          var av = a.cells[idx] && a.cells[idx].getAttribute('data-y');
+          var bv = b.cells[idx] && b.cells[idx].getAttribute('data-y');
+          var x = parseFloat(av), y = parseFloat(bv);
+          if (isNaN(x)) x = -Infinity;
+          if (isNaN(y)) y = -Infinity;
+          return (x - y) * dir;
+        }});
+        rows.forEach(function (r) {{ tb.appendChild(r); }});
+      }};
+      th.addEventListener('click', go);
+      th.addEventListener('keydown', function (e) {{
+        if (e.key === 'Enter' || e.key === ' ') {{ e.preventDefault(); go(); }}
+      }});
+    }});
+  }});
+}})();
+</script>
+</body></html>"""
 
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
     with open(OUT, "w", encoding="utf-8") as fh:

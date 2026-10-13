@@ -85,6 +85,50 @@ def win24(v) -> float:
         return 0
 
 
+# Every window Meteora publishes for volume, fees and fee_tvl_ratio.
+#
+# Ranking on 24h alone throws five of six away, and that is a category error
+# rather than a simplification: the 24h figure is an average over a window in
+# which the pool may have been dead for most of it. A pool that printed its
+# whole daily yield in one busy hour and has been idle since looks identical to
+# one that traded steadily all day. An LP choosing a pool right now is asking
+# what is paying *now*.
+#
+# The short windows are also the noisy ones -- a single trade can print an
+# enormous 30m figure -- which is why all of them are kept rather than just the
+# shortest one. The spread between them is the signal.
+WINDOWS = ("30m", "1h", "2h", "4h", "12h", "24h")
+
+
+def window_map(v) -> dict:
+    """{window: float}, missing keys zeroed. Tolerates a bare scalar."""
+    if not isinstance(v, dict):
+        try:
+            return {w: float(v or 0) for w in WINDOWS}
+        except (TypeError, ValueError):
+            return {w: 0.0 for w in WINDOWS}
+    out = {}
+    for w in WINDOWS:
+        try:
+            out[w] = float(v.get(w) or 0)
+        except (TypeError, ValueError):
+            out[w] = 0.0
+    return out
+
+
+def yield_pct(fees: dict, tvl: float) -> dict:
+    """Fee/TVL over each window, in percent.
+
+    NOT an APR. Meteora's `apr` field is exactly `fee_tvl_ratio["24h"]` -- the
+    raw percentage a pool earned over 24 hours, with no annualisation applied.
+    Calling that an APR would imply a ~365x extrapolation the tool never did.
+    These are labelled as windowed yields instead, which is what they are.
+    """
+    if not tvl or tvl <= 0:
+        return {w: 0.0 for w in WINDOWS}
+    return {w: (fees.get(w, 0.0) / tvl) * 100.0 for w in WINDOWS}
+
+
 def sane(p: dict) -> bool:
     """Reject the corrupt rows.
 
@@ -153,6 +197,8 @@ def main() -> int:
         if cls == "MEME":
             continue
         tvl = float(p.get("tvl") or 0)
+        fees_w = window_map(p.get("fees"))
+        vol_w = window_map(p.get("volume"))
         buckets[cls].append({
             "pool": p["address"],
             "name": p.get("name"),
@@ -161,8 +207,11 @@ def main() -> int:
                           if ex else p.get("token_x", {}).get("symbol")),
             "tvl": tvl,
             "apr": float(p.get("apr") or 0),
-            "volume_24h": win24(p.get("volume")),
-            "fees_24h": win24(p.get("fees")),
+            # All six windows, kept. See WINDOWS.
+            "yield_w": yield_pct(fees_w, tvl),
+            "volume_w": vol_w,
+            "volume_24h": vol_w.get("24h", 0.0),
+            "fees_24h": fees_w.get("24h", 0.0),
             "holders": (p.get("token_x", {}) if ex else p.get("token_y", {})) or {},
             "bin_step": (p.get("pool_config") or {}).get("bin_step"),
             "base_fee": (p.get("pool_config") or {}).get("base_fee_pct"),
@@ -177,23 +226,25 @@ def main() -> int:
         tvl = sum(r["tvl"] for r in rows)
         aprs = sorted(r["apr"] for r in rows)
         med = aprs[len(aprs) // 2] if aprs else 0.0
-        print(f"\n  {name}: {len(rows)} pools, ${tvl:,.0f} TVL, median APR {med:.3f}%")
-        print(f"  {'pair':<26}{'TVL':>12}{'APR%':>8}{'vol24/TVL':>11}{'holders':>9}")
+        print(f"\n  {name}: {len(rows)} pools, ${tvl:,.0f} TVL, median 24h yield {med:.3f}%")
+        print(f"  {'pair':<22}{'TVL':>11}{'30m%':>8}{'1h%':>8}{'4h%':>8}{'24h%':>9}{'holders':>9}")
         for r in rows[:15]:
-            vol_tvl = r["volume_24h"] / r["tvl"] if r["tvl"] else 0
+            y = r.get("yield_w") or {}
             h = r["holders"].get("holders")
-            print(f"  {str(r['name'])[:25]:<26}{r['tvl']:>12,.0f}{r['apr']:>8.3f}"
-                  f"{vol_tvl:>11.2f}{(h if h else 0):>9,}")
+            print(f"  {str(r['name'])[:21]:<22}{r['tvl']:>11,.0f}"
+                  f"{y.get('30m', 0):>8.3f}{y.get('1h', 0):>8.3f}"
+                  f"{y.get('4h', 0):>8.3f}{y.get('24h', 0):>9.3f}"
+                  f"{(h if h else 0):>9,}")
 
     # Beta-class comparison, restricted to pools that actually traded.
     #
-    # A raw median across every pool is misleading in BOTH directions: most
-    # memecoin pools are dead, so they drag their own median to zero, and a
-    # dead pool has no APR. Comparing all-stock against all-meme answers a
-    # question nobody asked. The live comparison is what an LP actually cares
-    # about -- among pools that traded in the last 24h, what does each class pay?
+    # "traded" is now any window, not just 24h. A pool that sat idle all day and
+    # woke up an hour ago has no 24h volume and used to fall out of the
+    # comparison entirely -- which is precisely the pool an LP scanning right
+    # now wants to see.
     def live(rows):
-        return sorted(r["apr"] for r in rows if r["volume_24h"] > 0)
+        return sorted(r["apr"] for r in rows
+                      if any(v > 0 for v in (r.get("volume_w") or {}).values()))
 
     stock_live = live(buckets["STOCK"])
     stockmeme_live = live(buckets["STOCK_MEME"])

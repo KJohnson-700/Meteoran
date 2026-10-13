@@ -7,21 +7,37 @@
     "name": "NVDAx-SOL",
     "equity": "NVDAx",
     "leg_other": "SOL",
-    "tvl": 128740.95998208623,
-    "apr": 1.0819759094243968,
-    "volume_24h": 773951.1161534782,
-    "fees_24h": 1392.9461725678764,
+    "tvl": 129138.09057927348,
+    "apr": 1.0758356341598436,
+    "yield_w": {
+     "30m": 6.269014811104207e-06,
+     "1h": 0.00687791278632429,
+     "2h": 0.061257744866802744,
+     "4h": 0.2403348656780851,
+     "12h": 0.525154238430284,
+     "24h": 1.0758356341598436
+    },
+    "volume_w": {
+     "30m": 4.493830671234164,
+     "1h": 4899.311064889024,
+     "2h": 43606.163720938435,
+     "4h": 170054.51491163258,
+     "12h": 380529.9357827219,
+     "24h": 771936.231541314
+    },
+    "volume_24h": 771936.231541314,
+    "fees_24h": 1389.31359572544,
     "holders": {
      "address": "Xsc9qvGR1efVDFGLrVsmkzv3qi45LTBjeUKSPmx9qEh",
      "name": "NVIDIA xStock",
      "symbol": "NVDAx",
      "decimals": 8,
      "is_verified": true,
-     "holders": 174588,
+     "holders": 174885,
      "freeze_authority_disabled": false,
-     "total_supply": 321809.9855153219,
-     "price": 224.01711280205336,
-     "market_cap": 72090943.82601303
+     "total_supply": 321809.9817593631,
+     "price": 224.21352229690504,
+     "market_cap": 72154149.52056956
     },
     "bin_step": 20,
     "base_fee": 0.2
@@ -31,21 +47,37 @@
     "name": "PLTRx-SOL",
     "equity": "PLTRx",
     "leg_other": "SOL",
-    "tvl": 65773.36496386662,
-    "apr": 0.46988866896878545,
-    "volume_24h": 56484.0903249796,
-    "fees_24h": 309.0615891646944,
+    "tvl": 66285.09100682396,
+    "apr": 0.4676635583495041,
+    "yield_w": {
+     "30m": 0.0,
+     "1h": 0.002413419071732937,
+     "2h": 0.04654884717709576,
+     "4h": 0.07693394886686108,
+     "12h": 0.4089359125419415,
+     "24h": 0.4676635583495041
+    },
+    "volume_w": {
+     "30m": 0.0,
+     "1h": 291.2154593915861,
+     "2h": 5671.151845096326,
+     "4h": 9348.832628105049,
+     "12h": 49467.9576249218,
+     "24h": 56645.18090332455
+    },
+    "volume_24h": 56645.18090332455,
+    "fees_24h": 309.9912152577201,
     "holders": {
      "address": "XsoBhf2ufR8fTyNSjqfU71DYGaE6Z3SUGAidpzriAA4",
      "name": "Palantir xStock",
      "symbol": "PLTRx",
      "decimals": 8,
      "is_verified": true,
-     "holders": 9307,
+     "holders": 9299,
      "freeze_authority_disabled": false,
-     "total_supply": 146868.66113251,
-     "price": 206.9732637841379,
-     "market_cap": 30397886.142202154
+     "total_supply": 146868.6611325,
+     "price": 208.8969794514207,
+     "market_cap": 30680419.686653525
     },
     "bin_step": 80,
     "base_fee": 0.6
@@ -55,93 +87,157 @@
     "name": "SPYx-SOL",
     "equity": "SPYx",
     "leg_other": "SOL",
-    "tvl": 48980.04855228826,
-    "apr": 0.3105517269780089,
-    "volume_24h": 66877.57310622286,
-    "fees_24h": 152.10838665379845,
+    "tvl": 49185.69100515303,
+    "apr": 0.3267442021833133,
+    "yield_w": {
+     "30m": 0.0033456696296747333,
+     "1h": 0.0065795608577611745,
+     "2h": 0.03820450398472677,
+     "4h": 0.10775612267789436,
+     "12h": 0.1804091158364849,
+     "24h": 0.3267442021833133
+    },
+    "volume_w": {
+     "30m": 730.9771833724341,
+     "1h": 1435.2448133907872,
+     "2h": 8300.186095926674,
+     "4h": 23184.84930445037,
+     "12h": 38930.44067668273,
+     "24h": 70673.17789232041
+    },
+    "volume_24h": 70673.17789232041,
+    "fees_24h": 160.71139366313693,
     "holders": {
      "address": "XsoCS1TfEyfFhfvj8EtZ528L3CaKBDBRqRapnBbDF2W",
      "name": "SP500 xStock",
      "symbol": "SPYx",
      "decimals": 8,
      "is_verified": true,
-     "holders": 79393,
+     "holders": 79414,
      "freeze_authority_disabled": false,
-     "total_supply": 95774.93273224332,
-     "price": 776.7081400974279,
-     "market_cap": 74389169.87041697
+     "total_supply": 95774.9327322232,
+     "price": 776.827508012459,
+     "market_cap": 74400602.32443383
     },
     "bin_step": 25,
     "base_fee": 0.25
-   },
-   {
-    "pool": "CmcVVxuMMCdsevwThLwU4PdESB5NxiZJU4mGrxB6QDE4",
-    "name": "GOOGLx-SOL",
-    "equity": "GOOGLx",
-    "leg_other": "SOL",
-    "tvl": 42051.95586426264,
-    "apr": 0.9000251788900805,
-    "volume_24h": 220611.37531053697,
-    "fees_24h": 378.47819099410754,
-    "holders": {
-     "address": "XsCPL9dNWBMvFtTmwcCA5v3xWPSMEBCszbQdiLLq6aN",
-     "name": "Alphabet xStock",
-     "symbol": "GOOGLx",
-     "decimals": 8,
-     "is_verified": true,
-     "holders": 56826,
-     "freeze_authority_disabled": false,
-     "total_supply": 160785.77782111135,
-     "price": 349.4803937560708,
-     "market_cap": 56191476.94329811
-    },
-    "bin_step": 20,
-    "base_fee": 0.2
    },
    {
     "pool": "ARABCijrKikX1C6KWgsmseyNj1cfneQajbYLNdw6LGaA",
     "name": "GLDx-SOL",
     "equity": "GLDx",
     "leg_other": "SOL",
-    "tvl": 41997.925503227976,
-    "apr": 0.512121852838842,
-    "volume_24h": 29662.696070829297,
-    "fees_24h": 215.0805542410077,
+    "tvl": 42413.32795226571,
+    "apr": 0.5350674179580149,
+    "yield_w": {
+     "30m": 0.020208942408693455,
+     "1h": 0.02796161029961437,
+     "2h": 0.1066580999718405,
+     "4h": 0.2353857045795006,
+     "12h": 0.40531493039633176,
+     "24h": 0.5350674179580149
+    },
+    "volume_w": {
+     "30m": 1190.4489359109466,
+     "1h": 1646.7807034160226,
+     "2h": 6269.760563236043,
+     "4h": 13751.027353865822,
+     "12h": 23718.269937809007,
+     "24h": 31309.462404489645
+    },
+    "volume_24h": 31309.462404489645,
+    "fees_24h": 226.93989874425313,
     "holders": {
      "address": "Xsv9hRk1z5ystj9MhnA7Lq4vjSsLwzL2nxrwmwtD3re",
      "name": "Gold xStock",
      "symbol": "GLDx",
      "decimals": 8,
      "is_verified": true,
-     "holders": 40624,
+     "holders": 40602,
      "freeze_authority_disabled": false,
-     "total_supply": 116266.4994804,
-     "price": 381.35861331840505,
-     "market_cap": 44339231.01723041
+     "total_supply": 116266.49948038,
+     "price": 381.9732595349127,
+     "market_cap": 44410693.78123498
     },
     "bin_step": 80,
     "base_fee": 0.8
+   },
+   {
+    "pool": "CmcVVxuMMCdsevwThLwU4PdESB5NxiZJU4mGrxB6QDE4",
+    "name": "GOOGLx-SOL",
+    "equity": "GOOGLx",
+    "leg_other": "SOL",
+    "tvl": 42402.34950141826,
+    "apr": 0.8960907514015586,
+    "yield_w": {
+     "30m": 0.002135282671595972,
+     "1h": 0.004906050141619059,
+     "2h": 0.028800903595191243,
+     "4h": 0.08616336374709609,
+     "12h": 0.3886641630040765,
+     "24h": 0.8960907514015586
+    },
+    "volume_w": {
+     "30m": 500.9975786176597,
+     "1h": 1153.6826350073966,
+     "2h": 6764.397434316963,
+     "4h": 20035.521840536047,
+     "12h": 102456.5271353414,
+     "24h": 221440.4303066727
+    },
+    "volume_24h": 221440.4303066727,
+    "fees_24h": 379.963532259174,
+    "holders": {
+     "address": "XsCPL9dNWBMvFtTmwcCA5v3xWPSMEBCszbQdiLLq6aN",
+     "name": "Alphabet xStock",
+     "symbol": "GOOGLx",
+     "decimals": 8,
+     "is_verified": true,
+     "holders": 56807,
+     "freeze_authority_disabled": false,
+     "total_supply": 160785.77614512655,
+     "price": 349.6394897301896,
+     "market_cap": 56217056.72725454
+    },
+    "bin_step": 20,
+    "base_fee": 0.2
    },
    {
     "pool": "Em6JaFdurNtinmzt8HtCdTe3db1NXnKokP7Wm1CBw4NR",
     "name": "MSFTx-SOL",
     "equity": "MSFTx",
     "leg_other": "SOL",
-    "tvl": 21797.314920646084,
-    "apr": 0.20794689680959408,
-    "volume_24h": 28205.494820706223,
-    "fees_24h": 45.32683996529816,
+    "tvl": 21863.22854910301,
+    "apr": 0.20725730331341025,
+    "yield_w": {
+     "30m": 8.903564005945619e-05,
+     "1h": 0.0003970412736172139,
+     "2h": 0.0011090211573348266,
+     "4h": 0.0026043807744242082,
+     "12h": 0.17644537707979527,
+     "24h": 0.20725730331341025
+    },
+    "volume_w": {
+     "30m": 8.619139105307896,
+     "1h": 38.29846533959558,
+     "2h": 107.2662776235327,
+     "4h": 249.92383381696249,
+     "12h": 25223.699890927976,
+     "24h": 28199.083354852184
+    },
+    "volume_24h": 28199.083354852184,
+    "fees_24h": 45.31313790811853,
     "holders": {
      "address": "XspzcW1PRtgf6Wj92HCiZdjzKCyFekVD8P5Ueh3dRMX",
      "name": "Microsoft xStock",
      "symbol": "MSFTx",
      "decimals": 8,
      "is_verified": true,
-     "holders": 34977,
+     "holders": 35033,
      "freeze_authority_disabled": false,
-     "total_supply": 105589.20311370396,
-     "price": 538.8422295766051,
-     "market_cap": 56895921.62500525
+     "total_supply": 105589.20271184556,
+     "price": 538.2495912234596,
+     "market_cap": 56833345.19726188
     },
     "bin_step": 25,
     "base_fee": 0.25
@@ -151,21 +247,37 @@
     "name": "METAx-USDC",
     "equity": "METAx",
     "leg_other": "USDC",
-    "tvl": 17708.499429532123,
-    "apr": 1.516415017696921,
-    "volume_24h": 285529.795989524,
-    "fees_24h": 268.53434475819876,
+    "tvl": 18086.69907722484,
+    "apr": 1.492175970761308,
+    "yield_w": {
+     "30m": 0.007899405099385064,
+     "1h": 0.008223170080143453,
+     "2h": 0.01744874876964284,
+     "4h": 0.03703725849152241,
+     "12h": 1.1814683441783242,
+     "24h": 1.492175970761308
+    },
+    "volume_w": {
+     "30m": 1539.0510263688766,
+     "1h": 1604.069344697306,
+     "2h": 3449.7314809474783,
+     "4h": 7369.685626549347,
+     "12h": 226221.70340781147,
+     "24h": 286982.46798253193
+    },
+    "volume_24h": 286982.46798253193,
+    "fees_24h": 269.8853775342563,
     "holders": {
      "address": "Xsa62P5mvPszXL1krVUnU5ar38bBSVcWAB6fmPCo5Zu",
      "name": "Meta xStock",
      "symbol": "METAx",
      "decimals": 8,
      "is_verified": true,
-     "holders": 39011,
+     "holders": 39015,
      "freeze_authority_disabled": false,
      "total_supply": 72583.09087823916,
-     "price": 736.0733278709674,
-     "market_cap": 53426477.24990636
+     "price": 737.2311641239851,
+     "market_cap": 53510516.58388126
     },
     "bin_step": 10,
     "base_fee": 0.1
@@ -175,69 +287,77 @@
     "name": "METAx-SOL",
     "equity": "METAx",
     "leg_other": "SOL",
-    "tvl": 15788.440606965054,
-    "apr": 0.4020272735171459,
-    "volume_24h": 27988.514043396277,
-    "fees_24h": 63.47383730305553,
+    "tvl": 16258.836934804223,
+    "apr": 0.3938798352264222,
+    "yield_w": {
+     "30m": 0.0017484363029345769,
+     "1h": 0.002699101090807703,
+     "2h": 0.008687001085717464,
+     "4h": 0.02902740420101199,
+     "12h": 0.20997172004355527,
+     "24h": 0.3938798352264222
+    },
+    "volume_w": {
+     "30m": 126.26178712728812,
+     "1h": 194.95436432566072,
+     "2h": 624.9282848720293,
+     "4h": 2074.6643976763,
+     "12h": 15014.24495139778,
+     "24h": 28239.29410569191
+    },
+    "volume_24h": 28239.29410569191,
+    "fees_24h": 64.04028012853955,
     "holders": {
      "address": "Xsa62P5mvPszXL1krVUnU5ar38bBSVcWAB6fmPCo5Zu",
      "name": "Meta xStock",
      "symbol": "METAx",
      "decimals": 8,
      "is_verified": true,
-     "holders": 39011,
+     "holders": 39015,
      "freeze_authority_disabled": false,
      "total_supply": 72583.09087823916,
-     "price": 736.0733278709674,
-     "market_cap": 53426477.24990636
+     "price": 737.2311641239851,
+     "market_cap": 53510516.58388126
     },
     "bin_step": 25,
     "base_fee": 0.25
-   },
-   {
-    "pool": "5JjaEZfYzxQn3DAbAjDi8expi4b4aVnFTYDuonx15w5N",
-    "name": "AMDx-USDC",
-    "equity": "AMDx",
-    "leg_other": "USDC",
-    "tvl": 12317.71168615355,
-    "apr": 0.0,
-    "volume_24h": 0.0,
-    "fees_24h": 0.0,
-    "holders": {
-     "address": "XsXcJ6GZ9kVnjqGsjBnktRcuwMBmvKWh8S93RefZ1rF",
-     "name": "AMD xStock",
-     "symbol": "AMDx",
-     "decimals": 8,
-     "is_verified": true,
-     "holders": 3226,
-     "freeze_authority_disabled": false,
-     "total_supply": 71480.81674939,
-     "price": 590.0918262722774,
-     "market_cap": 42180245.69908154
-    },
-    "bin_step": 125,
-    "base_fee": 10.0
    },
    {
     "pool": "8Xx3VeN92DsZksHs2nXMiJUcR5JBofqmbXqacoeUTj2g",
     "name": "NVDAx-USDC",
     "equity": "NVDAx",
     "leg_other": "USDC",
-    "tvl": 10508.262088893236,
-    "apr": 0.0021392579330767915,
-    "volume_24h": 1177.1729362377446,
-    "fees_24h": 0.22479883036514953,
+    "tvl": 10507.92324370337,
+    "apr": 0.002101812324939798,
+    "yield_w": {
+     "30m": 3.1016078197714448e-06,
+     "1h": 7.432755560791284e-06,
+     "2h": 3.602611520468943e-05,
+     "4h": 9.630512647579183e-05,
+     "12h": 0.00026318751667216817,
+     "24h": 0.002101812324939798
+    },
+    "volume_w": {
+     "30m": 1.7838090202780017,
+     "1h": 4.145755433084531,
+     "2h": 20.035932129284603,
+     "4h": 53.25037312454316,
+     "12h": 146.1144640828413,
+     "24h": 1156.3354242848875
+    },
+    "volume_24h": 1156.3354242848875,
+    "fees_24h": 0.22085682583137123,
     "holders": {
      "address": "Xsc9qvGR1efVDFGLrVsmkzv3qi45LTBjeUKSPmx9qEh",
      "name": "NVIDIA xStock",
      "symbol": "NVDAx",
      "decimals": 8,
      "is_verified": true,
-     "holders": 174588,
+     "holders": 174885,
      "freeze_authority_disabled": false,
-     "total_supply": 321809.9855153219,
-     "price": 224.01711280205336,
-     "market_cap": 72090943.82601303
+     "total_supply": 321809.9817593631,
+     "price": 224.7975606501334,
+     "market_cap": 72342098.89236875
     },
     "bin_step": 10,
     "base_fee": 0.02
@@ -247,21 +367,37 @@
     "name": "AAPLx-SOL",
     "equity": "AAPLx",
     "leg_other": "SOL",
-    "tvl": 10218.700267770431,
-    "apr": 0.37160855382106417,
-    "volume_24h": 10467.76313241369,
-    "fees_24h": 37.97356428437091,
+    "tvl": 10313.149163854996,
+    "apr": 0.38426868059796626,
+    "yield_w": {
+     "30m": 6.696687173597933e-08,
+     "1h": 0.008282182408684833,
+     "2h": 0.029745977983288194,
+     "4h": 0.10709031430983718,
+     "12h": 0.19088197855910155,
+     "24h": 0.38426868059796626
+    },
+    "volume_w": {
+     "30m": 0.001695519572948734,
+     "1h": 235.78785293193843,
+     "2h": 842.4745077181043,
+     "4h": 3034.294361160668,
+     "12h": 5416.797249160355,
+     "24h": 10922.274139775142
+    },
+    "volume_24h": 10922.274139775142,
+    "fees_24h": 39.63020222004578,
     "holders": {
      "address": "XsbEhLAtcf6HdfpFZ5xEMdqW8nfAvcsP5bdudRLJzJp",
      "name": "Apple xStock",
      "symbol": "AAPLx",
      "decimals": 8,
      "is_verified": true,
-     "holders": 36180,
+     "holders": 36230,
      "freeze_authority_disabled": false,
-     "total_supply": 154264.82802346814,
-     "price": 341.93434206058447,
-     "market_cap": 52748442.47329379
+     "total_supply": 154264.82802343802,
+     "price": 341.87158765398146,
+     "market_cap": 52738761.67554117
     },
     "bin_step": 50,
     "base_fee": 0.4
@@ -271,45 +407,117 @@
     "name": "TSLAx-SOL",
     "equity": "TSLAx",
     "leg_other": "SOL",
-    "tvl": 10112.173582750109,
-    "apr": 0.2952379050270836,
-    "volume_24h": 16386.650818715923,
-    "fees_24h": 29.8549694384136,
+    "tvl": 10124.425198100957,
+    "apr": 0.2972684914980986,
+    "yield_w": {
+     "30m": 0.0,
+     "1h": 0.0033620572910725635,
+     "2h": 0.017017102356337275,
+     "4h": 0.062495173030853016,
+     "12h": 0.1523489417908393,
+     "24h": 0.2972684914980986
+    },
+    "volume_w": {
+     "30m": 0.0,
+     "1h": 188.34248238572764,
+     "2h": 950.8966053730994,
+     "4h": 3410.8020466643634,
+     "12h": 8421.706653842095,
+     "24h": 16518.93144882086
+    },
+    "volume_24h": 16518.93144882086,
+    "fees_24h": 30.096726059248095,
     "holders": {
      "address": "XsDoVfqeBukxuZHWhdvWHBhgEHjGNst4MLodqsJHzoB",
      "name": "Tesla xStock",
      "symbol": "TSLAx",
      "decimals": 8,
      "is_verified": true,
-     "holders": 47255,
+     "holders": 47243,
      "freeze_authority_disabled": false,
      "total_supply": 229635.57792633,
-     "price": 374.4557350864069,
-     "market_cap": 85988359.13439578
+     "price": 374.4938760497373,
+     "market_cap": 85997117.65655282
     },
     "bin_step": 20,
     "base_fee": 0.2
+   },
+   {
+    "pool": "AmLoKiXopoFkyDMFeqxTcx7xH15zu4EvYhzwq7axybTQ",
+    "name": "MSFTx-USDC",
+    "equity": "MSFTx",
+    "leg_other": "USDC",
+    "tvl": 8897.640204142783,
+    "apr": 1.7428548189228226,
+    "yield_w": {
+     "30m": 0.0014294811499700718,
+     "1h": 0.015113119233322647,
+     "2h": 0.017982348147713417,
+     "4h": 0.021614437630745033,
+     "12h": 1.6782939028338353,
+     "24h": 1.7428548189228226
+    },
+    "volume_w": {
+     "30m": 141.29116762457568,
+     "1h": 1491.5056576137251,
+     "2h": 1774.4726909050191,
+     "4h": 2133.4987756299925,
+     "12h": 165382.29178839942,
+     "24h": 171655.69242432748
+    },
+    "volume_24h": 171655.69242432748,
+    "fees_24h": 155.07295106831694,
+    "holders": {
+     "address": "XspzcW1PRtgf6Wj92HCiZdjzKCyFekVD8P5Ueh3dRMX",
+     "name": "Microsoft xStock",
+     "symbol": "MSFTx",
+     "decimals": 8,
+     "is_verified": true,
+     "holders": 35033,
+     "freeze_authority_disabled": false,
+     "total_supply": 105589.20271184556,
+     "price": 538.2495912234596,
+     "market_cap": 56833345.19726188
+    },
+    "bin_step": 10,
+    "base_fee": 0.1
    },
    {
     "pool": "Dprwg5xHQ8jJryfh3okeTDCZK16Gz1wtX47JeZZv3HXZ",
     "name": "AVGOx-USDC",
     "equity": "AVGOx",
     "leg_other": "USDC",
-    "tvl": 8862.618016777717,
-    "apr": 8.484548865641848,
-    "volume_24h": 1214417.8131896872,
-    "fees_24h": 751.9531564086839,
+    "tvl": 8868.683939606502,
+    "apr": 8.546619169425226,
+    "yield_w": {
+     "30m": 0.02669988200419044,
+     "1h": 0.054017123769834016,
+     "2h": 0.2083499364637727,
+     "4h": 0.5106094681254136,
+     "12h": 8.546619169425226,
+     "24h": 8.546619169425226
+    },
+    "volume_w": {
+     "30m": 4759.814116498123,
+     "1h": 9612.654222926469,
+     "2h": 32317.444141955348,
+     "4h": 77408.81681643528,
+     "12h": 1226507.602551391,
+     "24h": 1226507.602551391
+    },
+    "volume_24h": 1226507.602551391,
+    "fees_24h": 757.9726416581457,
     "holders": {
      "address": "XsgSaSvNSqLTtFuyWPBhK9196Xb9Bbdyjj4fH3cPJGo",
      "name": "Broadcom xStock",
      "symbol": "AVGOx",
      "decimals": 8,
      "is_verified": true,
-     "holders": 7122,
+     "holders": 7117,
      "freeze_authority_disabled": false,
-     "total_supply": 45861.78009349776,
-     "price": 350.2376320098232,
-     "market_cap": 16062521.259701902
+     "total_supply": 45861.77729286507,
+     "price": 350.4954429396176,
+     "market_cap": 16074343.946260838
     },
     "bin_step": 8,
     "base_fee": 0.05
@@ -319,45 +527,117 @@
     "name": "HOODx-SOL",
     "equity": "HOODx",
     "leg_other": "SOL",
-    "tvl": 7121.508019331699,
-    "apr": 0.280217692647226,
-    "volume_24h": 14550.79832951248,
-    "fees_24h": 19.955725453458452,
+    "tvl": 7713.762929416287,
+    "apr": 0.2661192315733383,
+    "yield_w": {
+     "30m": 0.0033465122073641418,
+     "1h": 0.006663505093004885,
+     "2h": 0.019368919158024297,
+     "4h": 0.03229186438753708,
+     "12h": 0.128994192195627,
+     "24h": 0.2661192315733383
+    },
+    "volume_w": {
+     "30m": 189.82720708954488,
+     "1h": 378.9301634496028,
+     "2h": 1093.3961362888356,
+     "4h": 1808.5899637582845,
+     "12h": 7269.649255646391,
+     "24h": 14965.972653746474
+    },
+    "volume_24h": 14965.972653746474,
+    "fees_24h": 20.527806633151652,
     "holders": {
      "address": "XsvNBAYkrDRNhA7wPHQfX3ZUXZyZLdnCQDfHZ56bzpg",
      "name": "Robinhood xStock",
      "symbol": "HOODx",
      "decimals": 8,
      "is_verified": true,
-     "holders": 13230,
+     "holders": 13229,
      "freeze_authority_disabled": false,
      "total_supply": 597388.40648294,
-     "price": 107.90325036340928,
-     "market_cap": 64460150.78892679
+     "price": 108.00518496254494,
+     "market_cap": 64521045.336669914
     },
     "bin_step": 15,
     "base_fee": 0.15
+   },
+   {
+    "pool": "AybtyUsKqm3gUo8c8XXxwTT7HKQcJsdfnpZ7M7quMAUG",
+    "name": "GLDx-USDC",
+    "equity": "GLDx",
+    "leg_other": "USDC",
+    "tvl": 7343.966966297376,
+    "apr": 0.048198887601325416,
+    "yield_w": {
+     "30m": 0.003322813650619062,
+     "1h": 0.00685719357740228,
+     "2h": 0.009621792826408258,
+     "4h": 0.014800319952208544,
+     "12h": 0.02093004592981128,
+     "24h": 0.048198887601325416
+    },
+    "volume_w": {
+     "30m": 271.13628477418206,
+     "1h": 558.3907233065664,
+     "2h": 783.5896104898629,
+     "4h": 1204.797434569715,
+     "12h": 1704.39610447034,
+     "24h": 3924.6122085264537
+    },
+    "volume_24h": 3924.6122085264537,
+    "fees_24h": 3.53971038356414,
+    "holders": {
+     "address": "Xsv9hRk1z5ystj9MhnA7Lq4vjSsLwzL2nxrwmwtD3re",
+     "name": "Gold xStock",
+     "symbol": "GLDx",
+     "decimals": 8,
+     "is_verified": true,
+     "holders": 40602,
+     "freeze_authority_disabled": false,
+     "total_supply": 116266.49948038,
+     "price": 381.9732595349127,
+     "market_cap": 44410693.78123498
+    },
+    "bin_step": 10,
+    "base_fee": 0.1
    },
    {
     "pool": "E9Axwm4ZJpmKP6mSMeDwLD2jLxctEYJDCQVV7F3XyDuP",
     "name": "QQQx-SOL",
     "equity": "QQQx",
     "leg_other": "SOL",
-    "tvl": 6889.320778360009,
-    "apr": 0.00027411042573977204,
-    "volume_24h": 10.329805344291776,
-    "fees_24h": 0.0188843465161412,
+    "tvl": 6959.725035629511,
+    "apr": 0.00025380947750838854,
+    "yield_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 0.0,
+     "4h": 0.0,
+     "12h": 0.0,
+     "24h": 0.00025380947750838854
+    },
+    "volume_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 0.0,
+     "4h": 0.0,
+     "12h": 0.0,
+     "24h": 9.655978444005092
+    },
+    "volume_24h": 9.655978444005092,
+    "fees_24h": 0.01766444174895177,
     "holders": {
      "address": "Xs8S1uUs1zvS2p7iwtsG3b6fkhpvmwz4GYU3gWAmWHZ",
      "name": "Nasdaq xStock",
      "symbol": "QQQx",
      "decimals": 8,
      "is_verified": true,
-     "holders": 37602,
+     "holders": 37604,
      "freeze_authority_disabled": false,
-     "total_supply": 84651.53743503675,
-     "price": 740.9323337304958,
-     "market_cap": 62721061.1856162
+     "total_supply": 84651.53743350145,
+     "price": 741.2152661892642,
+     "market_cap": 62745011.85210324
     },
     "bin_step": 20,
     "base_fee": 0.2
@@ -367,104 +647,144 @@
     "name": "MSTRx-SOL",
     "equity": "MSTRx",
     "leg_other": "SOL",
-    "tvl": 6009.353832372247,
-    "apr": 0.05276636341924877,
-    "volume_24h": 1742.2695997350258,
-    "fees_24h": 3.1709174823380932,
+    "tvl": 6040.617437051653,
+    "apr": 0.05219406902208568,
+    "yield_w": {
+     "30m": 0.0002538062478897864,
+     "1h": 0.0002538062478897864,
+     "2h": 0.0012666130748338021,
+     "4h": 0.005680679770241361,
+     "12h": 0.02131431224314214,
+     "24h": 0.052194069022085676
+    },
+    "volume_w": {
+     "30m": 8.516168840199112,
+     "1h": 8.516168840199112,
+     "2h": 42.39994444905972,
+     "4h": 188.78821660818863,
+     "12h": 710.2917073547169,
+     "24h": 1732.2847796658623
+    },
+    "volume_24h": 1732.2847796658623,
+    "fees_24h": 3.152844034454882,
     "holders": {
      "address": "XsP7xzNPvEHS1m6qfanPUGjNmdnmsLKEoNAnHjdxxyZ",
      "name": "MicroStrategy xStock",
      "symbol": "MSTRx",
      "decimals": 8,
      "is_verified": true,
-     "holders": 13723,
+     "holders": 13722,
      "freeze_authority_disabled": false,
      "total_supply": 486315.48526932,
-     "price": 151.40654194451113,
-     "market_cap": 73631345.91869459
+     "price": 152.21225644746434,
+     "market_cap": 74023177.35818681
     },
     "bin_step": 20,
     "base_fee": 0.2
-   },
-   {
-    "pool": "AybtyUsKqm3gUo8c8XXxwTT7HKQcJsdfnpZ7M7quMAUG",
-    "name": "GLDx-USDC",
-    "equity": "GLDx",
-    "leg_other": "USDC",
-    "tvl": 5171.381332217435,
-    "apr": 0.05673263878181675,
-    "volume_24h": 3252.942430608902,
-    "fees_24h": 2.93386109123722,
-    "holders": {
-     "address": "Xsv9hRk1z5ystj9MhnA7Lq4vjSsLwzL2nxrwmwtD3re",
-     "name": "Gold xStock",
-     "symbol": "GLDx",
-     "decimals": 8,
-     "is_verified": true,
-     "holders": 40624,
-     "freeze_authority_disabled": false,
-     "total_supply": 116266.4994804,
-     "price": 381.35861331840505,
-     "market_cap": 44339231.01723041
-    },
-    "bin_step": 10,
-    "base_fee": 0.1
    },
    {
     "pool": "CK751YkvVdjWF6cC3Mcs6ibb16DQ417ohXDZ52CRC4xS",
     "name": "MSTRx-USDC",
     "equity": "MSTRx",
     "leg_other": "USDC",
-    "tvl": 4860.386611591182,
-    "apr": 0.061288712481854926,
-    "volume_24h": 1610.406452443612,
-    "fees_24h": 2.9788683758846908,
+    "tvl": 4860.002937663778,
+    "apr": 0.06129573154460185,
+    "yield_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 0.002356055702134899,
+     "4h": 0.015612898841641873,
+     "12h": 0.02482670924100854,
+     "24h": 0.06129573154460185
+    },
+    "volume_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 60.093753912874995,
+     "4h": 413.71295990630904,
+     "12h": 654.150386655544,
+     "24h": 1610.4640743978134
+    },
+    "volume_24h": 1610.4640743978134,
+    "fees_24h": 2.9789743537301527,
     "holders": {
      "address": "XsP7xzNPvEHS1m6qfanPUGjNmdnmsLKEoNAnHjdxxyZ",
      "name": "MicroStrategy xStock",
      "symbol": "MSTRx",
      "decimals": 8,
      "is_verified": true,
-     "holders": 13723,
+     "holders": 13722,
      "freeze_authority_disabled": false,
      "total_supply": 486315.48526932,
-     "price": 151.40654194451113,
-     "market_cap": 73631345.91869459
+     "price": 152.21225644746434,
+     "market_cap": 74023177.35818681
     },
     "bin_step": 125,
     "base_fee": 0.2
    },
    {
-    "pool": "AmLoKiXopoFkyDMFeqxTcx7xH15zu4EvYhzwq7axybTQ",
-    "name": "MSFTx-USDC",
-    "equity": "MSFTx",
+    "pool": "HgerAhee6opeBQZSLYALL87kBAe9sa3gXM3qj7S4Jdk5",
+    "name": "GOOGLx-USDC",
+    "equity": "GOOGLx",
     "leg_other": "USDC",
-    "tvl": 4495.46977628684,
-    "apr": 3.4191120293809893,
-    "volume_24h": 170138.55035888002,
-    "fees_24h": 153.70514789821,
+    "tvl": 3389.013670762957,
+    "apr": 0.018211267284724587,
+    "yield_w": {
+     "30m": 0.012521619084936207,
+     "1h": 0.012521619084936207,
+     "2h": 0.012521619084936207,
+     "4h": 0.012521723466846352,
+     "12h": 0.015799722480741817,
+     "24h": 0.018211267284724587
+    },
+    "volume_w": {
+     "30m": 314.33119563374083,
+     "1h": 314.33119563374083,
+     "2h": 314.33119563374083,
+     "4h": 314.3317616364936,
+     "12h": 393.7369682663027,
+     "24h": 454.264576939007
+    },
+    "volume_24h": 454.264576939007,
+    "fees_24h": 0.6171823378984982,
     "holders": {
-     "address": "XspzcW1PRtgf6Wj92HCiZdjzKCyFekVD8P5Ueh3dRMX",
-     "name": "Microsoft xStock",
-     "symbol": "MSFTx",
+     "address": "XsCPL9dNWBMvFtTmwcCA5v3xWPSMEBCszbQdiLLq6aN",
+     "name": "Alphabet xStock",
+     "symbol": "GOOGLx",
      "decimals": 8,
      "is_verified": true,
-     "holders": 34977,
+     "holders": 56807,
      "freeze_authority_disabled": false,
-     "total_supply": 105589.20311370396,
-     "price": 538.8422295766051,
-     "market_cap": 56895921.62500525
+     "total_supply": 160785.77614512655,
+     "price": 349.6394897301896,
+     "market_cap": 56217056.72725454
     },
-    "bin_step": 10,
-    "base_fee": 0.1
+    "bin_step": 100,
+    "base_fee": 0.15
    },
    {
     "pool": "DsxZiQTsdJbGJojzbdAy9yK7absibgAgUnMLTdNaWr4c",
     "name": "AMDx-USDC",
     "equity": "AMDx",
     "leg_other": "USDC",
-    "tvl": 2152.569574361124,
-    "apr": 0.6124915324376062,
+    "tvl": 2152.5656983737017,
+    "apr": 0.6124926353119473,
+    "yield_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 0.0,
+     "4h": 0.0,
+     "12h": 0.572431825418445,
+     "24h": 0.6124926353119473
+    },
+    "volume_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 0.0,
+     "4h": 0.0,
+     "12h": 1231.1429220407126,
+     "24h": 1323.770276338783
+    },
     "volume_24h": 1323.770276338783,
     "fees_24h": 13.184306372790108,
     "holders": {
@@ -476,8 +796,8 @@
      "holders": 3226,
      "freeze_authority_disabled": false,
      "total_supply": 71480.81674939,
-     "price": 591.3224494332513,
-     "market_cap": 42268211.64773867
+     "price": 591.3038390507178,
+     "market_cap": 42266881.36239515
     },
     "bin_step": 100,
     "base_fee": 1.0
@@ -487,93 +807,77 @@
     "name": "AAPLon-USDC",
     "equity": "AAPLon",
     "leg_other": "USDC",
-    "tvl": 1701.8150972751123,
-    "apr": 0.28840929690260797,
-    "volume_24h": 54.53545507966431,
-    "fees_24h": 4.908192956633585,
+    "tvl": 1702.1672241390104,
+    "apr": 0.31372353156769633,
+    "yield_w": {
+     "30m": 0.02537389781674415,
+     "1h": 0.02537389781674415,
+     "2h": 0.02537389781674415,
+     "4h": 0.2883505026963075,
+     "12h": 0.31372353156769633,
+     "24h": 0.31372353156769633
+    },
+    "volume_w": {
+     "30m": 4.798957468034921,
+     "1h": 4.798957468034921,
+     "2h": 4.798957468034921,
+     "4h": 54.53561942303136,
+     "12h": 59.33441254769923,
+     "24h": 59.33441254769923
+    },
+    "volume_24h": 59.33441254769923,
+    "fees_24h": 5.340099128756728,
     "holders": {
      "address": "123mYEnRLM2LLYsJW3K6oyYh8uP1fngj732iG638ondo",
      "name": "Apple (Ondo Tokenized)",
      "symbol": "AAPLon",
      "decimals": 9,
      "is_verified": true,
-     "holders": 2076,
+     "holders": 2077,
      "freeze_authority_disabled": false,
-     "total_supply": 363.2707703084447,
-     "price": 341.52658844856256,
-     "market_cap": 124066.62686652449
+     "total_supply": 363.2269983643621,
+     "price": 341.735819831693,
+     "market_cap": 124127.67607105029
     },
     "bin_step": 125,
     "base_fee": 10.0
-   },
-   {
-    "pool": "HgerAhee6opeBQZSLYALL87kBAe9sa3gXM3qj7S4Jdk5",
-    "name": "GOOGLx-USDC",
-    "equity": "GOOGLx",
-    "leg_other": "USDC",
-    "tvl": 1489.982646549347,
-    "apr": 0.012941288662368357,
-    "volume_24h": 139.93338130526607,
-    "fees_24h": 0.19282295530914664,
-    "holders": {
-     "address": "XsCPL9dNWBMvFtTmwcCA5v3xWPSMEBCszbQdiLLq6aN",
-     "name": "Alphabet xStock",
-     "symbol": "GOOGLx",
-     "decimals": 8,
-     "is_verified": true,
-     "holders": 56826,
-     "freeze_authority_disabled": false,
-     "total_supply": 160785.77782111135,
-     "price": 349.4803937560708,
-     "market_cap": 56191476.94329811
-    },
-    "bin_step": 100,
-    "base_fee": 0.15
-   },
-   {
-    "pool": "FMi2c3peiWzJUddpTNCkpwmdjytuZLpHiiTrobu4SjXf",
-    "name": "GOOGLx-USDC",
-    "equity": "GOOGLx",
-    "leg_other": "USDC",
-    "tvl": 1240.502141981031,
-    "apr": 0.06912859990781586,
-    "volume_24h": 944.2430959473038,
-    "fees_24h": 0.8575417625779528,
-    "holders": {
-     "address": "XsCPL9dNWBMvFtTmwcCA5v3xWPSMEBCszbQdiLLq6aN",
-     "name": "Alphabet xStock",
-     "symbol": "GOOGLx",
-     "decimals": 8,
-     "is_verified": true,
-     "holders": 56826,
-     "freeze_authority_disabled": false,
-     "total_supply": 160785.77782111135,
-     "price": 349.4803937560708,
-     "market_cap": 56191476.94329811
-    },
-    "bin_step": 10,
-    "base_fee": 0.1
    },
    {
     "pool": "6uAw2iue69CTGsENLS3j2ur4NnBtbmGptFZ1ZZUje5PJ",
     "name": "SPYx-USDC",
     "equity": "SPYx",
     "leg_other": "USDC",
-    "tvl": 1196.0771051587403,
-    "apr": 0.0004529468267361406,
-    "volume_24h": 11.331593207262298,
-    "fees_24h": 0.005417593293134007,
+    "tvl": 1195.9946424327802,
+    "apr": 0.0004525601263217848,
+    "yield_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 2.0898676095718216e-06,
+     "4h": 3.870163470333674e-05,
+     "12h": 6.0183614755791204e-05,
+     "24h": 0.0004525601263217848
+    },
+    "volume_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 0.02520452363523386,
+     "4h": 0.9244591439967896,
+     "12h": 1.436141355054625,
+     "24h": 11.3309853996352
+    },
+    "volume_24h": 11.3309853996352,
+    "fees_24h": 0.0054125948645955685,
     "holders": {
      "address": "XsoCS1TfEyfFhfvj8EtZ528L3CaKBDBRqRapnBbDF2W",
      "name": "SP500 xStock",
      "symbol": "SPYx",
      "decimals": 8,
      "is_verified": true,
-     "holders": 79399,
+     "holders": 79414,
      "freeze_authority_disabled": false,
-     "total_supply": 95774.93273224332,
-     "price": 776.6110146034954,
-     "market_cap": 74379867.682769
+     "total_supply": 95774.9327322232,
+     "price": 776.827508012459,
+     "market_cap": 74400602.32443383
     },
     "bin_step": 50,
     "base_fee": 0.05
@@ -583,21 +887,37 @@
     "name": "TSLAx-SOL",
     "equity": "TSLAx",
     "leg_other": "SOL",
-    "tvl": 1041.826484107186,
-    "apr": 0.11009250632399456,
-    "volume_24h": 62.583244667414,
-    "fees_24h": 1.146972887900754,
+    "tvl": 1046.1790863686435,
+    "apr": 0.13270200752541617,
+    "yield_w": {
+     "30m": 7.674126831813653e-06,
+     "1h": 7.674126831813653e-06,
+     "2h": 0.023067538356091426,
+     "4h": 0.09185840112198458,
+     "12h": 0.13270200752541617,
+     "24h": 0.13270200752541617
+    },
+    "volume_w": {
+     "30m": 0.00429716493394493,
+     "1h": 0.00429716493394493,
+     "2h": 13.40671981814832,
+     "4h": 52.60269089132293,
+     "12h": 75.98996448556233,
+     "24h": 75.98996448556233
+    },
+    "volume_24h": 75.98996448556233,
+    "fees_24h": 1.3883006499222477,
     "holders": {
      "address": "XsDoVfqeBukxuZHWhdvWHBhgEHjGNst4MLodqsJHzoB",
      "name": "Tesla xStock",
      "symbol": "TSLAx",
      "decimals": 8,
      "is_verified": true,
-     "holders": 47255,
+     "holders": 47243,
      "freeze_authority_disabled": false,
      "total_supply": 229635.57792633,
-     "price": 374.63639008729336,
-     "market_cap": 86029843.94992962
+     "price": 374.4938760497373,
+     "market_cap": 85997117.65655282
     },
     "bin_step": 100,
     "base_fee": 2.0
@@ -607,21 +927,37 @@
     "name": "TSLAx-USDC",
     "equity": "TSLAx",
     "leg_other": "USDC",
-    "tvl": 962.3705286749836,
-    "apr": 0.006633193155235508,
-    "volume_24h": 7.06733153760988,
-    "fees_24h": 0.06383589603607279,
+    "tvl": 961.3639893987464,
+    "apr": 0.008593500356191665,
+    "yield_w": {
+     "30m": 0.0,
+     "1h": 0.0007830039638866546,
+     "2h": 0.0031896669522519417,
+     "4h": 0.0063068998559937615,
+     "12h": 0.007838130364593616,
+     "24h": 0.008593500356191665
+    },
+    "volume_w": {
+     "30m": 0.0,
+     "1h": 0.8355507332526394,
+     "2h": 3.4014513218513844,
+     "4h": 6.722601397992085,
+     "12h": 8.351648201438135,
+     "24h": 9.151182553963492
+    },
+    "volume_24h": 9.151182553963492,
+    "fees_24h": 0.08261481785327968,
     "holders": {
      "address": "XsDoVfqeBukxuZHWhdvWHBhgEHjGNst4MLodqsJHzoB",
      "name": "Tesla xStock",
      "symbol": "TSLAx",
      "decimals": 8,
      "is_verified": true,
-     "holders": 47256,
+     "holders": 47243,
      "freeze_authority_disabled": false,
      "total_supply": 229635.57792633,
-     "price": 374.4557350864069,
-     "market_cap": 85988359.13439578
+     "price": 374.4938760497373,
+     "market_cap": 85997117.65655282
     },
     "bin_step": 5,
     "base_fee": 1.0
@@ -631,8 +967,24 @@
     "name": "NFLXx-USDC",
     "equity": "NFLXx",
     "leg_other": "USDC",
-    "tvl": 956.7858749861168,
-    "apr": 0.06496714225267103,
+    "tvl": 956.7418204874892,
+    "apr": 0.06497013375447215,
+    "yield_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 0.003481745934357985,
+     "4h": 0.024631285209030792,
+     "12h": 0.062524999563846,
+     "24h": 0.06497013375447215
+    },
+    "volume_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 12.136230244960776,
+     "4h": 79.90042767042013,
+     "12h": 202.36511850201083,
+     "24h": 210.99195582209592
+    },
     "volume_24h": 210.99195582209592,
     "fees_24h": 0.6215964404556936,
     "holders": {
@@ -641,7 +993,7 @@
      "symbol": "NFLXx",
      "decimals": 8,
      "is_verified": true,
-     "holders": 3438,
+     "holders": 3437,
      "freeze_authority_disabled": false,
      "total_supply": 1550568.3902331,
      "price": 70.64082543689058,
@@ -655,21 +1007,37 @@
     "name": "CRCLx-USDC",
     "equity": "CRCLx",
     "leg_other": "USDC",
-    "tvl": 951.4689180389192,
-    "apr": 0.07406280830682276,
-    "volume_24h": 499.2589230174957,
-    "fees_24h": 0.7046846008661652,
+    "tvl": 951.4093689981928,
+    "apr": 0.07109000465986451,
+    "yield_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 0.0015157238170676187,
+     "4h": 0.012319277422301857,
+     "12h": 0.023063384326751868,
+     "24h": 0.07109000465986451
+    },
+    "volume_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 10.680070461466515,
+     "4h": 84.6248996783945,
+     "12h": 158.74524173428483,
+     "24h": 478.27627414421494
+    },
+    "volume_24h": 478.27627414421494,
+    "fees_24h": 0.6763569647552028,
     "holders": {
      "address": "XsueG8BtpquVJX9LVLLEGuViXUungE6WmK5YZ3p3bd1",
      "name": "Circle xStock",
      "symbol": "CRCLx",
      "decimals": 8,
      "is_verified": true,
-     "holders": 19163,
+     "holders": 19212,
      "freeze_authority_disabled": false,
      "total_supply": 821077.4276031,
-     "price": 82.67028094001705,
-     "market_cap": 67878701.61345479
+     "price": 82.6577933815976,
+     "market_cap": 67868448.3611107
     },
     "bin_step": 75,
     "base_fee": 0.15
@@ -679,8 +1047,24 @@
     "name": "TSLAx-USDC",
     "equity": "TSLAx",
     "leg_other": "USDC",
-    "tvl": 937.078742816592,
-    "apr": 0.023318305321263007,
+    "tvl": 937.0399980514196,
+    "apr": 0.023319269487430693,
+    "yield_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 5.721185566070349e-05,
+     "4h": 0.0038614541645192258,
+     "12h": 0.007872467364205705,
+     "24h": 0.023319269487430693
+    },
+    "volume_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 0.23233286410635812,
+     "4h": 15.945783146685187,
+     "12h": 32.47998611896254,
+     "24h": 96.5749924220202
+    },
     "volume_24h": 96.5749924220202,
     "fees_24h": 0.21851088235062585,
     "holders": {
@@ -689,11 +1073,11 @@
      "symbol": "TSLAx",
      "decimals": 8,
      "is_verified": true,
-     "holders": 47256,
+     "holders": 47243,
      "freeze_authority_disabled": false,
      "total_supply": 229635.57792633,
-     "price": 374.4557350864069,
-     "market_cap": 85988359.13439578
+     "price": 374.4938760497373,
+     "market_cap": 85997117.65655282
     },
     "bin_step": 50,
     "base_fee": 0.25
@@ -703,8 +1087,24 @@
     "name": "HOODx-USDC",
     "equity": "HOODx",
     "leg_other": "USDC",
-    "tvl": 618.9800603247961,
-    "apr": 0.20657555723751528,
+    "tvl": 618.9510493374592,
+    "apr": 0.20658523968474848,
+    "yield_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 0.0,
+     "4h": 0.10321862717176894,
+     "12h": 0.10321862717176894,
+     "24h": 0.20658523968474846
+    },
+    "volume_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 0.0,
+     "4h": 99.67136918881324,
+     "12h": 99.67136918881324,
+     "24h": 199.28096230080575
+    },
     "volume_24h": 199.28096230080575,
     "fees_24h": 1.2786615088050557,
     "holders": {
@@ -713,11 +1113,11 @@
      "symbol": "HOODx",
      "decimals": 8,
      "is_verified": true,
-     "holders": 13230,
+     "holders": 13229,
      "freeze_authority_disabled": false,
      "total_supply": 597388.40648294,
-     "price": 107.90325036340928,
-     "market_cap": 64460150.78892679
+     "price": 107.96855593333336,
+     "market_cap": 64499163.57927819
     },
     "bin_step": 16,
     "base_fee": 0.8
@@ -727,69 +1127,77 @@
     "name": "AVGOx-SOL",
     "equity": "AVGOx",
     "leg_other": "SOL",
-    "tvl": 582.9818465988917,
-    "apr": 0.29373387346815666,
-    "volume_24h": 4711.659304098079,
-    "fees_24h": 1.712415159631112,
+    "tvl": 589.207370969428,
+    "apr": 0.38259617169611926,
+    "yield_w": {
+     "30m": 0.028655275817336956,
+     "1h": 0.061959339635962056,
+     "2h": 0.09196587003956319,
+     "4h": 0.09233624602836327,
+     "12h": 0.38259617169611926,
+     "24h": 0.38259617169611926
+    },
+    "volume_w": {
+     "30m": 448.4344126701216,
+     "1h": 952.9263507049832,
+     "2h": 1413.0310725432143,
+     "4h": 1419.077786286032,
+     "12h": 6124.690376641293,
+     "24h": 6124.690376641293
+    },
+    "volume_24h": 6124.690376641293,
+    "fees_24h": 2.254284844680383,
     "holders": {
      "address": "XsgSaSvNSqLTtFuyWPBhK9196Xb9Bbdyjj4fH3cPJGo",
      "name": "Broadcom xStock",
      "symbol": "AVGOx",
      "decimals": 8,
      "is_verified": true,
-     "holders": 7123,
+     "holders": 7116,
      "freeze_authority_disabled": false,
-     "total_supply": 45861.78009349776,
-     "price": 350.72324004359876,
-     "market_cap": 16084792.108558552
+     "total_supply": 45861.77729286507,
+     "price": 350.4962053326527,
+     "market_cap": 16074378.910960425
     },
     "bin_step": 10,
     "base_fee": 0.04
-   },
-   {
-    "pool": "2r37dzJeUYHCScC3KCEkQ5bkPP9Ms9fQnu5isinnwXtN",
-    "name": "SPYx-USDC",
-    "equity": "SPYx",
-    "leg_other": "USDC",
-    "tvl": 577.9437463447883,
-    "apr": 0.0468414428579997,
-    "volume_24h": 591.5223712096542,
-    "fees_24h": 0.27071718969547676,
-    "holders": {
-     "address": "XsoCS1TfEyfFhfvj8EtZ528L3CaKBDBRqRapnBbDF2W",
-     "name": "SP500 xStock",
-     "symbol": "SPYx",
-     "decimals": 8,
-     "is_verified": true,
-     "holders": 79393,
-     "freeze_authority_disabled": false,
-     "total_supply": 95774.93273224332,
-     "price": 775.6699565704029,
-     "market_cap": 74289737.91295242
-    },
-    "bin_step": 8,
-    "base_fee": 0.05
    },
    {
     "pool": "AtjE3sC81SEnVUn8oZzBatTvqnKB9hRakXmyhCYWdNtA",
     "name": "VIDAx-USDC",
     "equity": "VIDAx",
     "leg_other": "USDC",
-    "tvl": 526.4487307492803,
-    "apr": 0.2631422012597155,
-    "volume_24h": 594.8258987733171,
-    "fees_24h": 1.3853087785974891,
+    "tvl": 526.4385429236524,
+    "apr": 0.2459254661709382,
+    "yield_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 0.0,
+     "4h": 0.0,
+     "12h": 0.032650448114597275,
+     "24h": 0.2459254661709382
+    },
+    "volume_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 0.0,
+     "4h": 0.0,
+     "12h": 73.13668648492794,
+     "24h": 554.7442276512822
+    },
+    "volume_24h": 554.7442276512822,
+    "fees_24h": 1.2946464407884868,
     "holders": {
      "address": "XsfCC9VL4DamVGNgdJpfLXB3sBVa158Gbx8sh7NzmTk",
      "name": "Vida Global xStock",
      "symbol": "VIDAx",
      "decimals": 8,
      "is_verified": true,
-     "holders": 4411,
+     "holders": 4409,
      "freeze_authority_disabled": false,
-     "total_supply": 4331567.21152286,
-     "price": 1.2990294735013626,
-     "market_cap": 5626833.474220307
+     "total_supply": 4331567.21097439,
+     "price": 1.3146363598764454,
+     "market_cap": 5694435.750795539
     },
     "bin_step": 25,
     "base_fee": 0.25
@@ -799,8 +1207,24 @@
     "name": "HOODx-USDC",
     "equity": "HOODx",
     "leg_other": "USDC",
-    "tvl": 408.7237223062931,
-    "apr": 0.024789984741416728,
+    "tvl": 408.7175197236634,
+    "apr": 0.024790360947283433,
+    "yield_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 0.0,
+     "4h": 0.007256081507634028,
+     "12h": 0.007259276454724523,
+     "24h": 0.024790360947283433
+    },
+    "volume_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 0.0,
+     "4h": 6.536592946824667,
+     "12h": 6.539411365076944,
+     "24h": 22.432695808803985
+    },
     "volume_24h": 22.432695808803985,
     "fees_24h": 0.10132254839428052,
     "holders": {
@@ -809,11 +1233,11 @@
      "symbol": "HOODx",
      "decimals": 8,
      "is_verified": true,
-     "holders": 13230,
+     "holders": 13229,
      "freeze_authority_disabled": false,
      "total_supply": 597388.40648294,
-     "price": 107.90325036340928,
-     "market_cap": 64460150.78892679
+     "price": 107.96855593333336,
+     "market_cap": 64499163.57927819
     },
     "bin_step": 50,
     "base_fee": 0.5
@@ -823,21 +1247,37 @@
     "name": "COINx-USDC",
     "equity": "COINx",
     "leg_other": "USDC",
-    "tvl": 344.57420901283575,
-    "apr": 0.07446236201470005,
-    "volume_24h": 56.95349615728823,
-    "fees_24h": 0.25657809492442696,
+    "tvl": 346.14874539425364,
+    "apr": 0.07413780548638672,
+    "yield_w": {
+     "30m": 1.4152479298179267e-05,
+     "1h": 1.4152479298179267e-05,
+     "2h": 0.0006622949805185875,
+     "4h": 0.003344728530601696,
+     "12h": 0.0714320936299972,
+     "24h": 0.07413780548638672
+    },
+    "volume_w": {
+     "30m": 0.01061153701758068,
+     "1h": 0.01061153701758068,
+     "2h": 0.5066052086710622,
+     "4h": 2.5584361751177456,
+     "12h": 54.91041819960311,
+     "24h": 56.9641076943058
+    },
+    "volume_24h": 56.9641076943058,
+    "fees_24h": 0.2566270835539598,
     "holders": {
      "address": "Xs7ZdzSHLU9ftNJsii5fCeJhoRWSC32SQGzGQtePxNu",
      "name": "Coinbase xStock",
      "symbol": "COINx",
      "decimals": 8,
      "is_verified": true,
-     "holders": 10287,
+     "holders": 10283,
      "freeze_authority_disabled": false,
      "total_supply": 136177.57604724,
-     "price": 179.8434998843319,
-     "market_cap": 24490651.882100403
+     "price": 180.15632749891952,
+     "market_cap": 24533251.98837559
     },
     "bin_step": 50,
     "base_fee": 0.5
@@ -847,21 +1287,37 @@
     "name": "COINx-SOL",
     "equity": "COINx",
     "leg_other": "SOL",
-    "tvl": 336.64567393717505,
-    "apr": 0.08277469588308523,
-    "volume_24h": 151.97955078386275,
-    "fees_24h": 0.27865743280505934,
+    "tvl": 338.56097819233037,
+    "apr": 0.09461094131114677,
+    "yield_w": {
+     "30m": 0.0024552559040138615,
+     "1h": 0.004905054990972003,
+     "2h": 0.017226811340228024,
+     "4h": 0.06597603745991425,
+     "12h": 0.09461094131114675,
+     "24h": 0.09461094131114675
+    },
+    "volume_w": {
+     "30m": 4.597216822014326,
+     "1h": 9.185464364413118,
+     "2h": 32.09767412343399,
+     "4h": 121.51911864148649,
+     "12h": 174.85949174668096,
+     "24h": 174.85949174668096
+    },
+    "volume_24h": 174.85949174668096,
+    "fees_24h": 0.32031572837999,
     "holders": {
      "address": "Xs7ZdzSHLU9ftNJsii5fCeJhoRWSC32SQGzGQtePxNu",
      "name": "Coinbase xStock",
      "symbol": "COINx",
      "decimals": 8,
      "is_verified": true,
-     "holders": 10287,
+     "holders": 10283,
      "freeze_authority_disabled": false,
      "total_supply": 136177.57604724,
-     "price": 179.8434998843319,
-     "market_cap": 24490651.882100403
+     "price": 180.15632749891952,
+     "market_cap": 24533251.98837559
     },
     "bin_step": 20,
     "base_fee": 0.2
@@ -871,21 +1327,37 @@
     "name": "CRCLx-SOL",
     "equity": "CRCLx",
     "leg_other": "SOL",
-    "tvl": 298.90463701264673,
-    "apr": 0.03786477623560269,
-    "volume_24h": 61.288697344918894,
-    "fees_24h": 0.11317957196267917,
+    "tvl": 301.7180106667849,
+    "apr": 0.0352056023703153,
+    "yield_w": {
+     "30m": 0.0,
+     "1h": 0.00017610176480630242,
+     "2h": 0.001644674311872601,
+     "4h": 0.008278071183112528,
+     "12h": 0.01743651067167804,
+     "24h": 0.0352056023703153
+    },
+    "volume_w": {
+     "30m": 0.0,
+     "1h": 0.2945181151119431,
+     "2h": 2.7374679726736475,
+     "4h": 13.60786788782554,
+     "12h": 28.72049493012945,
+     "24h": 57.61889363886877
+    },
+    "volume_24h": 57.61889363886877,
+    "fees_24h": 0.10622164311497378,
     "holders": {
      "address": "XsueG8BtpquVJX9LVLLEGuViXUungE6WmK5YZ3p3bd1",
      "name": "Circle xStock",
      "symbol": "CRCLx",
      "decimals": 8,
      "is_verified": true,
-     "holders": 19163,
+     "holders": 19212,
      "freeze_authority_disabled": false,
      "total_supply": 821077.4276031,
-     "price": 82.67028094001705,
-     "market_cap": 67878701.61345479
+     "price": 82.6577933815976,
+     "market_cap": 67868448.3611107
     },
     "bin_step": 20,
     "base_fee": 0.2
@@ -895,8 +1367,24 @@
     "name": "SPYx-SOL",
     "equity": "SPYx",
     "leg_other": "SOL",
-    "tvl": 145.33747262969283,
-    "apr": 5.775813462595742e-05,
+    "tvl": 145.9956272147637,
+    "apr": 5.749775846364062e-05,
+    "yield_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 0.0,
+     "4h": 0.0,
+     "12h": 5.749775846364062e-05,
+     "24h": 5.749775846364062e-05
+    },
+    "volume_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 0.0,
+     "4h": 0.0,
+     "12h": 0.04493959189376194,
+     "24h": 0.04493959189376194
+    },
     "volume_24h": 0.04493959189376194,
     "fees_24h": 8.3944213103422e-05,
     "holders": {
@@ -905,61 +1393,13 @@
      "symbol": "SPYx",
      "decimals": 8,
      "is_verified": true,
-     "holders": 79398,
+     "holders": 79414,
      "freeze_authority_disabled": false,
-     "total_supply": 95774.93273224332,
-     "price": 776.6110146034954,
-     "market_cap": 74379867.682769
+     "total_supply": 95774.9327322232,
+     "price": 776.827508012459,
+     "market_cap": 74400602.32443383
     },
     "bin_step": 20,
-    "base_fee": 0.2
-   },
-   {
-    "pool": "AJ1q6xXr1eehwBUjdAy8NivQbNWA7NBoYA21hhVw4pUb",
-    "name": "SPYx-USDC",
-    "equity": "SPYx",
-    "leg_other": "USDC",
-    "tvl": 99.98761402430016,
-    "apr": 0.0,
-    "volume_24h": 0.0,
-    "fees_24h": 0.0,
-    "holders": {
-     "address": "XsoCS1TfEyfFhfvj8EtZ528L3CaKBDBRqRapnBbDF2W",
-     "name": "SP500 xStock",
-     "symbol": "SPYx",
-     "decimals": 8,
-     "is_verified": true,
-     "holders": 79403,
-     "freeze_authority_disabled": false,
-     "total_supply": 95774.93329657993,
-     "price": 777.119798721034,
-     "market_cap": 74428596.88595864
-    },
-    "bin_step": 10,
-    "base_fee": 0.02
-   },
-   {
-    "pool": "BV6rXB1gRcvmMiXr2iP6V221y59RsCJizFqA5AbtBvfi",
-    "name": "MSTRx-SOL",
-    "equity": "MSTRx",
-    "leg_other": "SOL",
-    "tvl": 65.84953803154092,
-    "apr": 0.0,
-    "volume_24h": 0.0,
-    "fees_24h": 0.0,
-    "holders": {
-     "address": "XsP7xzNPvEHS1m6qfanPUGjNmdnmsLKEoNAnHjdxxyZ",
-     "name": "MicroStrategy xStock",
-     "symbol": "MSTRx",
-     "decimals": 8,
-     "is_verified": true,
-     "holders": 13724,
-     "freeze_authority_disabled": false,
-     "total_supply": 486315.48526932,
-     "price": 149.30484526825245,
-     "market_cap": 72609258.27969094
-    },
-    "bin_step": 80,
     "base_fee": 0.2
    },
    {
@@ -967,8 +1407,24 @@
     "name": "NVDAx-USDC",
     "equity": "NVDAx",
     "leg_other": "USDC",
-    "tvl": 63.063614581007386,
-    "apr": 0.0010133614977038546,
+    "tvl": 63.05955916108775,
+    "apr": 0.0010134266679406633,
+    "yield_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 0.0,
+     "4h": 0.0001823491208130696,
+     "12h": 0.00034453110955978244,
+     "24h": 0.0010134266679406633
+    },
+    "volume_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 0.0,
+     "4h": 0.047191801760083335,
+     "12h": 0.09099948739925996,
+     "24h": 0.2532730296206924
+    },
     "volume_24h": 0.2532730296206924,
     "fees_24h": 0.0006390623892242829,
     "holders": {
@@ -977,118 +1433,238 @@
      "symbol": "NVDAx",
      "decimals": 8,
      "is_verified": true,
-     "holders": 174587,
+     "holders": 174885,
      "freeze_authority_disabled": false,
-     "total_supply": 321809.9855153219,
-     "price": 223.912522448094,
-     "market_cap": 72057285.60572033
+     "total_supply": 321809.9817593631,
+     "price": 223.6805502218203,
+     "market_cap": 71982633.7868083
     },
     "bin_step": 25,
     "base_fee": 0.25
-   },
-   {
-    "pool": "FS86ohSNYHW1B9vQDBVmeN68C5sBmhfCuK1ahE6HZs7",
-    "name": "CRCLx-SOL",
-    "equity": "CRCLx",
-    "leg_other": "SOL",
-    "tvl": 58.87044044446024,
-    "apr": 0.0,
-    "volume_24h": 0.0,
-    "fees_24h": 0.0,
-    "holders": {
-     "address": "XsueG8BtpquVJX9LVLLEGuViXUungE6WmK5YZ3p3bd1",
-     "name": "Circle xStock",
-     "symbol": "CRCLx",
-     "decimals": 8,
-     "is_verified": true,
-     "holders": 19217,
-     "freeze_authority_disabled": false,
-     "total_supply": 821077.4276031,
-     "price": 81.70158790720137,
-     "market_cap": 67083329.62993344
-    },
-    "bin_step": 80,
-    "base_fee": 0.2
    },
    {
     "pool": "6jWVGAafT8JTWq4sehAu6ZpyqsiHaf2utuKYdRzLiLzL",
     "name": "MSFTx-SOL",
     "equity": "MSFTx",
     "leg_other": "SOL",
-    "tvl": 52.73658638794883,
-    "apr": 1.3709621099375988,
-    "volume_24h": 398.9645905768507,
-    "fees_24h": 0.7229986174532879,
+    "tvl": 52.95137628574184,
+    "apr": 1.3701313208902466,
+    "yield_w": {
+     "30m": 0.0012818840060699766,
+     "1h": 0.003800442501245486,
+     "2h": 0.01540670046678466,
+     "4h": 0.05062410608886578,
+     "12h": 1.3142831379809168,
+     "24h": 1.3701313208902466
+    },
+    "volume_w": {
+     "30m": 0.3702745995751613,
+     "1h": 1.1028220421464612,
+     "2h": 4.4428035122608875,
+     "4h": 14.449162567402396,
+     "12h": 384.1989918106081,
+     "24h": 400.3262261190149
+    },
+    "volume_24h": 400.3262261190149,
+    "fees_24h": 0.7255033913333995,
     "holders": {
      "address": "XspzcW1PRtgf6Wj92HCiZdjzKCyFekVD8P5Ueh3dRMX",
      "name": "Microsoft xStock",
      "symbol": "MSFTx",
      "decimals": 8,
      "is_verified": true,
-     "holders": 34977,
+     "holders": 35033,
      "freeze_authority_disabled": false,
-     "total_supply": 105589.20311370396,
-     "price": 538.8422295766051,
-     "market_cap": 56895921.62500525
+     "total_supply": 105589.20271184556,
+     "price": 538.2495912234596,
+     "market_cap": 56833345.19726188
     },
     "bin_step": 20,
     "base_fee": 0.2
    },
    {
-    "pool": "6E5nsf2edW15vN4P5q31VQGd7D9siwvyMxR8nhSvWXw9",
+    "pool": "FMi2c3peiWzJUddpTNCkpwmdjytuZLpHiiTrobu4SjXf",
     "name": "GOOGLx-USDC",
     "equity": "GOOGLx",
     "leg_other": "USDC",
-    "tvl": 1.1171459132703083,
-    "apr": 0.00941387555667668,
-    "volume_24h": 0.02191992229216146,
-    "fees_24h": 0.000105166726061766,
+    "tvl": 24.85524868869194,
+    "apr": 3.4908401745576976,
+    "yield_w": {
+     "30m": 0.040303138991877284,
+     "1h": 0.040303138991877284,
+     "2h": 0.2024774089235259,
+     "4h": 0.45028680477001115,
+     "12h": 1.4603074038393937,
+     "24h": 3.4908401745576976
+    },
+    "volume_w": {
+     "30m": 11.127731316436948,
+     "1h": 11.127731316436948,
+     "2h": 55.71495988914534,
+     "4h": 123.75501988242443,
+     "12h": 401.26067142490587,
+     "24h": 955.4742831315718
+    },
+    "volume_24h": 955.4742831315718,
+    "fees_24h": 0.8676570067110836,
     "holders": {
      "address": "XsCPL9dNWBMvFtTmwcCA5v3xWPSMEBCszbQdiLLq6aN",
      "name": "Alphabet xStock",
      "symbol": "GOOGLx",
      "decimals": 8,
      "is_verified": true,
-     "holders": 56826,
+     "holders": 56808,
      "freeze_authority_disabled": false,
-     "total_supply": 160785.77782111135,
-     "price": 349.4803937560708,
-     "market_cap": 56191476.94329811
+     "total_supply": 160785.77614512655,
+     "price": 349.6394897301896,
+     "market_cap": 56217056.72725454
+    },
+    "bin_step": 10,
+    "base_fee": 0.1
+   },
+   {
+    "pool": "6E5nsf2edW15vN4P5q31VQGd7D9siwvyMxR8nhSvWXw9",
+    "name": "GOOGLx-USDC",
+    "equity": "GOOGLx",
+    "leg_other": "USDC",
+    "tvl": 1.112648616486651,
+    "apr": 0.015799127302358898,
+    "yield_w": {
+     "30m": 0.0,
+     "1h": 0.00634720110540328,
+     "2h": 0.00634720110540328,
+     "4h": 0.00634720110540328,
+     "12h": 0.0076229179403158485,
+     "24h": 0.015799127302358898
+    },
+    "volume_w": {
+     "30m": 0.0,
+     "1h": 0.01474235195322188,
+     "2h": 0.01474235195322188,
+     "4h": 0.01474235195322188,
+     "12h": 0.017141179478878204,
+     "24h": 0.03666227424538334
+    },
+    "volume_24h": 0.03666227424538334,
+    "fees_24h": 0.000175788771346661,
+    "holders": {
+     "address": "XsCPL9dNWBMvFtTmwcCA5v3xWPSMEBCszbQdiLLq6aN",
+     "name": "Alphabet xStock",
+     "symbol": "GOOGLx",
+     "decimals": 8,
+     "is_verified": true,
+     "holders": 56807,
+     "freeze_authority_disabled": false,
+     "total_supply": 160785.77614512655,
+     "price": 349.6394897301896,
+     "market_cap": 56217056.72725454
     },
     "bin_step": 50,
     "base_fee": 0.5
    },
    {
-    "pool": "AUBoCixTeZwbCMThVs5fRQpAGAcqfejvK9TqfACYZfCA",
+    "pool": "CHcTjbnaBMHQFwyA6KpAqgte9GqvnEvWP5jGzDE7e3At",
+    "name": "GLDx-SOL",
+    "equity": "GLDx",
+    "leg_other": "SOL",
+    "tvl": 0.000595927788230051,
+    "apr": 0.0,
+    "yield_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 0.0,
+     "4h": 0.0,
+     "12h": 0.0,
+     "24h": 0.0
+    },
+    "volume_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 0.0,
+     "4h": 0.0,
+     "12h": 0.0,
+     "24h": 0.0
+    },
+    "volume_24h": 0.0,
+    "fees_24h": 0.0,
+    "holders": {
+     "address": "Xsv9hRk1z5ystj9MhnA7Lq4vjSsLwzL2nxrwmwtD3re",
+     "name": "Gold xStock",
+     "symbol": "GLDx",
+     "decimals": 8,
+     "is_verified": true,
+     "holders": 40620,
+     "freeze_authority_disabled": false,
+     "total_supply": 116266.4994804,
+     "price": 381.6360215182548,
+     "market_cap": 44371484.29755409
+    },
+    "bin_step": 50,
+    "base_fee": 0.75
+   },
+   {
+    "pool": "2r37dzJeUYHCScC3KCEkQ5bkPP9Ms9fQnu5isinnwXtN",
     "name": "SPYx-USDC",
     "equity": "SPYx",
     "leg_other": "USDC",
-    "tvl": 0.000706909786112514,
-    "apr": 0.0,
-    "volume_24h": 0.0,
-    "fees_24h": 0.0,
+    "tvl": 0.000410363967980591,
+    "apr": 65970.21712793464,
+    "yield_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 3432.170911467727,
+     "4h": 28895.92962825496,
+     "12h": 46097.27801016516,
+     "24h": 65970.21712793464
+    },
+    "volume_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 30.078429724397303,
+     "4h": 256.7281054528707,
+     "12h": 413.023342695551,
+     "24h": 591.5210130884454
+    },
+    "volume_24h": 591.5210130884454,
+    "fees_24h": 0.27071800069160407,
     "holders": {
      "address": "XsoCS1TfEyfFhfvj8EtZ528L3CaKBDBRqRapnBbDF2W",
      "name": "SP500 xStock",
      "symbol": "SPYx",
      "decimals": 8,
      "is_verified": true,
-     "holders": 79409,
+     "holders": 79414,
      "freeze_authority_disabled": false,
-     "total_supply": 95774.93329657993,
-     "price": 777.2635933283169,
-     "market_cap": 74442368.80487956
+     "total_supply": 95774.9327322232,
+     "price": 775.24633987456,
+     "market_cap": 74249166.05238824
     },
-    "bin_step": 50,
-    "base_fee": 0.25
+    "bin_step": 8,
+    "base_fee": 0.05
    },
    {
     "pool": "G58gaGjFY1jaGwwa1f3z61syT4pqJfoXrLDkiDqoJk3o",
     "name": "NVDAx-USDC",
     "equity": "NVDAx",
     "leg_other": "USDC",
-    "tvl": 0.00040423548955677,
+    "tvl": 0.000404241635915927,
     "apr": 0.0,
+    "yield_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 0.0,
+     "4h": 0.0,
+     "12h": 0.0,
+     "24h": 0.0
+    },
+    "volume_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 0.0,
+     "4h": 0.0,
+     "12h": 0.0,
+     "24h": 0.0
+    },
     "volume_24h": 0.0,
     "fees_24h": 0.0,
     "holders": {
@@ -1097,118 +1673,118 @@
      "symbol": "NVDAx",
      "decimals": 8,
      "is_verified": true,
-     "holders": 174762,
+     "holders": 174580,
      "freeze_authority_disabled": false,
-     "total_supply": 321809.9870695114,
-     "price": 223.58228868229585,
-     "market_cap": 71951013.42982139
+     "total_supply": 321809.9855153118,
+     "price": 223.9321766214259,
+     "market_cap": 72063610.51495332
     },
     "bin_step": 1,
     "base_fee": 0.01
    },
    {
-    "pool": "FkAJghQx3coAJcfeJC8xtfWWYHJra1cp8XEZwdku1vGU",
-    "name": "TSLAx-SOL",
-    "equity": "TSLAx",
+    "pool": "DrpyYeqArJ7x6CAqJou7AvdVdQhPLaowMDzzJAuEdFY7",
+    "name": "NVDAx-USDC",
+    "equity": "NVDAx",
+    "leg_other": "USDC",
+    "tvl": 0.00020635173619266,
+    "apr": 0.0,
+    "yield_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 0.0,
+     "4h": 0.0,
+     "12h": 0.0,
+     "24h": 0.0
+    },
+    "volume_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 0.0,
+     "4h": 0.0,
+     "12h": 0.0,
+     "24h": 0.0
+    },
+    "volume_24h": 0.0,
+    "fees_24h": 0.0,
+    "holders": {
+     "address": "Xsc9qvGR1efVDFGLrVsmkzv3qi45LTBjeUKSPmx9qEh",
+     "name": "NVIDIA xStock",
+     "symbol": "NVDAx",
+     "decimals": 8,
+     "is_verified": true,
+     "holders": 174578,
+     "freeze_authority_disabled": false,
+     "total_supply": 321809.9855153118,
+     "price": 223.92534706128603,
+     "market_cap": 72061412.69430363
+    },
+    "bin_step": 10,
+    "base_fee": 0.01
+   },
+   {
+    "pool": "CpYUjYwc35ZyFWbybT7ow4vYqB6VuRxgwLYudiUCtcLa",
+    "name": "GOOGLx-SOL",
+    "equity": "GOOGLx",
     "leg_other": "SOL",
-    "tvl": 0.000341581439676911,
+    "tvl": 0.00012203130317823,
     "apr": 0.0,
+    "yield_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 0.0,
+     "4h": 0.0,
+     "12h": 0.0,
+     "24h": 0.0
+    },
+    "volume_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 0.0,
+     "4h": 0.0,
+     "12h": 0.0,
+     "24h": 0.0
+    },
     "volume_24h": 0.0,
     "fees_24h": 0.0,
     "holders": {
-     "address": "XsDoVfqeBukxuZHWhdvWHBhgEHjGNst4MLodqsJHzoB",
-     "name": "Tesla xStock",
-     "symbol": "TSLAx",
+     "address": "XsCPL9dNWBMvFtTmwcCA5v3xWPSMEBCszbQdiLLq6aN",
+     "name": "Alphabet xStock",
+     "symbol": "GOOGLx",
      "decimals": 8,
      "is_verified": true,
-     "holders": 47264,
+     "holders": 56830,
      "freeze_authority_disabled": false,
-     "total_supply": 229635.57792633,
-     "price": 375.8430729696424,
-     "market_cap": 86306941.27099165
+     "total_supply": 160785.7778211013,
+     "price": 350.1798587868829,
+     "market_cap": 56303940.97233239
     },
-    "bin_step": 100,
-    "base_fee": 0.1
-   },
-   {
-    "pool": "4vcM1zDzVotGKBz4uLRc4YkfxqbWXy4eV1uv6wYPSnfe",
-    "name": "SPYx-USDC",
-    "equity": "SPYx",
-    "leg_other": "USDC",
-    "tvl": 0.000199542742347062,
-    "apr": 0.0,
-    "volume_24h": 0.0,
-    "fees_24h": 0.0,
-    "holders": {
-     "address": "XsoCS1TfEyfFhfvj8EtZ528L3CaKBDBRqRapnBbDF2W",
-     "name": "SP500 xStock",
-     "symbol": "SPYx",
-     "decimals": 8,
-     "is_verified": true,
-     "holders": 79412,
-     "freeze_authority_disabled": false,
-     "total_supply": 95774.93329657993,
-     "price": 776.8013716965921,
-     "market_cap": 74398099.55893289
-    },
-    "bin_step": 5,
-    "base_fee": 1.0
-   },
-   {
-    "pool": "3sh9PhM5xvc9rpjzeT8mo67o3xUCzR8bPyvtpzERdDJD",
-    "name": "CRCLx-USDC",
-    "equity": "CRCLx",
-    "leg_other": "USDC",
-    "tvl": 0.000187995310286392,
-    "apr": 0.0,
-    "volume_24h": 0.0,
-    "fees_24h": 0.0,
-    "holders": {
-     "address": "XsueG8BtpquVJX9LVLLEGuViXUungE6WmK5YZ3p3bd1",
-     "name": "Circle xStock",
-     "symbol": "CRCLx",
-     "decimals": 8,
-     "is_verified": true,
-     "holders": 19218,
-     "freeze_authority_disabled": false,
-     "total_supply": 821077.4276031,
-     "price": 81.54316347243649,
-     "market_cap": 66953250.902567215
-    },
-    "bin_step": 20,
-    "base_fee": 0.2
-   },
-   {
-    "pool": "5A4DRzPED7eAQPKwbeNjQiiKeAnZqZn5St5jfCNXeHHU",
-    "name": "GLDx-USDC",
-    "equity": "GLDx",
-    "leg_other": "USDC",
-    "tvl": 0.000121610916314508,
-    "apr": 0.0,
-    "volume_24h": 0.0,
-    "fees_24h": 0.0,
-    "holders": {
-     "address": "Xsv9hRk1z5ystj9MhnA7Lq4vjSsLwzL2nxrwmwtD3re",
-     "name": "Gold xStock",
-     "symbol": "GLDx",
-     "decimals": 8,
-     "is_verified": true,
-     "holders": 40648,
-     "freeze_authority_disabled": false,
-     "total_supply": 116266.4994804,
-     "price": 380.6690538297669,
-     "market_cap": 44259058.349302955
-    },
-    "bin_step": 100,
-    "base_fee": 0.8
+    "bin_step": 75,
+    "base_fee": 0.15
    },
    {
     "pool": "91zieJAbdn73tk3MdrTphxSt8GxG2r1pNLJNWLUy2K1e",
     "name": "MSTRx-USDC",
     "equity": "MSTRx",
     "leg_other": "USDC",
-    "tvl": 9.1277304727161e-05,
+    "tvl": 9.1275673680927e-05,
     "apr": 0.0,
+    "yield_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 0.0,
+     "4h": 0.0,
+     "12h": 0.0,
+     "24h": 0.0
+    },
+    "volume_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 0.0,
+     "4h": 0.0,
+     "12h": 0.0,
+     "24h": 0.0
+    },
     "volume_24h": 0.0,
     "fees_24h": 0.0,
     "holders": {
@@ -1217,109 +1793,13 @@
      "symbol": "MSTRx",
      "decimals": 8,
      "is_verified": true,
-     "holders": 13724,
+     "holders": 13722,
      "freeze_authority_disabled": false,
      "total_supply": 486315.48526932,
-     "price": 149.30484526825245,
-     "market_cap": 72609258.27969094
+     "price": 151.00163991825124,
+     "market_cap": 73434435.79330748
     },
     "bin_step": 75,
-    "base_fee": 0.15
-   },
-   {
-    "pool": "9uht4E3ckugMDDwstYjX9oTUjRcWgT5QxRLBpo3Yqoad",
-    "name": "TSLAx-SOL",
-    "equity": "TSLAx",
-    "leg_other": "SOL",
-    "tvl": 3.8645559194835e-05,
-    "apr": 0.0,
-    "volume_24h": 0.0,
-    "fees_24h": 0.0,
-    "holders": {
-     "address": "XsDoVfqeBukxuZHWhdvWHBhgEHjGNst4MLodqsJHzoB",
-     "name": "Tesla xStock",
-     "symbol": "TSLAx",
-     "decimals": 8,
-     "is_verified": true,
-     "holders": 47265,
-     "freeze_authority_disabled": false,
-     "total_supply": 229635.57792633,
-     "price": 374.71482418622304,
-     "market_cap": 86047855.20956647
-    },
-    "bin_step": 5,
-    "base_fee": 1.0
-   },
-   {
-    "pool": "Act7BZXA5wHq6VSGd2om8G9XE5vw8FcLG6gKGWdFaXTc",
-    "name": "QQQx-USDC",
-    "equity": "QQQx",
-    "leg_other": "USDC",
-    "tvl": 2.9992039746616e-05,
-    "apr": 0.0,
-    "volume_24h": 0.0,
-    "fees_24h": 0.0,
-    "holders": {
-     "address": "Xs8S1uUs1zvS2p7iwtsG3b6fkhpvmwz4GYU3gWAmWHZ",
-     "name": "Nasdaq xStock",
-     "symbol": "QQQx",
-     "decimals": 8,
-     "is_verified": true,
-     "holders": 37603,
-     "freeze_authority_disabled": false,
-     "total_supply": 84651.53743503675,
-     "price": 743.2915944354037,
-     "market_cap": 62920776.23149673
-    },
-    "bin_step": 10,
-    "base_fee": 0.1
-   },
-   {
-    "pool": "CXo1JvuqWeTRPdmyknvk92NtLjpFB5vKmnPLwiYTyAT6",
-    "name": "METAon-USDC",
-    "equity": "METAon",
-    "leg_other": "USDC",
-    "tvl": 1.8068041415864e-05,
-    "apr": 0.0,
-    "volume_24h": 0.0,
-    "fees_24h": 0.0,
-    "holders": {
-     "address": "fDxs5y12E7x7jBwCKBXGqt71uJmCWsAQ3Srkte6ondo",
-     "name": "Meta Platforms (Ondo Tokenized)",
-     "symbol": "METAon",
-     "decimals": 9,
-     "is_verified": true,
-     "holders": 310,
-     "freeze_authority_disabled": false,
-     "total_supply": 206.55035590478056,
-     "price": 742.6670817862782,
-     "market_cap": 153398.15006172055
-    },
-    "bin_step": 125,
-    "base_fee": 10.0
-   },
-   {
-    "pool": "BAwzA29Ctr4aD5t8mZchuyVDA5UNdHXnTWZZLn9Gk25Q",
-    "name": "MSTRx-USDC",
-    "equity": "MSTRx",
-    "leg_other": "USDC",
-    "tvl": 1.0446131779866e-05,
-    "apr": 0.0,
-    "volume_24h": 0.0,
-    "fees_24h": 0.0,
-    "holders": {
-     "address": "XsP7xzNPvEHS1m6qfanPUGjNmdnmsLKEoNAnHjdxxyZ",
-     "name": "MicroStrategy xStock",
-     "symbol": "MSTRx",
-     "decimals": 8,
-     "is_verified": true,
-     "holders": 13725,
-     "freeze_authority_disabled": false,
-     "total_supply": 486315.48526932,
-     "price": 148.77343016132932,
-     "market_cap": 72350822.88408816
-    },
-    "bin_step": 100,
     "base_fee": 0.15
    },
    {
@@ -1327,8 +1807,24 @@
     "name": "SPYx-USDC",
     "equity": "SPYx",
     "leg_other": "USDC",
-    "tvl": 8.460926074766e-06,
+    "tvl": 8.461081461536e-06,
     "apr": 0.0,
+    "yield_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 0.0,
+     "4h": 0.0,
+     "12h": 0.0,
+     "24h": 0.0
+    },
+    "volume_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 0.0,
+     "4h": 0.0,
+     "12h": 0.0,
+     "24h": 0.0
+    },
     "volume_24h": 0.0,
     "fees_24h": 0.0,
     "holders": {
@@ -1337,38 +1833,14 @@
      "symbol": "SPYx",
      "decimals": 8,
      "is_verified": true,
-     "holders": 79409,
+     "holders": 79388,
      "freeze_authority_disabled": false,
-     "total_supply": 95774.93329657993,
-     "price": 777.1990470815416,
-     "market_cap": 74436186.89240012
+     "total_supply": 95774.93273224332,
+     "price": 776.5181654404361,
+     "market_cap": 74370975.06042275
     },
     "bin_step": 75,
     "base_fee": 0.15
-   },
-   {
-    "pool": "G7MTnwMomDYYFnXfapi7cbSiDR5AZWbEo8nz2m1roTQg",
-    "name": "SPYx-USDC",
-    "equity": "SPYx",
-    "leg_other": "USDC",
-    "tvl": 3.998991003274e-06,
-    "apr": 0.0,
-    "volume_24h": 0.0,
-    "fees_24h": 0.0,
-    "holders": {
-     "address": "XsoCS1TfEyfFhfvj8EtZ528L3CaKBDBRqRapnBbDF2W",
-     "name": "SP500 xStock",
-     "symbol": "SPYx",
-     "decimals": 8,
-     "is_verified": true,
-     "holders": 79409,
-     "freeze_authority_disabled": false,
-     "total_supply": 95774.93329657993,
-     "price": 777.0781279487213,
-     "market_cap": 74424605.87051998
-    },
-    "bin_step": 10,
-    "base_fee": 0.04
    }
   ],
   "STOCK_MEME": [
@@ -1377,21 +1849,37 @@
     "name": "ORE-GLDx",
     "equity": "GLDx",
     "leg_other": "ORE",
-    "tvl": 85450.1493144051,
-    "apr": 0.056775958121337275,
-    "volume_24h": 16959.650670972653,
-    "fees_24h": 48.515140989366806,
+    "tvl": 86081.58245059544,
+    "apr": 0.05715623285869441,
+    "yield_w": {
+     "30m": 0.0007234456781301322,
+     "1h": 0.001990805442485378,
+     "2h": 0.005538151985506727,
+     "4h": 0.04130883352008936,
+     "12h": 0.05136469928202563,
+     "24h": 0.05715623285869441
+    },
+    "volume_w": {
+     "30m": 221.0284382476282,
+     "1h": 611.0382398519633,
+     "2h": 1728.5474884809869,
+     "4h": 12251.656502667369,
+     "12h": 15387.367058013424,
+     "24h": 17196.154374681417
+    },
+    "volume_24h": 17196.154374681417,
+    "fees_24h": 49.20098971391135,
     "holders": {
      "address": "Xsv9hRk1z5ystj9MhnA7Lq4vjSsLwzL2nxrwmwtD3re",
      "name": "Gold xStock",
      "symbol": "GLDx",
      "decimals": 8,
      "is_verified": true,
-     "holders": 40624,
+     "holders": 40602,
      "freeze_authority_disabled": false,
-     "total_supply": 116266.4994804,
-     "price": 381.35861331840505,
-     "market_cap": 44339231.01723041
+     "total_supply": 116266.49948038,
+     "price": 381.9732595349127,
+     "market_cap": 44410693.78123498
     },
     "bin_step": 50,
     "base_fee": 0.3
@@ -1401,8 +1889,24 @@
     "name": "SNDK-HOODx",
     "equity": "HOODx",
     "leg_other": "SNDK",
-    "tvl": 10131.0121967972,
-    "apr": 0.138549781137268,
+    "tvl": 10158.818263828518,
+    "apr": 0.13817055154565358,
+    "yield_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 0.011908941478749107,
+     "4h": 0.023630355613108275,
+     "12h": 0.02497657899514,
+     "24h": 0.13817055154565358
+    },
+    "volume_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 132.75229252957124,
+     "4h": 264.1002844141537,
+     "12h": 279.2949667095855,
+     "24h": 1540.6046934783355
+    },
     "volume_24h": 1540.6046934783355,
     "fees_24h": 14.036495225652452,
     "holders": {
@@ -1411,11 +1915,11 @@
      "symbol": "HOODx",
      "decimals": 8,
      "is_verified": true,
-     "holders": 13230,
+     "holders": 13229,
      "freeze_authority_disabled": false,
      "total_supply": 597388.40648294,
-     "price": 107.90325036340928,
-     "market_cap": 64460150.78892679
+     "price": 108.00518496254494,
+     "market_cap": 64521045.336669914
     },
     "bin_step": 80,
     "base_fee": 1.0
@@ -1425,21 +1929,37 @@
     "name": "CRCLx-MSTRx",
     "equity": "CRCLx",
     "leg_other": "MSTRx",
-    "tvl": 7724.698660805398,
-    "apr": 0.013111447906289464,
-    "volume_24h": 2155.507369138847,
-    "fees_24h": 1.0128198408293396,
+    "tvl": 7749.334472129295,
+    "apr": 0.013292941467846892,
+    "yield_w": {
+     "30m": 0.0002824783744406886,
+     "1h": 0.0005788368318197733,
+     "2h": 0.0005795378806022164,
+     "4h": 0.0024586079604861115,
+     "12h": 0.0073255080641918754,
+     "24h": 0.013292941467846892
+    },
+    "volume_w": {
+     "30m": 48.6362450392662,
+     "1h": 97.24292645769646,
+     "2h": 97.3618408328091,
+     "4h": 404.34300336353795,
+     "12h": 1217.2667634446336,
+     "24h": 2194.429476231524
+    },
+    "volume_24h": 2194.429476231524,
+    "fees_24h": 1.0301144955278292,
     "holders": {
      "address": "XsueG8BtpquVJX9LVLLEGuViXUungE6WmK5YZ3p3bd1",
      "name": "Circle xStock",
      "symbol": "CRCLx",
      "decimals": 8,
      "is_verified": true,
-     "holders": 19163,
+     "holders": 19212,
      "freeze_authority_disabled": false,
      "total_supply": 821077.4276031,
-     "price": 82.67028094001705,
-     "market_cap": 67878701.61345479
+     "price": 82.6577933815976,
+     "market_cap": 67868448.3611107
     },
     "bin_step": 50,
     "base_fee": 0.05
@@ -1449,8 +1969,24 @@
     "name": "SPYx-GMEx",
     "equity": "SPYx",
     "leg_other": "GMEx",
-    "tvl": 7604.853407889305,
-    "apr": 0.0005172048283052385,
+    "tvl": 7606.670398427387,
+    "apr": 0.0005170812845955656,
+    "yield_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 0.0,
+     "4h": 0.0,
+     "12h": 0.00041582165923895425,
+     "24h": 0.0005170812845955656
+    },
+    "volume_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 0.0,
+     "4h": 0.0,
+     "12h": 4.36613576615332,
+     "24h": 5.435886224359463
+    },
     "volume_24h": 5.435886224359463,
     "fees_24h": 0.039332669011138965,
     "holders": {
@@ -1459,11 +1995,11 @@
      "symbol": "SPYx",
      "decimals": 8,
      "is_verified": true,
-     "holders": 79398,
+     "holders": 79414,
      "freeze_authority_disabled": false,
-     "total_supply": 95774.93273224332,
-     "price": 776.6110146034954,
-     "market_cap": 74379867.682769
+     "total_supply": 95774.9327322232,
+     "price": 776.827508012459,
+     "market_cap": 74400602.32443383
     },
     "bin_step": 80,
     "base_fee": 0.8
@@ -1473,8 +2009,24 @@
     "name": "TSLAx-SPCXx",
     "equity": "TSLAx",
     "leg_other": "SPCXx",
-    "tvl": 7263.959650191817,
-    "apr": 0.05703511966858774,
+    "tvl": 7273.587521130288,
+    "apr": 0.05695962366753817,
+    "yield_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 0.0,
+     "4h": 0.00017519155742931183,
+     "12h": 0.00669646415920161,
+     "24h": 0.056959623667538165
+    },
+    "volume_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 0.0,
+     "4h": 5.662209627273643,
+     "12h": 215.95834299713889,
+     "24h": 1796.6197667444028
+    },
     "volume_24h": 1796.6197667444028,
     "fees_24h": 4.14300807916483,
     "holders": {
@@ -1483,11 +2035,11 @@
      "symbol": "TSLAx",
      "decimals": 8,
      "is_verified": true,
-     "holders": 47255,
+     "holders": 47243,
      "freeze_authority_disabled": false,
      "total_supply": 229635.57792633,
-     "price": 374.63639008729336,
-     "market_cap": 86029843.94992962
+     "price": 374.6147874165293,
+     "market_cap": 86024883.20814396
     },
     "bin_step": 50,
     "base_fee": 0.25
@@ -1497,21 +2049,37 @@
     "name": "NVDAx-TSLAx",
     "equity": "NVDAx",
     "leg_other": "TSLAx",
-    "tvl": 6189.675868830079,
-    "apr": 0.03418225616474678,
-    "volume_24h": 2286.1341100356008,
-    "fees_24h": 2.1157708612510135,
+    "tvl": 6180.640005902484,
+    "apr": 0.034564784970326036,
+    "yield_w": {
+     "30m": 0.0,
+     "1h": 0.0003325556343598319,
+     "2h": 0.0015004608114762036,
+     "4h": 0.002345498641159201,
+     "12h": 0.00899460602738893,
+     "24h": 0.034564784970326036
+    },
+    "volume_w": {
+     "30m": 0.0,
+     "1h": 22.833166238054513,
+     "2h": 102.5512671162602,
+     "4h": 160.29211106090742,
+     "12h": 615.5327122591964,
+     "24h": 2308.967276273655
+    },
+    "volume_24h": 2308.967276273655,
+    "fees_24h": 2.13632492783014,
     "holders": {
      "address": "Xsc9qvGR1efVDFGLrVsmkzv3qi45LTBjeUKSPmx9qEh",
      "name": "NVIDIA xStock",
      "symbol": "NVDAx",
      "decimals": 8,
      "is_verified": true,
-     "holders": 174587,
+     "holders": 174885,
      "freeze_authority_disabled": false,
-     "total_supply": 321809.9855153219,
-     "price": 224.04963605658568,
-     "market_cap": 72101410.13408299
+     "total_supply": 321809.9817593631,
+     "price": 224.21352229690504,
+     "market_cap": 72154149.52056956
     },
     "bin_step": 10,
     "base_fee": 0.1
@@ -1521,21 +2089,37 @@
     "name": "AAPLx-SPYx",
     "equity": "AAPLx",
     "leg_other": "SPYx",
-    "tvl": 4114.157235542594,
-    "apr": 0.0009592539643559408,
-    "volume_24h": 17.30919341132697,
-    "fees_24h": 0.03946521638177912,
+    "tvl": 4098.75932209341,
+    "apr": 0.0009765717826730935,
+    "yield_w": {
+     "30m": 0.0,
+     "1h": 6.09423044575981e-06,
+     "2h": 3.353551741280516e-05,
+     "4h": 0.00020016560604218988,
+     "12h": 0.00024831848872979327,
+     "24h": 0.0009765717826730937
+    },
+    "volume_w": {
+     "30m": 0.0,
+     "1h": 0.09939266069185962,
+     "2h": 0.5897774893708793,
+     "4h": 3.582368243190977,
+     "12h": 4.453088513809536,
+     "24h": 17.54343923126994
+    },
+    "volume_24h": 17.54343923126994,
+    "fees_24h": 0.040027326979247234,
     "holders": {
      "address": "XsbEhLAtcf6HdfpFZ5xEMdqW8nfAvcsP5bdudRLJzJp",
      "name": "Apple xStock",
      "symbol": "AAPLx",
      "decimals": 8,
      "is_verified": true,
-     "holders": 36180,
+     "holders": 36230,
      "freeze_authority_disabled": false,
-     "total_supply": 154264.82802346814,
-     "price": 341.93434206058447,
-     "market_cap": 52748442.47329379
+     "total_supply": 154264.82802343802,
+     "price": 341.87158765398146,
+     "market_cap": 52738761.67554117
     },
     "bin_step": 25,
     "base_fee": 0.25
@@ -1545,8 +2129,24 @@
     "name": "XAUt0-GLDx",
     "equity": "GLDx",
     "leg_other": "XAUt0",
-    "tvl": 2293.0839193495976,
-    "apr": 0.0017685402391209597,
+    "tvl": 2298.5136070247704,
+    "apr": 0.0017643624865464026,
+    "yield_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 0.0001803254595096395,
+     "4h": 0.0001803254595096395,
+     "12h": 0.0007780303582274033,
+     "24h": 0.0017643624865464026
+    },
+    "volume_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 7.5559799229126705,
+     "4h": 7.5559799229126705,
+     "12h": 44.845407960087265,
+     "24h": 100.85281020498788
+    },
     "volume_24h": 100.85281020498788,
     "fees_24h": 0.04055411183050965,
     "holders": {
@@ -1555,46 +2155,38 @@
      "symbol": "GLDx",
      "decimals": 8,
      "is_verified": true,
-     "holders": 40624,
+     "holders": 40602,
      "freeze_authority_disabled": false,
-     "total_supply": 116266.4994804,
-     "price": 381.35861331840505,
-     "market_cap": 44339231.01723041
+     "total_supply": 116266.49948038,
+     "price": 381.9732595349127,
+     "market_cap": 44410693.78123498
     },
     "bin_step": 4,
     "base_fee": 0.04
-   },
-   {
-    "pool": "6N2auhSXrty82PK1UZ194GMikJPbRqYyWzrwke467zxG",
-    "name": "GOOGLx-GOOGLon",
-    "equity": "GOOGLx",
-    "leg_other": "GOOGLon",
-    "tvl": 2085.8824332883114,
-    "apr": 0.0,
-    "volume_24h": 0.0,
-    "fees_24h": 0.0,
-    "holders": {
-     "address": "XsCPL9dNWBMvFtTmwcCA5v3xWPSMEBCszbQdiLLq6aN",
-     "name": "Alphabet xStock",
-     "symbol": "GOOGLx",
-     "decimals": 8,
-     "is_verified": true,
-     "holders": 56834,
-     "freeze_authority_disabled": false,
-     "total_supply": 160785.77782111135,
-     "price": 351.03335958812664,
-     "market_cap": 56441171.76253482
-    },
-    "bin_step": 50,
-    "base_fee": 0.5
    },
    {
     "pool": "44HYCHVmWcEdgamxqkzapSu7VuAzp3rutV9Fp39Aadjs",
     "name": "GOOGLx-GOOGLon",
     "equity": "GOOGLx",
     "leg_other": "GOOGLon",
-    "tvl": 2018.4688254489831,
-    "apr": 0.004179590580626585,
+    "tvl": 2019.4275959618485,
+    "apr": 0.0041776062221813666,
+    "yield_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 0.0,
+     "4h": 0.0,
+     "12h": 0.0,
+     "24h": 0.0041776062221813666
+    },
+    "volume_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 0.0,
+     "4h": 0.0,
+     "12h": 0.0,
+     "24h": 37.475907924088155
+    },
     "volume_24h": 37.475907924088155,
     "fees_24h": 0.08436373290134977,
     "holders": {
@@ -1603,11 +2195,11 @@
      "symbol": "GOOGLx",
      "decimals": 8,
      "is_verified": true,
-     "holders": 56826,
+     "holders": 56807,
      "freeze_authority_disabled": false,
-     "total_supply": 160785.77782111135,
-     "price": 349.4803937560708,
-     "market_cap": 56191476.94329811
+     "total_supply": 160785.77614512655,
+     "price": 349.6394897301896,
+     "market_cap": 56217056.72725454
     },
     "bin_step": 25,
     "base_fee": 0.25
@@ -1617,21 +2209,37 @@
     "name": "QQQx-AMZNx",
     "equity": "QQQx",
     "leg_other": "AMZNx",
-    "tvl": 1829.7263539905716,
-    "apr": 0.026360651727034383,
-    "volume_24h": 267.17734375668323,
-    "fees_24h": 0.4823277917332189,
+    "tvl": 1831.8019835181024,
+    "apr": 0.024720628970418775,
+    "yield_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 0.0003608816510161083,
+     "4h": 0.0004260211274669811,
+     "12h": 0.005273485718471889,
+     "24h": 0.024720628970418775
+    },
+    "volume_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 3.655741805210983,
+     "4h": 4.307902129915157,
+     "12h": 53.07134345309068,
+     "24h": 250.79169362563016
+    },
+    "volume_24h": 250.79169362563016,
+    "fees_24h": 0.4528329718182818,
     "holders": {
      "address": "Xs8S1uUs1zvS2p7iwtsG3b6fkhpvmwz4GYU3gWAmWHZ",
      "name": "Nasdaq xStock",
      "symbol": "QQQx",
      "decimals": 8,
      "is_verified": true,
-     "holders": 37602,
+     "holders": 37604,
      "freeze_authority_disabled": false,
-     "total_supply": 84651.53743503675,
-     "price": 740.9323337304958,
-     "market_cap": 62721061.1856162
+     "total_supply": 84651.53743350145,
+     "price": 741.2152661892642,
+     "market_cap": 62745011.85210324
     },
     "bin_step": 20,
     "base_fee": 0.2
@@ -1641,21 +2249,37 @@
     "name": "STONK-NVDAx",
     "equity": "NVDAx",
     "leg_other": "STONK",
-    "tvl": 1813.476731343116,
-    "apr": 0.2443185352610252,
-    "volume_24h": 480.5262392628881,
-    "fees_24h": 4.430659787317017,
+    "tvl": 1822.3974776108912,
+    "apr": 0.25344374121435437,
+    "yield_w": {
+     "30m": 0.0,
+     "1h": 0.00503628740720493,
+     "2h": 0.020726788851070318,
+     "4h": 0.04658013460269207,
+     "12h": 0.11578357339016812,
+     "24h": 0.25344374121435437
+    },
+    "volume_w": {
+     "30m": 0.0,
+     "1h": 10.197908274793464,
+     "2h": 41.202386524532216,
+     "4h": 92.73616089219658,
+     "12h": 227.17978213557817,
+     "24h": 501.054277128964
+    },
+    "volume_24h": 501.054277128964,
+    "fees_24h": 4.618752347053069,
     "holders": {
      "address": "Xsc9qvGR1efVDFGLrVsmkzv3qi45LTBjeUKSPmx9qEh",
      "name": "NVIDIA xStock",
      "symbol": "NVDAx",
      "decimals": 8,
      "is_verified": true,
-     "holders": 174587,
+     "holders": 174885,
      "freeze_authority_disabled": false,
-     "total_supply": 321809.9855153219,
-     "price": 224.04963605658568,
-     "market_cap": 72101410.13408299
+     "total_supply": 321809.9817593631,
+     "price": 224.21352229690504,
+     "market_cap": 72154149.52056956
     },
     "bin_step": 125,
     "base_fee": 1.0
@@ -1665,21 +2289,37 @@
     "name": "OPENAI-MSFTx",
     "equity": "MSFTx",
     "leg_other": "OPENAI",
-    "tvl": 1620.3531015023027,
-    "apr": 0.02966703885287079,
-    "volume_24h": 53.69171068325703,
-    "fees_24h": 0.480710784176385,
+    "tvl": 1622.719313737636,
+    "apr": 0.015823383367309395,
+    "yield_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 0.0,
+     "4h": 0.0,
+     "12h": 0.008180631020679877,
+     "24h": 0.015823383367309395
+    },
+    "volume_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 0.0,
+     "4h": 0.0,
+     "12h": 14.898393434988566,
+     "24h": 28.782189695030567
+    },
+    "volume_24h": 28.782189695030567,
+    "fees_24h": 0.25676909798807823,
     "holders": {
      "address": "XspzcW1PRtgf6Wj92HCiZdjzKCyFekVD8P5Ueh3dRMX",
      "name": "Microsoft xStock",
      "symbol": "MSFTx",
      "decimals": 8,
      "is_verified": true,
-     "holders": 34977,
+     "holders": 35034,
      "freeze_authority_disabled": false,
-     "total_supply": 105589.20311370396,
-     "price": 538.8422295766051,
-     "market_cap": 56895921.62500525
+     "total_supply": 105589.20271184556,
+     "price": 538.2495912234596,
+     "market_cap": 56833345.19726188
     },
     "bin_step": 100,
     "base_fee": 1.0
@@ -1689,21 +2329,37 @@
     "name": "SPYx-QQQx",
     "equity": "SPYx",
     "leg_other": "QQQx",
-    "tvl": 1504.5253172285131,
-    "apr": 0.02413310010383596,
-    "volume_24h": 402.01604202520485,
-    "fees_24h": 0.36308860089431255,
+    "tvl": 1504.415744970248,
+    "apr": 0.026171200188158585,
+    "yield_w": {
+     "30m": 0.0,
+     "1h": 0.002036342379854197,
+     "2h": 0.002080350999418411,
+     "4h": 0.008147252655941562,
+     "12h": 0.01421337379858926,
+     "24h": 0.026171200188158585
+    },
+    "volume_w": {
+     "30m": 0.0,
+     "1h": 34.010876546463905,
+     "2h": 34.68050639852028,
+     "4h": 135.69853232233714,
+     "12h": 236.9477506456383,
+     "24h": 436.0269185716688
+    },
+    "volume_24h": 436.0269185716688,
+    "fees_24h": 0.39372365627834094,
     "holders": {
      "address": "XsoCS1TfEyfFhfvj8EtZ528L3CaKBDBRqRapnBbDF2W",
      "name": "SP500 xStock",
      "symbol": "SPYx",
      "decimals": 8,
      "is_verified": true,
-     "holders": 79393,
+     "holders": 79414,
      "freeze_authority_disabled": false,
-     "total_supply": 95774.93273224332,
-     "price": 775.6699565704029,
-     "market_cap": 74289737.91295242
+     "total_supply": 95774.9327322232,
+     "price": 776.827508012459,
+     "market_cap": 74400602.32443383
     },
     "bin_step": 10,
     "base_fee": 0.1
@@ -1713,8 +2369,24 @@
     "name": "SPYx-QQQx",
     "equity": "SPYx",
     "leg_other": "QQQx",
-    "tvl": 1434.75496507514,
-    "apr": 0.005298895075006162,
+    "tvl": 1436.033497549577,
+    "apr": 0.005294177351190117,
+    "yield_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 0.0001406892037090399,
+     "4h": 0.002687738332990013,
+     "12h": 0.0026955556452983647,
+     "24h": 0.005294177351190117
+    },
+    "volume_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 1.101885230955304,
+     "4h": 21.343015420802068,
+     "12h": 21.402692423938117,
+     "24h": 42.074943620733535
+    },
     "volume_24h": 42.074943620733535,
     "fees_24h": 0.07602616018277299,
     "holders": {
@@ -1723,11 +2395,11 @@
      "symbol": "SPYx",
      "decimals": 8,
      "is_verified": true,
-     "holders": 79393,
+     "holders": 79414,
      "freeze_authority_disabled": false,
-     "total_supply": 95774.93273224332,
-     "price": 775.6699565704029,
-     "market_cap": 74289737.91295242
+     "total_supply": 95774.9327322232,
+     "price": 776.827508012459,
+     "market_cap": 74400602.32443383
     },
     "bin_step": 20,
     "base_fee": 0.2
@@ -1737,8 +2409,24 @@
     "name": "PFE-NVDAx",
     "equity": "NVDAx",
     "leg_other": "PFE",
-    "tvl": 738.9992315355515,
-    "apr": 0.006066653320692941,
+    "tvl": 738.6089399395057,
+    "apr": 0.006069859027636299,
+    "yield_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 0.0,
+     "4h": 0.0,
+     "12h": 0.0060695474456139535,
+     "24h": 0.006069859027636299
+    },
+    "volume_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 0.0,
+     "4h": 0.0,
+     "12h": 47.854148355781525,
+     "24h": 47.85610452255297
+    },
     "volume_24h": 47.85610452255297,
     "fees_24h": 0.04483252141984685,
     "holders": {
@@ -1747,11 +2435,11 @@
      "symbol": "NVDAx",
      "decimals": 8,
      "is_verified": true,
-     "holders": 174587,
+     "holders": 174885,
      "freeze_authority_disabled": false,
-     "total_supply": 321809.9855153219,
-     "price": 223.912522448094,
-     "market_cap": 72057285.60572033
+     "total_supply": 321809.9817593631,
+     "price": 223.6805502218203,
+     "market_cap": 71982633.7868083
     },
     "bin_step": 80,
     "base_fee": 0.1
@@ -1761,21 +2449,37 @@
     "name": "SPYx-QQQx",
     "equity": "SPYx",
     "leg_other": "QQQx",
-    "tvl": 492.72647936055546,
-    "apr": 0.02328461676820179,
-    "volume_24h": 573.1650642046126,
-    "fees_24h": 0.11472947243455824,
+    "tvl": 492.91378683738264,
+    "apr": 0.02412675820819043,
+    "yield_w": {
+     "30m": 0.0007086410028388192,
+     "1h": 0.002227581569570672,
+     "2h": 0.00628114543443387,
+     "4h": 0.00986981117423461,
+     "12h": 0.014669035701638602,
+     "24h": 0.02412675820819043
+    },
+    "volume_w": {
+     "30m": 18.130914916677224,
+     "1h": 56.13325155347341,
+     "2h": 148.70562464733055,
+     "4h": 241.91580069316424,
+     "12h": 364.4395070732329,
+     "24h": 594.2145025190835
+    },
+    "volume_24h": 594.2145025190835,
+    "fees_24h": 0.11892411752509048,
     "holders": {
      "address": "XsoCS1TfEyfFhfvj8EtZ528L3CaKBDBRqRapnBbDF2W",
      "name": "SP500 xStock",
      "symbol": "SPYx",
      "decimals": 8,
      "is_verified": true,
-     "holders": 79393,
+     "holders": 79414,
      "freeze_authority_disabled": false,
-     "total_supply": 95774.93273224332,
-     "price": 776.7081400974279,
-     "market_cap": 74389169.87041697
+     "total_supply": 95774.9327322232,
+     "price": 776.827508012459,
+     "market_cap": 74400602.32443383
     },
     "bin_step": 2,
     "base_fee": 0.02
@@ -1785,21 +2489,37 @@
     "name": "HIGGS-NVDAx",
     "equity": "NVDAx",
     "leg_other": "HIGGS",
-    "tvl": 313.0242254826742,
-    "apr": 7.671121439802361,
-    "volume_24h": 1978.1508495015112,
-    "fees_24h": 24.012468472776707,
+    "tvl": 309.6973750644079,
+    "apr": 7.716380735688112,
+    "yield_w": {
+     "30m": 0.05749946993573058,
+     "1h": 0.05749946993573058,
+     "2h": 0.12510449872204207,
+     "4h": 1.3784776513252244,
+     "12h": 4.228576081058494,
+     "24h": 7.716380735688112
+    },
+    "volume_w": {
+     "30m": 19.031444934221383,
+     "1h": 19.031444934221383,
+     "2h": 37.58034051875202,
+     "4h": 311.65991995477515,
+     "12h": 1050.24438149268,
+     "24h": 1967.47836876148
+    },
+    "volume_24h": 1967.47836876148,
+    "fees_24h": 23.897428588401727,
     "holders": {
      "address": "Xsc9qvGR1efVDFGLrVsmkzv3qi45LTBjeUKSPmx9qEh",
      "name": "NVIDIA xStock",
      "symbol": "NVDAx",
      "decimals": 8,
      "is_verified": true,
-     "holders": 174587,
+     "holders": 174886,
      "freeze_authority_disabled": false,
-     "total_supply": 321809.9855153219,
-     "price": 224.04963605658568,
-     "market_cap": 72101410.13408299
+     "total_supply": 321809.9817593631,
+     "price": 223.6884966279275,
+     "market_cap": 71985191.0196127
     },
     "bin_step": 250,
     "base_fee": 1.0
@@ -1809,21 +2529,37 @@
     "name": "GOOGLx-GOOGLon",
     "equity": "GOOGLx",
     "leg_other": "GOOGLon",
-    "tvl": 184.5034244053409,
-    "apr": 0.012998755681806558,
-    "volume_24h": 17.583929659160344,
-    "fees_24h": 0.023983149363016917,
+    "tvl": 184.53313805737176,
+    "apr": 0.012987077564317271,
+    "yield_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 0.0,
+     "4h": 0.0,
+     "12h": 0.0,
+     "24h": 0.012987077564317273
+    },
+    "volume_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 0.0,
+     "4h": 0.0,
+     "12h": 0.0,
+     "24h": 17.572719263580584
+    },
+    "volume_24h": 17.572719263580584,
+    "fees_24h": 0.02396546177137955,
     "holders": {
      "address": "XsCPL9dNWBMvFtTmwcCA5v3xWPSMEBCszbQdiLLq6aN",
      "name": "Alphabet xStock",
      "symbol": "GOOGLx",
      "decimals": 8,
      "is_verified": true,
-     "holders": 56826,
+     "holders": 56807,
      "freeze_authority_disabled": false,
-     "total_supply": 160785.77782111135,
-     "price": 349.4803937560708,
-     "market_cap": 56191476.94329811
+     "total_supply": 160785.77614512655,
+     "price": 349.6394897301896,
+     "market_cap": 56217056.72725454
     },
     "bin_step": 15,
     "base_fee": 0.15
@@ -1833,8 +2569,24 @@
     "name": "SPCX-TSLAx",
     "equity": "TSLAx",
     "leg_other": "SPCX",
-    "tvl": 142.89015122569123,
-    "apr": 0.15567474956919264,
+    "tvl": 143.1419476853835,
+    "apr": 0.15540090705524862,
+    "yield_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 0.0,
+     "4h": 0.0,
+     "12h": 0.0,
+     "24h": 0.15540090705524862
+    },
+    "volume_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 0.0,
+     "4h": 0.0,
+     "12h": 0.0,
+     "24h": 46.08848227503368
+    },
     "volume_24h": 46.08848227503368,
     "fees_24h": 0.22244388507963544,
     "holders": {
@@ -1843,11 +2595,11 @@
      "symbol": "TSLAx",
      "decimals": 8,
      "is_verified": true,
-     "holders": 47257,
+     "holders": 47243,
      "freeze_authority_disabled": false,
      "total_supply": 229635.57792633,
-     "price": 374.53254174175214,
-     "market_cap": 86005996.67508458
+     "price": 374.6147874165293,
+     "market_cap": 86024883.20814396
     },
     "bin_step": 50,
     "base_fee": 0.5
@@ -1857,21 +2609,37 @@
     "name": "STONKS-SPYx",
     "equity": "SPYx",
     "leg_other": "STONKS",
-    "tvl": 106.21568791788393,
-    "apr": 0.013596483451683074,
-    "volume_24h": 15.441092621782662,
-    "fees_24h": 0.014441598430846428,
+    "tvl": 106.29471314093702,
+    "apr": 0.015004638878982351,
+    "yield_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 0.005149170080569572,
+     "4h": 0.00942060740964751,
+     "12h": 0.012250453818203657,
+     "24h": 0.015004638878982353
+    },
+    "volume_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 5.835535821162855,
+     "4h": 10.649290763049969,
+     "12h": 13.838410052108982,
+     "24h": 17.02393871658824
+    },
+    "volume_24h": 17.02393871658824,
+    "fees_24h": 0.0159491378542478,
     "holders": {
      "address": "XsoCS1TfEyfFhfvj8EtZ528L3CaKBDBRqRapnBbDF2W",
      "name": "SP500 xStock",
      "symbol": "SPYx",
      "decimals": 8,
      "is_verified": true,
-     "holders": 79393,
+     "holders": 79414,
      "freeze_authority_disabled": false,
-     "total_supply": 95774.93273224332,
-     "price": 775.6699565704029,
-     "market_cap": 74289737.91295242
+     "total_supply": 95774.9327322232,
+     "price": 776.827508012459,
+     "market_cap": 74400602.32443383
     },
     "bin_step": 80,
     "base_fee": 0.1
@@ -1881,21 +2649,37 @@
     "name": "GLDx-WBTC",
     "equity": "GLDx",
     "leg_other": "WBTC",
-    "tvl": 75.80904771053028,
-    "apr": 0.015240072754295834,
-    "volume_24h": 2.9400220946504456,
-    "fees_24h": 0.011553354025423656,
+    "tvl": 75.69140202687969,
+    "apr": 0.01583344874372053,
+    "yield_w": {
+     "30m": 0.0,
+     "1h": 0.0005696886388134936,
+     "2h": 0.0011694213079884452,
+     "4h": 0.007667899146187508,
+     "12h": 0.01200302390694957,
+     "24h": 0.01583344874372053
+    },
+    "volume_w": {
+     "30m": 0.0,
+     "1h": 0.1879214499581553,
+     "2h": 0.3876767922354304,
+     "4h": 1.6219122269581492,
+     "12h": 2.2634096439655345,
+     "24h": 3.127943544608601
+    },
+    "volume_24h": 3.127943544608601,
+    "fees_24h": 0.011984559343329437,
     "holders": {
      "address": "Xsv9hRk1z5ystj9MhnA7Lq4vjSsLwzL2nxrwmwtD3re",
      "name": "Gold xStock",
      "symbol": "GLDx",
      "decimals": 8,
      "is_verified": true,
-     "holders": 40624,
+     "holders": 40602,
      "freeze_authority_disabled": false,
-     "total_supply": 116266.4994804,
-     "price": 381.35861331840505,
-     "market_cap": 44339231.01723041
+     "total_supply": 116266.49948038,
+     "price": 381.9732595349127,
+     "market_cap": 44410693.78123498
     },
     "bin_step": 25,
     "base_fee": 0.25
@@ -1905,8 +2689,24 @@
     "name": "OGW-CRCLx",
     "equity": "CRCLx",
     "leg_other": "OGW",
-    "tvl": 54.97284204535437,
-    "apr": 0.008620274534625239,
+    "tvl": 54.97459780532564,
+    "apr": 0.008619999223234644,
+    "yield_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 0.0,
+     "4h": 0.0011581842214778064,
+     "12h": 0.0033018616453459114,
+     "24h": 0.008619999223234644
+    },
+    "volume_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 0.0,
+     "4h": 0.4707859762653934,
+     "12h": 1.332258829836039,
+     "24h": 3.418984479556788
+    },
     "volume_24h": 3.418984479556788,
     "fees_24h": 0.00473880990379544,
     "holders": {
@@ -1915,11 +2715,11 @@
      "symbol": "CRCLx",
      "decimals": 8,
      "is_verified": true,
-     "holders": 19163,
+     "holders": 19212,
      "freeze_authority_disabled": false,
      "total_supply": 821077.4276031,
-     "price": 82.67028094001705,
-     "market_cap": 67878701.61345479
+     "price": 82.6577933815976,
+     "market_cap": 67868448.3611107
     },
     "bin_step": 100,
     "base_fee": 0.15
@@ -1929,21 +2729,37 @@
     "name": "MPAW-HOODx",
     "equity": "HOODx",
     "leg_other": "MPAW",
-    "tvl": 41.42765986637908,
-    "apr": 0.009903846351854808,
-    "volume_24h": 2.9430240195852617,
-    "fees_24h": 0.004102931780335203,
+    "tvl": 41.73606291215875,
+    "apr": 0.010166843586527384,
+    "yield_w": {
+     "30m": 0.0,
+     "1h": 0.0003361803805355288,
+     "2h": 0.0025541814374346735,
+     "4h": 0.0032554111679669907,
+     "12h": 0.005003511129837335,
+     "24h": 0.010166843586527384
+    },
+    "volume_w": {
+     "30m": 0.0,
+     "1h": 0.10290653816724749,
+     "2h": 0.7563883050850582,
+     "4h": 0.9721548061283084,
+     "12h": 1.5183465766271595,
+     "24h": 3.045930557752509
+    },
+    "volume_24h": 3.045930557752509,
+    "fees_24h": 0.004243240235453846,
     "holders": {
      "address": "XsvNBAYkrDRNhA7wPHQfX3ZUXZyZLdnCQDfHZ56bzpg",
      "name": "Robinhood xStock",
      "symbol": "HOODx",
      "decimals": 8,
      "is_verified": true,
-     "holders": 13230,
+     "holders": 13229,
      "freeze_authority_disabled": false,
      "total_supply": 597388.40648294,
-     "price": 107.90325036340928,
-     "market_cap": 64460150.78892679
+     "price": 108.00518496254494,
+     "market_cap": 64521045.336669914
     },
     "bin_step": 100,
     "base_fee": 0.15
@@ -1953,8 +2769,24 @@
     "name": "MPAW-GLDx",
     "equity": "GLDx",
     "leg_other": "MPAW",
-    "tvl": 36.20117484330056,
-    "apr": 0.03554087139294528,
+    "tvl": 36.534308534284264,
+    "apr": 0.035216796238852835,
+    "yield_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 0.0,
+     "4h": 0.005436643497958172,
+     "12h": 0.021703172978930263,
+     "24h": 0.035216796238852835
+    },
+    "volume_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 0.0,
+     "4h": 0.7128171012650732,
+     "12h": 2.878168871979149,
+     "24h": 4.675557744175843
+    },
     "volume_24h": 4.675557744175843,
     "fees_24h": 0.012866212993792711,
     "holders": {
@@ -1963,11 +2795,11 @@
      "symbol": "GLDx",
      "decimals": 8,
      "is_verified": true,
-     "holders": 40624,
+     "holders": 40602,
      "freeze_authority_disabled": false,
-     "total_supply": 116266.4994804,
-     "price": 381.35861331840505,
-     "market_cap": 44339231.01723041
+     "total_supply": 116266.49948038,
+     "price": 381.9732595349127,
+     "market_cap": 44410693.78123498
     },
     "bin_step": 100,
     "base_fee": 0.3
@@ -1977,8 +2809,24 @@
     "name": "OGW-CRCLx",
     "equity": "CRCLx",
     "leg_other": "OGW",
-    "tvl": 27.318782210074502,
-    "apr": 0.013366679752146388,
+    "tvl": 27.330619032684307,
+    "apr": 0.013360890676643962,
+    "yield_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 0.0,
+     "4h": 0.001442230743516676,
+     "12h": 0.0027395800582603173,
+     "24h": 0.013360890676643962
+    },
+    "volume_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 0.0,
+     "4h": 0.14553005280023845,
+     "12h": 0.27362623109737866,
+     "24h": 1.3424499795175535
+    },
     "volume_24h": 1.3424499795175535,
     "fees_24h": 0.003651614130206998,
     "holders": {
@@ -1987,11 +2835,11 @@
      "symbol": "CRCLx",
      "decimals": 8,
      "is_verified": true,
-     "holders": 19163,
+     "holders": 19212,
      "freeze_authority_disabled": false,
      "total_supply": 821077.4276031,
-     "price": 82.67028094001705,
-     "market_cap": 67878701.61345479
+     "price": 82.6577933815976,
+     "market_cap": 67868448.3611107
     },
     "bin_step": 100,
     "base_fee": 0.3
@@ -2001,32 +2849,104 @@
     "name": "BACKERS-METAx",
     "equity": "METAx",
     "leg_other": "BACKERS",
-    "tvl": 19.00067867945382,
-    "apr": 221.06078478355224,
-    "volume_24h": 2157.5181867327874,
-    "fees_24h": 42.00304940300171,
+    "tvl": 18.975318440331417,
+    "apr": 216.8856075241812,
+    "yield_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 0.0,
+     "4h": 100.08052865361489,
+     "12h": 101.28433516947607,
+     "24h": 216.88560752418118
+    },
+    "volume_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 0.0,
+     "4h": 737.6250429442097,
+     "12h": 747.4989468435967,
+     "24h": 2096.5513350038336
+    },
+    "volume_24h": 2096.5513350038336,
+    "fees_24h": 41.15473467896077,
     "holders": {
      "address": "Xsa62P5mvPszXL1krVUnU5ar38bBSVcWAB6fmPCo5Zu",
      "name": "Meta xStock",
      "symbol": "METAx",
      "decimals": 8,
      "is_verified": true,
-     "holders": 39011,
+     "holders": 39015,
      "freeze_authority_disabled": false,
      "total_supply": 72583.09087823916,
-     "price": 736.0733278709674,
-     "market_cap": 53426477.24990636
+     "price": 737.2311641239851,
+     "market_cap": 53510516.58388126
     },
     "bin_step": 125,
     "base_fee": 1.5
+   },
+   {
+    "pool": "2cKZjPdggogVci7n5fDM9M4dWcf1hWuSARy5jnRHX3vi",
+    "name": "CLAUDIA-ORCLx",
+    "equity": "ORCLx",
+    "leg_other": "CLAUDIA",
+    "tvl": 14.425765898375031,
+    "apr": 7.379402661464796,
+    "yield_w": {
+     "30m": 0.1588437442614848,
+     "1h": 0.576800057842311,
+     "2h": 0.8733738387823051,
+     "4h": 2.967533655151187,
+     "12h": 5.4400372802898795,
+     "24h": 7.379402661464796
+    },
+    "volume_w": {
+     "30m": 2.261164486003158,
+     "1h": 7.294890343395636,
+     "2h": 11.44304071950659,
+     "4h": 29.62955027425289,
+     "12h": 64.71267945943804,
+     "24h": 81.33531585745727
+    },
+    "volume_24h": 81.33531585745727,
+    "fees_24h": 1.064535352641368,
+    "holders": {
+     "address": "XsjFwUPiLofddX5cWFHW35GCbXcSu1BCUGfxoQAQjeL",
+     "name": "Oracle xStock",
+     "symbol": "ORCLx",
+     "decimals": 8,
+     "is_verified": true,
+     "holders": 1077,
+     "freeze_authority_disabled": false,
+     "total_supply": 91544.4766351322,
+     "price": 134.42037822227934,
+     "market_cap": 12305443.173455084
+    },
+    "bin_step": 400,
+    "base_fee": 1.0
    },
    {
     "pool": "4ShZXHHsDsonjdh9PnSKNXKCC53279ui9pHEWjNJ4qzA",
     "name": "SPYx-IMG",
     "equity": "SPYx",
     "leg_other": "IMG",
-    "tvl": 14.307305870767468,
-    "apr": 0.0011861317525329231,
+    "tvl": 13.923728186036676,
+    "apr": 0.0012188078910888684,
+    "yield_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 0.0,
+     "4h": 0.0,
+     "12h": 0.0012188078910888684,
+     "24h": 0.0012188078910888684
+    },
+    "volume_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 0.0,
+     "4h": 0.0,
+     "12h": 1.26127772566242,
+     "24h": 1.26127772566242
+    },
     "volume_24h": 1.26127772566242,
     "fees_24h": 0.00016970349786518,
     "holders": {
@@ -2035,166 +2955,118 @@
      "symbol": "SPYx",
      "decimals": 8,
      "is_verified": true,
-     "holders": 79398,
+     "holders": 79414,
      "freeze_authority_disabled": false,
-     "total_supply": 95774.93273224332,
-     "price": 776.6110146034954,
-     "market_cap": 74379867.682769
+     "total_supply": 95774.9327322232,
+     "price": 776.827508012459,
+     "market_cap": 74400602.32443383
     },
     "bin_step": 100,
     "base_fee": 0.01
-   },
-   {
-    "pool": "2cKZjPdggogVci7n5fDM9M4dWcf1hWuSARy5jnRHX3vi",
-    "name": "CLAUDIA-ORCLx",
-    "equity": "ORCLx",
-    "leg_other": "CLAUDIA",
-    "tvl": 11.086336499363744,
-    "apr": 8.650171687796721,
-    "volume_24h": 71.85639257819564,
-    "fees_24h": 0.9589871410818368,
-    "holders": {
-     "address": "XsjFwUPiLofddX5cWFHW35GCbXcSu1BCUGfxoQAQjeL",
-     "name": "Oracle xStock",
-     "symbol": "ORCLx",
-     "decimals": 8,
-     "is_verified": true,
-     "holders": 1078,
-     "freeze_authority_disabled": false,
-     "total_supply": 91544.4766351322,
-     "price": 139.6406001911619,
-     "market_cap": 12783325.661515657
-    },
-    "bin_step": 400,
-    "base_fee": 1.0
-   },
-   {
-    "pool": "A6k7bA3e3zn5Z62BPay7RLmaLj18xomMpWNxWLEJXhEp",
-    "name": "MPAW-AAPLx",
-    "equity": "AAPLx",
-    "leg_other": "MPAW",
-    "tvl": 0.7564857646379098,
-    "apr": 0.5685613489738076,
-    "volume_24h": 3.045140685047685,
-    "fees_24h": 0.004301085668220124,
-    "holders": {
-     "address": "XsbEhLAtcf6HdfpFZ5xEMdqW8nfAvcsP5bdudRLJzJp",
-     "name": "Apple xStock",
-     "symbol": "AAPLx",
-     "decimals": 8,
-     "is_verified": true,
-     "holders": 36180,
-     "freeze_authority_disabled": false,
-     "total_supply": 154264.82802346814,
-     "price": 341.93434206058447,
-     "market_cap": 52748442.47329379
-    },
-    "bin_step": 100,
-    "base_fee": 0.15
    },
    {
     "pool": "5Suky8xvyr9H4DSCizVp9mwduToQNBV58NRhrSjcexoZ",
     "name": "MPAW-GOOGLx",
     "equity": "GOOGLx",
     "leg_other": "MPAW",
-    "tvl": 0.6956850839504106,
-    "apr": 0.6792143590857926,
-    "volume_24h": 3.3733916272526514,
-    "fees_24h": 0.00472519298420924,
+    "tvl": 0.8165491420020342,
+    "apr": 0.6001374767623617,
+    "yield_w": {
+     "30m": 0.021459141172674882,
+     "1h": 0.021459141172674882,
+     "2h": 0.07599242302732691,
+     "4h": 0.24576997895224198,
+     "12h": 0.4190734406764969,
+     "24h": 0.6001374767623617
+    },
+    "volume_w": {
+     "30m": 0.12013738264303409,
+     "1h": 0.12013738264303409,
+     "2h": 0.4284295536792797,
+     "4h": 1.4063916635554463,
+     "12h": 2.447453928930548,
+     "24h": 3.4935290098956857
+    },
+    "volume_24h": 3.4935290098956857,
+    "fees_24h": 0.004900417417335722,
     "holders": {
      "address": "XsCPL9dNWBMvFtTmwcCA5v3xWPSMEBCszbQdiLLq6aN",
      "name": "Alphabet xStock",
      "symbol": "GOOGLx",
      "decimals": 8,
      "is_verified": true,
-     "holders": 56826,
+     "holders": 56807,
      "freeze_authority_disabled": false,
-     "total_supply": 160785.77782111135,
-     "price": 349.4803937560708,
-     "market_cap": 56191476.94329811
+     "total_supply": 160785.77614512655,
+     "price": 349.6394897301896,
+     "market_cap": 56217056.72725454
     },
     "bin_step": 100,
     "base_fee": 0.15
    },
    {
-    "pool": "HqQJypWSzUoKsTKS5Xpj8zsrXn6pCSLMhjjUTQur7Ppv",
-    "name": "AUTR-QQQx",
-    "equity": "QQQx",
-    "leg_other": "AUTR",
-    "tvl": 0.08448361505169749,
-    "apr": 0.0,
-    "volume_24h": 0.0,
-    "fees_24h": 0.0,
+    "pool": "A6k7bA3e3zn5Z62BPay7RLmaLj18xomMpWNxWLEJXhEp",
+    "name": "MPAW-AAPLx",
+    "equity": "AAPLx",
+    "leg_other": "MPAW",
+    "tvl": 0.7773115502813625,
+    "apr": 0.5577503161115293,
+    "yield_w": {
+     "30m": 0.0,
+     "1h": 0.004421902727826754,
+     "2h": 0.06468311033240133,
+     "4h": 0.264088949602945,
+     "12h": 0.2829126344734135,
+     "24h": 0.5577503161115293
+    },
+    "volume_w": {
+     "30m": 0.0,
+     "1h": 0.021111258228531025,
+     "2h": 0.3669194951465984,
+     "4h": 1.44553215774883,
+     "12h": 1.551363265856916,
+     "24h": 3.0662519432762165
+    },
+    "volume_24h": 3.0662519432762165,
+    "fees_24h": 0.004335457628865728,
     "holders": {
-     "address": "Xs8S1uUs1zvS2p7iwtsG3b6fkhpvmwz4GYU3gWAmWHZ",
-     "name": "Nasdaq xStock",
-     "symbol": "QQQx",
+     "address": "XsbEhLAtcf6HdfpFZ5xEMdqW8nfAvcsP5bdudRLJzJp",
+     "name": "Apple xStock",
+     "symbol": "AAPLx",
      "decimals": 8,
      "is_verified": true,
-     "holders": 37603,
+     "holders": 36230,
      "freeze_authority_disabled": false,
-     "total_supply": 84651.53743503675,
-     "price": 743.1559387527341,
-     "market_cap": 62909292.769396946
+     "total_supply": 154264.82802343802,
+     "price": 341.87158765398146,
+     "market_cap": 52738761.67554117
     },
     "bin_step": 100,
     "base_fee": 0.15
    },
    {
-    "pool": "HnpeNYpeudw5cuFT9kbireoN9Tk6BRrLS4y5v1Ty97ry",
-    "name": "GLDx-WBTC",
-    "equity": "GLDx",
-    "leg_other": "WBTC",
-    "tvl": 0.028703872416013226,
-    "apr": 0.0,
-    "volume_24h": 0.0,
-    "fees_24h": 0.0,
-    "holders": {
-     "address": "Xsv9hRk1z5ystj9MhnA7Lq4vjSsLwzL2nxrwmwtD3re",
-     "name": "Gold xStock",
-     "symbol": "GLDx",
-     "decimals": 8,
-     "is_verified": true,
-     "holders": 40651,
-     "freeze_authority_disabled": false,
-     "total_supply": 116266.4994804,
-     "price": 381.1734571377066,
-     "market_cap": 44317703.556243435
-    },
-    "bin_step": 200,
-    "base_fee": 0.25
-   },
-   {
-    "pool": "VEqnZXUdjduXntNfneFD1ynU19yQzmg9BpeR6jgXXpw",
-    "name": "MM-TSLAx",
-    "equity": "TSLAx",
-    "leg_other": "MM",
-    "tvl": 0.007002043067557161,
-    "apr": 0.0,
-    "volume_24h": 0.0,
-    "fees_24h": 0.0,
-    "holders": {
-     "address": "XsDoVfqeBukxuZHWhdvWHBhgEHjGNst4MLodqsJHzoB",
-     "name": "Tesla xStock",
-     "symbol": "TSLAx",
-     "decimals": 8,
-     "is_verified": true,
-     "holders": 47263,
-     "freeze_authority_disabled": false,
-     "total_supply": 229635.57792633,
-     "price": 375.8742247141181,
-     "market_cap": 86314094.81983775
-    },
-    "bin_step": 50,
-    "base_fee": 0.25
-   },
-   {
-    "pool": "GvrTeE6fD9ooTi5a8mFHsA61GWTy8uQcKSuFVm5DHswW",
-    "name": "CRCLx-TrumpBucks",
+    "pool": "GVKjPzVVLMVYovPHeHLHUtrHWhLt1SutUwz2ECZCLpQW",
+    "name": "SPCX-CRCLx",
     "equity": "CRCLx",
-    "leg_other": "TrumpBucks",
-    "tvl": 0.000957943087252691,
+    "leg_other": "SPCX",
+    "tvl": 0.14263932293972006,
     "apr": 0.0,
+    "yield_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 0.0,
+     "4h": 0.0,
+     "12h": 0.0,
+     "24h": 0.0
+    },
+    "volume_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 0.0,
+     "4h": 0.0,
+     "12h": 0.0,
+     "24h": 0.0
+    },
     "volume_24h": 0.0,
     "fees_24h": 0.0,
     "holders": {
@@ -2203,22 +3075,198 @@
      "symbol": "CRCLx",
      "decimals": 8,
      "is_verified": true,
-     "holders": 19219,
+     "holders": 19164,
      "freeze_authority_disabled": false,
      "total_supply": 821077.4276031,
-     "price": 81.13657843861994,
-     "market_cap": 66619413.1088992
+     "price": 82.6417748188112,
+     "market_cap": 67855295.88078414
+    },
+    "bin_step": 25,
+    "base_fee": 0.25
+   },
+   {
+    "pool": "9pTpKCCqR8KK3wM7q3jiQ2KLbMR3NgDtbX4cQktZztRD",
+    "name": "GLDx-XAUt0",
+    "equity": "GLDx",
+    "leg_other": "XAUt0",
+    "tvl": 0.029172778739786895,
+    "apr": 0.0,
+    "yield_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 0.0,
+     "4h": 0.0,
+     "12h": 0.0,
+     "24h": 0.0
+    },
+    "volume_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 0.0,
+     "4h": 0.0,
+     "12h": 0.0,
+     "24h": 0.0
+    },
+    "volume_24h": 0.0,
+    "fees_24h": 0.0,
+    "holders": {
+     "address": "Xsv9hRk1z5ystj9MhnA7Lq4vjSsLwzL2nxrwmwtD3re",
+     "name": "Gold xStock",
+     "symbol": "GLDx",
+     "decimals": 8,
+     "is_verified": true,
+     "holders": 40619,
+     "freeze_authority_disabled": false,
+     "total_supply": 116266.4994804,
+     "price": 381.2561550405785,
+     "market_cap": 44327318.55192472
     },
     "bin_step": 10,
-    "base_fee": 0.1
+    "base_fee": 0.04
+   },
+   {
+    "pool": "91BsfnoacJmSGwtdNLyxMjmaVKbs8ruoahuqXxS7D9sM",
+    "name": "GOOGLx-MM",
+    "equity": "GOOGLx",
+    "leg_other": "MM",
+    "tvl": 0.001209634533513796,
+    "apr": 0.0,
+    "yield_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 0.0,
+     "4h": 0.0,
+     "12h": 0.0,
+     "24h": 0.0
+    },
+    "volume_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 0.0,
+     "4h": 0.0,
+     "12h": 0.0,
+     "24h": 0.0
+    },
+    "volume_24h": 0.0,
+    "fees_24h": 0.0,
+    "holders": {
+     "address": "XsCPL9dNWBMvFtTmwcCA5v3xWPSMEBCszbQdiLLq6aN",
+     "name": "Alphabet xStock",
+     "symbol": "GOOGLx",
+     "decimals": 8,
+     "is_verified": true,
+     "holders": 56830,
+     "freeze_authority_disabled": false,
+     "total_supply": 160785.7778211013,
+     "price": 350.1798587868829,
+     "market_cap": 56303940.97233239
+    },
+    "bin_step": 20,
+    "base_fee": 0.2
+   },
+   {
+    "pool": "cNPfiL8eVbyqFMEETRrnUUDbfaVLbmj1gR4fk9294We",
+    "name": "SPYx-SPYon",
+    "equity": "SPYx",
+    "leg_other": "SPYon",
+    "tvl": 0.000549493546611331,
+    "apr": 0.0,
+    "yield_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 0.0,
+     "4h": 0.0,
+     "12h": 0.0,
+     "24h": 0.0
+    },
+    "volume_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 0.0,
+     "4h": 0.0,
+     "12h": 0.0,
+     "24h": 0.0
+    },
+    "volume_24h": 0.0,
+    "fees_24h": 0.0,
+    "holders": {
+     "address": "XsoCS1TfEyfFhfvj8EtZ528L3CaKBDBRqRapnBbDF2W",
+     "name": "SP500 xStock",
+     "symbol": "SPYx",
+     "decimals": 8,
+     "is_verified": true,
+     "holders": 79388,
+     "freeze_authority_disabled": false,
+     "total_supply": 95774.93273224332,
+     "price": 776.5194025201912,
+     "market_cap": 74371093.54165308
+    },
+    "bin_step": 1,
+    "base_fee": 0.01
+   },
+   {
+    "pool": "cNPfiL8eVbyqFMEETRrnUUDbfaVLbmj1gR4fk9294We",
+    "name": "SPYx-SPYon",
+    "equity": "SPYx",
+    "leg_other": "SPYon",
+    "tvl": 0.000549493546611331,
+    "apr": 0.0,
+    "yield_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 0.0,
+     "4h": 0.0,
+     "12h": 0.0,
+     "24h": 0.0
+    },
+    "volume_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 0.0,
+     "4h": 0.0,
+     "12h": 0.0,
+     "24h": 0.0
+    },
+    "volume_24h": 0.0,
+    "fees_24h": 0.0,
+    "holders": {
+     "address": "XsoCS1TfEyfFhfvj8EtZ528L3CaKBDBRqRapnBbDF2W",
+     "name": "SP500 xStock",
+     "symbol": "SPYx",
+     "decimals": 8,
+     "is_verified": true,
+     "holders": 79388,
+     "freeze_authority_disabled": false,
+     "total_supply": 95774.93273224332,
+     "price": 776.5194025201912,
+     "market_cap": 74371093.54165308
+    },
+    "bin_step": 1,
+    "base_fee": 0.01
    },
    {
     "pool": "4fc9cyD58Htw9NoHb59wzRTAusE1L1xrAwDC4XeTocuH",
     "name": "TSLAx-NVDAx",
     "equity": "TSLAx",
     "leg_other": "NVDAx",
-    "tvl": 0.00028693818426004,
+    "tvl": 0.000285104412908576,
     "apr": 0.0,
+    "yield_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 0.0,
+     "4h": 0.0,
+     "12h": 0.0,
+     "24h": 0.0
+    },
+    "volume_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 0.0,
+     "4h": 0.0,
+     "12h": 0.0,
+     "24h": 0.0
+    },
     "volume_24h": 0.0,
     "fees_24h": 0.0,
     "holders": {
@@ -2227,182 +3275,134 @@
      "symbol": "TSLAx",
      "decimals": 8,
      "is_verified": true,
-     "holders": 47264,
+     "holders": 47253,
      "freeze_authority_disabled": false,
      "total_supply": 229635.57792633,
-     "price": 375.992091801731,
-     "market_cap": 86341161.29662023
+     "price": 372.752968837153,
+     "market_cap": 85597343.42267491
     },
     "bin_step": 20,
     "base_fee": 0.2
    },
    {
-    "pool": "7sQPsUQm9n1jwCKrhVv6LFU66FLbsG5syiujnYuHQ2uH",
-    "name": "PONS-METAx",
-    "equity": "METAx",
-    "leg_other": "PONS",
-    "tvl": 0.000273889169651546,
+    "pool": "5JBbdQqgXtmn4H7bWwgz74Egz1V4fAZSJmP9YB6YVhrv",
+    "name": "CSC-GOOGLx",
+    "equity": "GOOGLx",
+    "leg_other": "CSC",
+    "tvl": 0.00021060739432639,
     "apr": 0.0,
-    "volume_24h": 0.0,
-    "fees_24h": 0.0,
-    "holders": {
-     "address": "Xsa62P5mvPszXL1krVUnU5ar38bBSVcWAB6fmPCo5Zu",
-     "name": "Meta xStock",
-     "symbol": "METAx",
-     "decimals": 8,
-     "is_verified": true,
-     "holders": 39028,
-     "freeze_authority_disabled": false,
-     "total_supply": 72583.09156631566,
-     "price": 740.1033333908525,
-     "market_cap": 53718988.0160437
+    "yield_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 0.0,
+     "4h": 0.0,
+     "12h": 0.0,
+     "24h": 0.0
     },
-    "bin_step": 100,
-    "base_fee": 0.4
-   },
-   {
-    "pool": "FhZvHtuVtU3Ayp6bFokR3UbfceDpK4tA1dwMub1G34bg",
-    "name": "Fartcoin-SPYx",
-    "equity": "SPYx",
-    "leg_other": "Fartcoin",
-    "tvl": 0.000183228675227183,
-    "apr": 0.0,
+    "volume_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 0.0,
+     "4h": 0.0,
+     "12h": 0.0,
+     "24h": 0.0
+    },
     "volume_24h": 0.0,
     "fees_24h": 0.0,
     "holders": {
-     "address": "XsoCS1TfEyfFhfvj8EtZ528L3CaKBDBRqRapnBbDF2W",
-     "name": "SP500 xStock",
-     "symbol": "SPYx",
+     "address": "XsCPL9dNWBMvFtTmwcCA5v3xWPSMEBCszbQdiLLq6aN",
+     "name": "Alphabet xStock",
+     "symbol": "GOOGLx",
      "decimals": 8,
      "is_verified": true,
-     "holders": 79410,
+     "holders": 56830,
      "freeze_authority_disabled": false,
-     "total_supply": 95774.93329657993,
-     "price": 777.277138261216,
-     "market_cap": 74443666.06992449
+     "total_supply": 160785.7778211013,
+     "price": 351.2437760325827,
+     "market_cap": 56475003.73421951
     },
     "bin_step": 20,
-    "base_fee": 0.2
+    "base_fee": 3.0
    },
    {
-    "pool": "6C8LUkHrLhkQ88Q4Zdd47HL5VjB2zJ9KmeAuqfW1XiLT",
-    "name": "JLP-SPYx",
-    "equity": "SPYx",
-    "leg_other": "JLP",
-    "tvl": 0.000156867519693888,
+    "pool": "AAE5qbURWQATAjfm8sv36tp95w5JbPezynDhUKGbJqwR",
+    "name": "GOOGLx-ZEC",
+    "equity": "GOOGLx",
+    "leg_other": "ZEC",
+    "tvl": 0.00011909943943484,
     "apr": 0.0,
-    "volume_24h": 0.0,
-    "fees_24h": 0.0,
-    "holders": {
-     "address": "XsoCS1TfEyfFhfvj8EtZ528L3CaKBDBRqRapnBbDF2W",
-     "name": "SP500 xStock",
-     "symbol": "SPYx",
-     "decimals": 8,
-     "is_verified": true,
-     "holders": 79411,
-     "freeze_authority_disabled": false,
-     "total_supply": 95774.93329657993,
-     "price": 777.119798721034,
-     "market_cap": 74428596.88595864
+    "yield_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 0.0,
+     "4h": 0.0,
+     "12h": 0.0,
+     "24h": 0.0
     },
-    "bin_step": 8,
-    "base_fee": 0.05
-   },
-   {
-    "pool": "HWJ1PJ1r34du8rsvtVrkMhuGymjuLqk3YRoEdgQF5KyQ",
-    "name": "INFRA-NVDAx",
-    "equity": "NVDAx",
-    "leg_other": "INFRA",
-    "tvl": 0.000103330231320239,
-    "apr": 0.0,
-    "volume_24h": 0.0,
-    "fees_24h": 0.0,
-    "holders": {
-     "address": "Xsc9qvGR1efVDFGLrVsmkzv3qi45LTBjeUKSPmx9qEh",
-     "name": "NVIDIA xStock",
-     "symbol": "NVDAx",
-     "decimals": 8,
-     "is_verified": true,
-     "holders": 174774,
-     "freeze_authority_disabled": false,
-     "total_supply": 321809.9870695114,
-     "price": 223.95997197663428,
-     "market_cap": 72072555.68588881
+    "volume_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 0.0,
+     "4h": 0.0,
+     "12h": 0.0,
+     "24h": 0.0
     },
-    "bin_step": 125,
-    "base_fee": 1.5
-   },
-   {
-    "pool": "AEQREehBemPYBbAovCb5RkfNowu8fVbvnAwtx4UTvDam",
-    "name": "PONS-NVDAx",
-    "equity": "NVDAx",
-    "leg_other": "PONS",
-    "tvl": 1.1245094430184e-05,
-    "apr": 0.0,
     "volume_24h": 0.0,
     "fees_24h": 0.0,
     "holders": {
-     "address": "Xsc9qvGR1efVDFGLrVsmkzv3qi45LTBjeUKSPmx9qEh",
-     "name": "NVIDIA xStock",
-     "symbol": "NVDAx",
+     "address": "XsCPL9dNWBMvFtTmwcCA5v3xWPSMEBCszbQdiLLq6aN",
+     "name": "Alphabet xStock",
+     "symbol": "GOOGLx",
      "decimals": 8,
      "is_verified": true,
-     "holders": 174765,
+     "holders": 56830,
      "freeze_authority_disabled": false,
-     "total_supply": 321809.9870695114,
-     "price": 224.1324227576801,
-     "market_cap": 72128052.06950729
+     "total_supply": 160785.7778211013,
+     "price": 350.1798587868829,
+     "market_cap": 56303940.97233239
     },
-    "bin_step": 160,
-    "base_fee": 0.4
+    "bin_step": 25,
+    "base_fee": 0.25
    },
    {
-    "pool": "5YvrFBBN6LnGvN2A5c99T5R21DWPFm4miHTfWLg4L3jp",
-    "name": "MSTRx-Ani",
-    "equity": "MSTRx",
-    "leg_other": "Ani",
-    "tvl": 7.500926667174e-06,
+    "pool": "8vdzEuQo5CfsTquyiWEjzNz7A117Ca7farw8TaK1rydc",
+    "name": "GOOGLx-TrumpBucks",
+    "equity": "GOOGLx",
+    "leg_other": "TrumpBucks",
+    "tvl": 5.2569608917935e-05,
     "apr": 0.0,
+    "yield_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 0.0,
+     "4h": 0.0,
+     "12h": 0.0,
+     "24h": 0.0
+    },
+    "volume_w": {
+     "30m": 0.0,
+     "1h": 0.0,
+     "2h": 0.0,
+     "4h": 0.0,
+     "12h": 0.0,
+     "24h": 0.0
+    },
     "volume_24h": 0.0,
     "fees_24h": 0.0,
     "holders": {
-     "address": "XsP7xzNPvEHS1m6qfanPUGjNmdnmsLKEoNAnHjdxxyZ",
-     "name": "MicroStrategy xStock",
-     "symbol": "MSTRx",
+     "address": "XsCPL9dNWBMvFtTmwcCA5v3xWPSMEBCszbQdiLLq6aN",
+     "name": "Alphabet xStock",
+     "symbol": "GOOGLx",
      "decimals": 8,
      "is_verified": true,
-     "holders": 13726,
+     "holders": 56830,
      "freeze_authority_disabled": false,
-     "total_supply": 486315.48526932,
-     "price": 148.77343016132932,
-     "market_cap": 72350822.88408816
+     "total_supply": 160785.7778211013,
+     "price": 350.47654480820665,
+     "market_cap": 56351643.86503957
     },
     "bin_step": 20,
-    "base_fee": 0.2
-   },
-   {
-    "pool": "E83fz2fQKAFLcPmDV1UTFozogatgSFd1fuDr1zGuz3H3",
-    "name": "AMDx-AMDon",
-    "equity": "AMDx",
-    "leg_other": "AMDon",
-    "tvl": 1.767028092102e-06,
-    "apr": 0.0,
-    "volume_24h": 0.0,
-    "fees_24h": 0.0,
-    "holders": {
-     "address": "XsXcJ6GZ9kVnjqGsjBnktRcuwMBmvKWh8S93RefZ1rF",
-     "name": "AMD xStock",
-     "symbol": "AMDx",
-     "decimals": 8,
-     "is_verified": true,
-     "holders": 3226,
-     "freeze_authority_disabled": false,
-     "total_supply": 71480.81674939,
-     "price": 590.0918262722774,
-     "market_cap": 42180245.69908154
-    },
-    "bin_step": 1,
-    "base_fee": 0.01
+    "base_fee": 2.0
    }
   ],
   "MEME": []
