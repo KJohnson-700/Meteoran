@@ -122,17 +122,41 @@ to — and if the beta is an equity, does the same model still hold?**
 
 ```
 tools/stock_pairs.py        beta classification + ranking, live API
+tools/stock_report.py       static HTML export
+docs/stock-pairs.html       the result, opens in any browser
 data/stock_pairs.json       79 classified pools, full metrics
 ```
 
-Reproduce:
+**Just open [`docs/stock-pairs.html`](https://github.com/KJohnson-700/Meteoran/blob/main/docs/stock-pairs.html).**
+No wallet, no Python, no server — one self-contained file.
+
+Reproduce from scratch:
 
 ```bash
-python3 tools/stock_pairs.py 60
+python3 tools/stock_pairs.py 60     # 24,000 pools -> data/stock_pairs.json
+python3 tools/stock_report.py       # -> docs/stock-pairs.html
 ```
 
 24,000 pools pulled · 75.1% dropped as corrupt · 79 classified · every figure above
-regenerates from the command.
+regenerates from those two commands.
+
+### Notifications
+
+Already wired, no account needed. `tools/notify.example.py` → ntfy.sh. Copy it to
+`notify.py`, set an unguessable `TOPIC`, subscribe in the phone app, POST to it. The
+real `notify.py` is gitignored because the topic is a shared secret — anyone holding
+the string can read *and* post.
+
+```bash
+cp tools/notify.example.py tools/notify.py    # then set TOPIC
+```
+
+### Live dashboard
+
+`python3 tools/dashboard.py` serves a real browser board on `localhost:8787`, polling
+every 15s, with `IN RANGE / ABOVE RANGE / BELOW FLOOR` states. Scoped to the operator's
+own open positions, so it needs `data/operator_wallet.txt` — which is gitignored, along
+with `reports/`. That is why the public result lives in `docs/` instead.
 
 ---
 

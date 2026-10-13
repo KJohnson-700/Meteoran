@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Meteoran — DLMM beta-class report</title>
+<style>
+  :root { color-scheme: dark; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:#0b0d12; color:#e6e9ef;
+         font:15px/1.55 ui-sans-serif,-apple-system,"Segoe UI",Roboto,sans-serif; }
+  .wrap { max-width:960px; margin:0 auto; padding:48px 24px 80px; }
+  h1 { font-size:30px; margin:0 0 6px; letter-spacing:-.02em; }
+  .sub { color:#8b93a7; margin:0 0 36px; }
+  .kpis { display:grid; grid-template-columns:repeat(auto-fit,minmax(168px,1fr));
+           gap:12px; margin-bottom:40px; }
+  .kpi { background:#12151d; border:1px solid #1e2431; border-radius:12px; padding:16px; }
+  .kpi b { display:block; font-size:26px; letter-spacing:-.02em; }
+  .kpi span { color:#8b93a7; font-size:12.5px; text-transform:uppercase;
+               letter-spacing:.07em; }
+  h2 { font-size:17px; margin:40px 0 6px; }
+  .note { color:#8b93a7; font-size:13.5px; margin:0 0 14px; }
+  table { width:100%; border-collapse:collapse; background:#12151d;
+           border:1px solid #1e2431; border-radius:12px; overflow:hidden; }
+  th,td { padding:10px 14px; text-align:left; border-bottom:1px solid #1a1f2b; }
+  th { font-size:11.5px; text-transform:uppercase; letter-spacing:.08em;
+        color:#8b93a7; font-weight:600; }
+  tr:last-child td { border-bottom:none; }
+  td.num { text-align:right; font-variant-numeric:tabular-nums; }
+  .pair { font-weight:600; }
+  .cmp { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+          gap:12px; margin:18px 0 8px; }
+  .card { background:#12151d; border:1px solid #1e2431; border-radius:12px;
+           padding:18px; }
+  .card .v { font-size:30px; font-weight:700; letter-spacing:-.02em; }
+  .card .k { color:#8b93a7; font-size:12.5px; text-transform:uppercase;
+              letter-spacing:.07em; margin-top:4px; }
+  .card .m { color:#8b93a7; font-size:12.5px; margin-top:6px; }
+  .bad { color:#ff7a6b; } .good { color:#4ade80; }
+  .flag { border-left:3px solid #ff7a6b; background:#171a22; padding:12px 16px;
+           border-radius:0 10px 10px 0; margin:20px 0; font-size:13.5px; }
+  code { background:#171a22; padding:2px 6px; border-radius:5px; font-size:13px; }
+  footer { margin-top:48px; color:#6b7385; font-size:13px; }
+  a { color:#7aa2ff; }
+</style></head><body><div class="wrap">
+
+<h1>Meteoran — DLMM beta-class report</h1>
+<p class="sub">Do DLMM LP gates transfer from memecoins to tokenized equity?
+Live pull, 24,000 pools, no wallet, read-only.</p>
+
+<div class="kpis">
+  <div class="kpi"><b>45</b><span>stock pools</span></div>
+  <div class="kpi"><b>$503,576</b><span>stock TVL</span></div>
+  <div class="kpi"><b>34</b><span>stock x meme</span></div>
+  <div class="kpi"><b>$143,173</b><span>stock x meme TVL</span></div>
+</div>
+
+<h2>Median APR — live pools only</h2>
+<p class="note">Dead pools excluded: a pool with no 24h volume has no APR to
+compare, and including them drags every median toward zero.</p>
+<div class="cmp">
+  <div class="card"><div class="v">0.113%</div>
+    <div class="k">stock</div><div class="m">n = 42</div></div>
+  <div class="card"><div class="v bad">0.020%</div>
+    <div class="k">stock x memecoin</div>
+    <div class="m">n = 31 — ~6x worse</div></div>
+</div>
+<p class="note">Meme-paired-with-stock is the worst class for an LP by roughly
+six times. Two correlated betas on one pool, and the fee share does not cover
+the variance.</p>
+
+<h2>Stock-quoted pools, by TVL</h2>
+<p class="note">Beta is the listed equity: bounded at ~10%/day, and it arrives
+in a gap at the session boundary rather than continuously.</p>
+<table><thead><tr><th>pair</th><th class="num">TVL</th><th class="num">APR</th>
+<th class="num">vol24/TVL</th><th class="num">holders</th></tr></thead>
+<tbody><tr><td class='pair'>NVDAx-SOL</td><td class='num'>$126,334</td><td class='num'>1.084%</td><td class='num'>6.03</td><td class='num'>174,800</td></tr>
+<tr><td class='pair'>PLTRx-SOL</td><td class='num'>$64,575</td><td class='num'>0.436%</td><td class='num'>0.80</td><td class='num'>9,303</td></tr>
+<tr><td class='pair'>GOOGLx-SOL</td><td class='num'>$62,993</td><td class='num'>0.605%</td><td class='num'>3.53</td><td class='num'>56,839</td></tr>
+<tr><td class='pair'>SPYx-SOL</td><td class='num'>$48,111</td><td class='num'>0.296%</td><td class='num'>1.30</td><td class='num'>79,405</td></tr>
+<tr><td class='pair'>GLDx-SOL</td><td class='num'>$41,203</td><td class='num'>0.378%</td><td class='num'>0.52</td><td class='num'>40,676</td></tr>
+<tr><td class='pair'>MSFTx-SOL</td><td class='num'>$26,069</td><td class='num'>0.176%</td><td class='num'>1.09</td><td class='num'>35,061</td></tr>
+<tr><td class='pair'>METAx-USDC</td><td class='num'>$23,791</td><td class='num'>1.114%</td><td class='num'>11.84</td><td class='num'>39,038</td></tr>
+<tr><td class='pair'>METAx-SOL</td><td class='num'>$15,831</td><td class='num'>0.399%</td><td class='num'>1.76</td><td class='num'>39,038</td></tr>
+<tr><td class='pair'>NVDAx-USDC</td><td class='num'>$10,507</td><td class='num'>0.002%</td><td class='num'>0.11</td><td class='num'>174,794</td></tr>
+<tr><td class='pair'>AAPLx-SOL</td><td class='num'>$10,063</td><td class='num'>0.346%</td><td class='num'>0.95</td><td class='num'>36,253</td></tr>
+<tr><td class='pair'>TSLAx-SOL</td><td class='num'>$9,965</td><td class='num'>0.283%</td><td class='num'>1.55</td><td class='num'>47,267</td></tr>
+<tr><td class='pair'>AVGOx-USDC</td><td class='num'>$8,891</td><td class='num'>8.100%</td><td class='num'>131.07</td><td class='num'>7,089</td></tr>
+<tr><td class='pair'>HOODx-SOL</td><td class='num'>$7,034</td><td class='num'>0.281%</td><td class='num'>2.05</td><td class='num'>13,231</td></tr>
+<tr><td class='pair'>QQQx-SOL</td><td class='num'>$6,820</td><td class='num'>0.000%</td><td class='num'>0.00</td><td class='num'>37,615</td></tr>
+<tr><td class='pair'>MSTRx-SOL</td><td class='num'>$5,906</td><td class='num'>0.066%</td><td class='num'>0.36</td><td class='num'>13,728</td></tr>
+<tr><td class='pair'>GLDx-USDC</td><td class='num'>$5,175</td><td class='num'>0.050%</td><td class='num'>0.55</td><td class='num'>40,676</td></tr>
+<tr><td class='pair'>MSTRx-USDC</td><td class='num'>$4,844</td><td class='num'>0.052%</td><td class='num'>0.28</td><td class='num'>13,728</td></tr>
+<tr><td class='pair'>MSFTx-USDC</td><td class='num'>$4,501</td><td class='num'>3.410%</td><td class='num'>37.75</td><td class='num'>35,064</td></tr></tbody></table>
+
+<h2>Stock x memecoin pools, by TVL</h2>
+<p class="note">Both betas live at once. Note GOOGLx-GOOGLon: the same company
+across two issuers, in two liquidity silos. And STONK-NVDAx: meme-paired-with-
+stock, already live, bottom decile by yield.</p>
+<table><thead><tr><th>pair</th><th class="num">TVL</th><th class="num">APR</th>
+<th class="num">vol24/TVL</th><th class="num">holders</th></tr></thead>
+<tbody><tr><td class='pair'>ORE-GLDx</td><td class='num'>$84,863</td><td class='num'>0.021%</td><td class='num'>0.08</td><td class='num'>40,676</td></tr>
+<tr><td class='pair'>SNDK-HOODx</td><td class='num'>$10,181</td><td class='num'>0.138%</td><td class='num'>0.15</td><td class='num'>13,231</td></tr>
+<tr><td class='pair'>SPYx-GMEx</td><td class='num'>$7,652</td><td class='num'>0.001%</td><td class='num'>0.00</td><td class='num'>79,405</td></tr>
+<tr><td class='pair'>CRCLx-MSTRx</td><td class='num'>$7,646</td><td class='num'>0.013%</td><td class='num'>0.28</td><td class='num'>19,179</td></tr>
+<tr><td class='pair'>TSLAx-SPCXx</td><td class='num'>$7,301</td><td class='num'>0.057%</td><td class='num'>0.25</td><td class='num'>47,267</td></tr>
+<tr><td class='pair'>NVDAx-TSLAx</td><td class='num'>$6,187</td><td class='num'>0.033%</td><td class='num'>0.36</td><td class='num'>174,794</td></tr>
+<tr><td class='pair'>AAPLx-SPYx</td><td class='num'>$4,117</td><td class='num'>0.001%</td><td class='num'>0.00</td><td class='num'>36,253</td></tr>
+<tr><td class='pair'>XAUt0-GLDx</td><td class='num'>$2,291</td><td class='num'>0.002%</td><td class='num'>0.04</td><td class='num'>40,677</td></tr>
+<tr><td class='pair'>GOOGLx-GOOGLon</td><td class='num'>$2,027</td><td class='num'>0.004%</td><td class='num'>0.02</td><td class='num'>56,840</td></tr>
+<tr><td class='pair'>QQQx-AMZNx</td><td class='num'>$1,835</td><td class='num'>0.026%</td><td class='num'>0.14</td><td class='num'>37,615</td></tr>
+<tr><td class='pair'>STONK-NVDAx</td><td class='num'>$1,734</td><td class='num'>0.245%</td><td class='num'>0.27</td><td class='num'>174,794</td></tr>
+<tr><td class='pair'>OPENAI-MSFTx</td><td class='num'>$1,629</td><td class='num'>0.046%</td><td class='num'>0.05</td><td class='num'>35,061</td></tr>
+<tr><td class='pair'>SPYx-QQQx</td><td class='num'>$1,516</td><td class='num'>0.020%</td><td class='num'>0.22</td><td class='num'>79,405</td></tr>
+<tr><td class='pair'>SPYx-QQQx</td><td class='num'>$1,440</td><td class='num'>0.004%</td><td class='num'>0.02</td><td class='num'>79,405</td></tr>
+<tr><td class='pair'>PFE-NVDAx</td><td class='num'>$740</td><td class='num'>0.006%</td><td class='num'>0.06</td><td class='num'>174,794</td></tr>
+<tr><td class='pair'>SPYx-QQQx</td><td class='num'>$495</td><td class='num'>0.020%</td><td class='num'>1.00</td><td class='num'>79,405</td></tr>
+<tr><td class='pair'>BACKERS-METAx</td><td class='num'>$465</td><td class='num'>6.300%</td><td class='num'>3.86</td><td class='num'>39,038</td></tr>
+<tr><td class='pair'>HIGGS-NVDAx</td><td class='num'>$322</td><td class='num'>7.424%</td><td class='num'>6.17</td><td class='num'>174,794</td></tr></tbody></table>
+
+<div class="flag"><b>Data quality.</b> A large fraction of the raw
+<code>/pools</code> pull is structurally corrupt — TVL of 3e-12, APR of 6e13.
+Every figure on this page is post-filter. A single unfiltered row sorts an
+entire table, which is why every public leaderboard on this venue is
+untrustworthy.</div>
+
+<h2>What this is not</h2>
+<p class="note">Not a strategy, not a bot, not a ranking product. It is a
+pool-level cross-section from one pull: no wallet-level skill measurement, no
+time series, no persistence test. A first measurement with a direction.</p>
+
+<footer>Reproduce: <code>python3 tools/stock_pairs.py 60</code> ·
+Source <a href="https://github.com/KJohnson-700/Meteoran">github.com/KJohnson-700/Meteoran</a> ·
+read-only, standard library only</footer>
+
+</div></body></html>
