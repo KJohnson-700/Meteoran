@@ -1,0 +1,149 @@
+# Meteoran — extending DLMM gating to tokenized equity
+
+**Meteora DBC track · $20,000 · github.com/KJohnson-700/Meteoran**
+
+---
+
+## 1 — What Meteoran already is
+
+Measurement tooling for **Meteora DLMM** liquidity. Read-only, no keys, no execution.
+
+The gates were calibrated on one asset class — memecoins — across **111,838 closed
+positions**:
+
+> Fee capture determines outcome, **monotonically**. <0.5% fee yield → +0.0% median /
+> 52% win · >25% → **+29.4% / 83% win**
+>
+> Impermanent loss is not the enemy. Fees **+5.99%** vs IL **−1.60%** — fees cover IL
+> **3.74x**. **Token beta is what kills positions.**
+
+That last clause is the whole project. The risk model is not "IL", it is *what the beta
+is*. Which means the gates cannot transfer to a new asset class until you test whether
+they do.
+
+**Nobody has run this test on tokenized equity.**
+
+---
+
+## 2 — The question
+
+Meteora's brief asks for *"more asset classes on the same liquidity layer."* DLMM already
+hosts them:
+
+| | |
+|---|---|
+| **45** | stock-quoted DLMM pools, **$503,391 TVL** |
+| **34** | stock × memecoin pools, **$143,171 TVL** |
+| **137,911** | total DLMM pools |
+
+xStocks holds ~97% of tokenized-stock market volume, $350M+ TVL, 1:1 backed by Backed
+Finance. On-chain it is just an SPL token — so it pools with everything else, and nobody
+has checked whether DLMM LPs should be in it.
+
+**Two betas, two regimes.** A memecoin's beta arrives continuously and can go to zero. An
+equity's beta is bounded at ±~10%/day, and arrives **in a gap at the 9:30 open** while the
+pool traded stale all night. That failure mode does not exist in the calibration set.
+
+---
+
+## 3 — The result
+
+`tools/stock_pairs.py` classifies every pool by beta source and ranks only pools that
+actually traded. Median APR, live pools only:
+
+| class | median APR | n |
+|---|---|---|
+| memecoin | **0.129%** | 2,117 |
+| stock | **0.113%** | 42 |
+| **stock × memecoin** | **0.020%** | 31 |
+
+**Meme-paired-with-stock is the worst class for an LP by roughly 6x** — worse than either
+leg alone. Two correlated betas on one pool, and the fee share does not cover the variance.
+
+The top of the live book, all measured:
+
+```
+NVDAx-SOL     126,334  1.084%   vol/TVL 6.03   174,802 holders
+PLTRx-SOL      64,575  0.436%            0.80     9,303
+GOOGLx-SOL     62,862  0.606%            3.53    56,839
+SPYx-SOL       48,111  0.296%            1.30    79,399
+METAx-USDC     23,791  1.114%           11.84    39,038
+TSLAx-SOL       9,965  0.283%            1.55    47,268
+STONK-NVDAx     1,734  0.245%            0.27   174,794   <- meme x stock
+```
+
+---
+
+## 4 — What else turned up
+
+- **Cross-issuer pools already exist.** `GOOGLx-GOOGLon` pools the same company across two
+  issuers. Three issuer forms of one stock, three liquidity silos — the canonical thin-RWA
+  fragmentation problem, now measurable.
+- **`STONK-NVDAx` is live.** Meme-paired-with-stock already ships on DLMM. It is in the
+  bottom decile by yield.
+- **75% of the raw `/pools` pull is corrupt** — `tvl = 3e-12`, `apr = 6e13`. This is
+  CLAUDE.md rule confirmed against live data, and it is why a single unfiltered row sorts a
+  whole table. Every number here is post-filter.
+
+---
+
+## 5 — What this is not
+
+Not a strategy, not a bot, not a ranking product. Those are all broken and CLAUDE.md says
+why — 41% corrupt rows, survivorship, no confidence intervals, Nansen labelling a 30-day
+top-performers sort "Smart Trader".
+
+This is the project's actual method applied to the asset class it had not touched:
+
+1. classify the universe by beta source
+2. drop what the API got wrong
+3. compare classes on the same pull, live pools only
+4. **let the number decide whether the gates transfer**
+
+---
+
+## 6 — Where DBC fits
+
+A DBC launch **graduates into DAMM v2** — and Meteora's migration keepers already
+auto-migrate stock-quoted configs at a **$750 equivalent threshold**. So stock liquidity is
+arriving programmatically, not because someone chose it.
+
+Every one of those graduating pools lands in a market with:
+- no position history (the single variable the 111k-position model depends on)
+- a bounded, gappy beta that arrives without warning
+- and LPs who have been told nothing
+
+**Meteoran answers one question for the whole stack: is this pool worth providing liquidity
+to — and if the beta is an equity, does the same model still hold?**
+
+---
+
+## 7 — Evidence
+
+```
+tools/stock_pairs.py        beta classification + ranking, live API
+data/stock_pairs.json       79 classified pools, full metrics
+```
+
+Reproduce:
+
+```bash
+python3 tools/stock_pairs.py 60
+```
+
+24,000 pools pulled · 75.1% dropped as corrupt · 79 classified · every figure above
+regenerates from the command.
+
+---
+
+## 8 — Honest limits
+
+- **Pool-level, not wallet-level.** The API requires `user` on every endpoint and cannot
+  enumerate wallets, so this measures pools. Wallet skill vetting on equity pools is the
+  next step and is not built.
+- **One pull, not a time series.** These are cross-sections at a point in time. No
+  persistence test (T2 in THESIS.md) has been run on equity pools. This is a first
+  measurement, not a validated edge.
+- **Mint matching is family + symbol.** xStocks mints start `Xs`, Ondo mints end `ondo`,
+  cross-checked against a ticker allowlist. Anyone can mint a token called `TSLAx`; the
+  mint address is the authority, and one false positive (`KOx`) was rejected this way.
