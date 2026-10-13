@@ -40,8 +40,14 @@ def rows_html(rows, limit=18):
         apr = r["apr"]
         vtvl = r["volume_24h"] / tvl if tvl else 0
         h = (r.get("holders") or {}).get("holders") or 0
+        addr = r["pool"]
+        # Every row is clickable. A number nobody can audit is a claim.
         out.append(
-            f"<tr><td class='pair'>{r['name']}</td>"
+            f"<tr>"
+            f"<td class='pair'>"
+            f"<a href='https://solscan.io/account/{addr}' target='_blank' rel='noopener'>"
+            f"{r['name']}</a>"
+            f"<div class='mint'>{addr[:6]}…{addr[-6:]}</div></td>"
             f"<td class='num'>${tvl:,.0f}</td>"
             f"<td class='num'>{apr:.3f}%</td>"
             f"<td class='num'>{vtvl:.2f}</td>"
@@ -92,6 +98,13 @@ def main() -> int:
   tr:last-child td {{ border-bottom:none; }}
   td.num {{ text-align:right; font-variant-numeric:tabular-nums; }}
   .pair {{ font-weight:600; }}
+  .pair a {{ color:#e6e9ef; text-decoration:none; }}
+  .pair a:hover {{ color:#7aa2ff; text-decoration:underline; }}
+  .mint {{ font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+           font-size:11px; color:#5d6577; margin-top:2px; }}
+  .stale {{ background:#1b1710; border:1px solid #4a3a1c; border-radius:12px;
+            padding:14px 18px; margin:0 0 28px; font-size:13.5px; color:#d9b877; }}
+  .stale b {{ color:#f0c674; }}
   .cmp {{ display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
           gap:12px; margin:18px 0 8px; }}
   .card {{ background:#12151d; border:1px solid #1e2431; border-radius:12px;
@@ -111,6 +124,13 @@ def main() -> int:
 <h1>Meteoran — DLMM beta-class report</h1>
 <p class="sub">Do DLMM LP gates transfer from memecoins to tokenized equity?
 Live pull, {scanned:,} pools, no wallet, read-only.</p>
+
+<div class="stale"><b>Static snapshot.</b> These figures were produced by a single
+run of <code>tools/stock_pairs.py 60</code> and are frozen at that moment — this
+page does not refresh itself. To regenerate, run the tool and re-export, or run
+the live scanner which pushes qualifying pools to a phone instead of a browser.
+Every pool name below links to its explorer entry, so any number here can be
+checked against chain state.</div>
 
 <div class="kpis">
   <div class="kpi"><b>{len(stock)}</b><span>stock pools</span></div>

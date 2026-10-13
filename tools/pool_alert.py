@@ -257,6 +257,8 @@ def main():
                        "meme": "MEME"}.get(r.get("class"), "")
                 body = (f"[{tag}] {r.get('equity') or 'meme beta'} · "
                         f"{r['rate']:.1f}%/day now (trend {r['trend']:.2f}x)\n"
+                        f"pool  meteora.ag/dlmm/{r['addr']}\n"
+                        f"scan  https://solscan.io/account/{r['addr']}\n"
                         f"{r['off']:.0f}% off 24h high, 24h move {r['mv']:+.1f}%\n"
                         f"TVL ${r['tvl']:,.0f}  bin {r['bin']}  fee {r['fee']}%\n"
                         f"{r['holders']:,} holders  mcap ${r['mcap']/1e6:.1f}M\n"
