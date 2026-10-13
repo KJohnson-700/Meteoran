@@ -607,12 +607,12 @@ change the cutoff.</div>
 
 <figure class="fig">{strip}
 <figcaption>One dot per pool that earned anything on the {RANK_WINDOW} window,
-on a log scale — zero cannot be plotted, so the pools sitting at exactly zero
-are counted onto the row label instead. That gap is the finding: most of these
-pools are not trading. The tick is the median of the non-zero values. These are
-fee/TVL over the window, not an annualised APR: Meteora's own <code>apr</code>
-field is exactly <code>fee_tvl_ratio["24h"]</code>, with no annualisation
-applied, so this page does not apply one either.</figcaption>
+on a log scale — zero cannot be plotted on a log axis, so pools sitting at
+exactly zero are counted onto the row label rather than drawn. The tick is the
+median of the non-zero values. These are fee/TVL over the window, not an
+annualised APR: Meteora's own <code>apr</code> field is exactly
+<code>fee_tvl_ratio["24h"]</code>, with no annualisation applied, so this page
+does not apply one either.</figcaption>
 </figure>
 
 <figure class="fig">{bar}

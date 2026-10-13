@@ -18,4 +18,9 @@ for pat in BAD:
         hits.append((pat, text[max(0, m.start()-70):m.end()+70].strip()))
 print('EDITORIAL LANGUAGE FOUND:', len(hits))
 for p, ctx in hits:
-    print('  [%s] ...%s...' % (p, ctx))
+    # The page carries typographic characters (em dash, caret) that a Windows
+    # cp1252 console cannot encode. Printing them raw crashed this check, and a
+    # check that crashes reads as a failed check. Degrade the glyph, keep the
+    # evidence.
+    safe = ctx.encode('ascii', 'replace').decode('ascii')
+    print('  [%s] ...%s...' % (p, safe))

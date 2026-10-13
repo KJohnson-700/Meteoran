@@ -103,14 +103,11 @@ def paragraph(f):
             f"{f['ratio_txt']} less on the same window")
     elif f["m_med"] == 0 and f["s_med"] > 0:
         cmp_sentence = (
-            f"The median stock×memecoin pool earned nothing at all over "
-            f"{f['win']}, against {f['s_med']:.4f}% for the median "
-            f"stock-quoted pool — so there is no ratio to quote, only a "
-            f"difference between a market that trades and one that does not")
+            f"The median stock×memecoin pool earned nothing at all over that "
+            f"window — so there is no ratio to quote, only a difference "
+            f"between a market that trades and one that does not")
     else:
-        cmp_sentence = (
-            f"Median {f['win']} yield was {f['s_med']:.4f}% for stock-quoted "
-            f"pools and {f['m_med']:.4f}% for stock×memecoin")
+        cmp_sentence = ""
 
     return (
         f"{BEGIN}\n"

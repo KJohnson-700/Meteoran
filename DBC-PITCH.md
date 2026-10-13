@@ -49,16 +49,27 @@ pool traded stale all night. That failure mode does not exist in the calibration
 ## 3 — The result
 
 `tools/stock_pairs.py` classifies every pool by beta source and ranks only pools that
-actually traded. Median APR, live pools only:
+actually traded.
 
-| class | median APR | n |
+> **SUPERSEDED — do not quote this section.** The table below is a 24-hour median
+> taken before the tool was moved off 24h-only ranking, and it is no longer what
+> the tool reports. It is kept only to show the method. Current figures are
+> generated: run `python3 tools/_summary.py`. The live copy in `SUBMISSION.md`
+> is the only version to paste.
+
+Historical 24h medians, superseded:
+
+| class | median 24h APR | n |
 |---|---|---|
 | memecoin | **0.129%** | 2,117 |
 | stock | **0.113%** | 42 |
 | **stock × memecoin** | **0.020%** | 31 |
 
-**Meme-paired-with-stock is the worst class for an LP by roughly 6x** — worse than either
-leg alone. Two correlated betas on one pool, and the fee share does not cover the variance.
+On the 24h median this looked like "the worst class by roughly 6x". **That ratio
+does not survive the current ranking.** On the 1h window the median stock×memecoin
+pool is frequently *exactly zero*, which makes the ratio undefined rather than
+large — there is no number to quote. Do not restate a multiple between these two
+classes.
 
 The top of the live book, all measured:
 
