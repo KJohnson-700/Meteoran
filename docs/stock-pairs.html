@@ -1,91 +1,368 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Meteoran — DLMM beta-class report</title>
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="Meteoran: do DLMM LP gates calibrated on
+memecoins transfer to tokenized equity? Pool-level cross-section from Meteora's
+public DLMM API.">
+<title>Meteoran — do DLMM gates transfer to tokenized equity?</title>
 <style>
-  :root { color-scheme: dark; }
-  * { box-sizing:border-box; }
-  body { margin:0; background:#0b0d12; color:#e6e9ef;
-         font:15px/1.55 ui-sans-serif,-apple-system,"Segoe UI",Roboto,sans-serif; }
-  .wrap { max-width:960px; margin:0 auto; padding:48px 24px 80px; }
-  h1 { font-size:30px; margin:0 0 6px; letter-spacing:-.02em; }
-  .sub { color:#8b93a7; margin:0 0 36px; }
-  .kpis { display:grid; grid-template-columns:repeat(auto-fit,minmax(168px,1fr));
-           gap:12px; margin-bottom:40px; }
-  .kpi { background:#12151d; border:1px solid #1e2431; border-radius:12px; padding:16px; }
-  .kpi b { display:block; font-size:26px; letter-spacing:-.02em; }
-  .kpi span { color:#8b93a7; font-size:12.5px; text-transform:uppercase;
-               letter-spacing:.07em; }
-  h2 { font-size:17px; margin:40px 0 6px; }
-  .note { color:#8b93a7; font-size:13.5px; margin:0 0 14px; }
-  table { width:100%; border-collapse:collapse; background:#12151d;
-           border:1px solid #1e2431; border-radius:12px; overflow:hidden; }
-  th,td { padding:10px 14px; text-align:left; border-bottom:1px solid #1a1f2b; }
-  th { font-size:11.5px; text-transform:uppercase; letter-spacing:.08em;
-        color:#8b93a7; font-weight:600; }
-  tr:last-child td { border-bottom:none; }
-  td.num { text-align:right; font-variant-numeric:tabular-nums; }
-  .pair { font-weight:600; }
-  .pair a { color:#e6e9ef; text-decoration:none; }
-  .pair a:hover { color:#7aa2ff; text-decoration:underline; }
-  .mint { font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
-           font-size:11px; color:#5d6577; margin-top:2px; }
-  .stale { background:#1b1710; border:1px solid #4a3a1c; border-radius:12px;
-            padding:14px 18px; margin:0 0 28px; font-size:13.5px; color:#d9b877; }
-  .stale b { color:#f0c674; }
-  .cmp { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-          gap:12px; margin:18px 0 8px; }
-  .card { background:#12151d; border:1px solid #1e2431; border-radius:12px;
-           padding:18px; }
-  .card .v { font-size:30px; font-weight:700; letter-spacing:-.02em; }
-  .card .k { color:#8b93a7; font-size:12.5px; text-transform:uppercase;
-              letter-spacing:.07em; margin-top:4px; }
-  .card .m { color:#8b93a7; font-size:12.5px; margin-top:6px; }
-  .bad { color:#ff7a6b; } .good { color:#4ade80; }
-  .flag { border-left:3px solid #ff7a6b; background:#171a22; padding:12px 16px;
-           border-radius:0 10px 10px 0; margin:20px 0; font-size:13.5px; }
-  code { background:#171a22; padding:2px 6px; border-radius:5px; font-size:13px; }
-  footer { margin-top:48px; color:#6b7385; font-size:13px; }
-  a { color:#7aa2ff; }
+:root {
+  color-scheme: light dark;
+  /* scale */
+  --size-1:.25rem; --size-2:.5rem; --size-3:1rem; --size-4:1.25rem;
+  --size-5:1.5rem;  --size-6:1.75rem; --size-7:2rem; --size-8:3rem;
+  --font-size-0:.75rem; --font-size-1:1rem; --font-size-2:1.1rem;
+  --font-size-3:1.25rem; --font-size-4:1.5rem; --font-size-5:2rem;
+  --font-size-6:2.5rem; --font-size-7:3rem;
+  --font-weight-4:400; --font-weight-5:500; --font-weight-6:600;
+  --font-weight-7:700; --font-weight-9:900;
+  --ease-3:cubic-bezier(.25,0,.3,1);
+  --ease-out-3:cubic-bezier(0,0,.3,1);
+  /* surfaces: light default, dark below */
+  --bg:#f8f9fa; --bg-2:#f1f3f5; --bg-3:#e9ecef;
+  --fg:#16191d; --fg-2:#495057; --fg-3:#868e96;
+  --line:#dee2e6; --line-2:#ced4da;
+  --link:#1971c2;
+  --c-stock:#1971c2; --c-smeme:#e03131;
+  --warn-bg:#fff9db; --warn-line:#fab005; --warn-fg:#8a5a00;
+  --shadow:0 1px 2px rgb(0 0 0 / .05), 0 8px 24px -12px rgb(0 0 0 / .12);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:#0d0f12; --bg-2:#16191d; --bg-3:#212529;
+    --fg:#f1f3f5; --fg-2:#adb5bd; --fg-3:#868e96;
+    --line:#212529; --line-2:#343a40;
+    --link:#74c0fc;
+    --c-stock:#4dabf7; --c-smeme:#ff8787;
+    --warn-bg:#1c1710; --warn-line:#f59f00; --warn-fg:#ffd43b;
+    --shadow:0 1px 2px rgb(0 0 0 / .4), 0 8px 28px -14px rgb(0 0 0 / .7);
+  }
+}
+* { box-sizing:border-box; }
+html { -webkit-text-size-adjust:100%; }
+body {
+  margin:0; background:var(--bg); color:var(--fg);
+  font:var(--font-size-1)/1.6 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",sans-serif;
+  font-synthesis-weight:none;
+}
+.wrap { max-width:62rem; margin:0 auto; padding:0 var(--size-4) var(--size-8); }
+a { color:var(--link); }
+b,strong { font-weight:var(--font-weight-7); }
+code {
+  font-family:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
+  font-size:.875em; background:var(--bg-2); border:1px solid var(--line);
+  padding:.1em .4em; border-radius:var(--size-1);
+  white-space:nowrap;
+}
+
+/* ---- top bar ---- */
+.top {
+  display:flex; align-items:center; gap:var(--size-3); flex-wrap:wrap;
+  padding:var(--size-4) 0; margin-bottom:var(--size-6);
+  border-bottom:1px solid var(--line);
+}
+.brand { font-weight:var(--font-weight-9); letter-spacing:-.02em; font-size:var(--font-size-2); }
+.brand span { color:var(--fg-3); font-weight:var(--font-weight-5); }
+.pill {
+  display:inline-flex; align-items:center; gap:.45em;
+  font-size:var(--font-size-0); font-weight:var(--font-weight-6);
+  border:1px solid var(--line-2); border-radius:999px;
+  padding:.2em .7em; color:var(--fg-2); background:var(--bg-2);
+}
+.dot {
+  width:.45em; height:.45em; border-radius:50%; background:#40c057;
+  box-shadow:0 0 0 0 rgb(64 192 87 / .6); animation:pulse 2.4s var(--ease-3) infinite;
+}
+@keyframes pulse {
+  0% { box-shadow:0 0 0 0 rgb(64 192 87 / .55); }
+  70% { box-shadow:0 0 0 .5em rgb(64 192 87 / 0); }
+  100% { box-shadow:0 0 0 0 rgb(64 192 87 / 0); }
+}
+@media (prefers-reduced-motion: reduce) { .dot { animation:none; } }
+.top .sp { flex:1; }
+.top a { font-size:var(--font-size-0); font-weight:var(--font-weight-6); text-decoration:none; }
+.top a:hover { text-decoration:underline; }
+
+/* ---- hero ---- */
+h1 {
+  font-size:clamp(1.75rem,1.1rem + 2.4vw,2.9rem);
+  line-height:1.1; letter-spacing:-.03em; font-weight:var(--font-weight-9);
+  margin:0 0 var(--size-3); max-width:22ch;
+}
+h1 em { font-style:normal; color:var(--fg-3); }
+.lede { color:var(--fg-2); font-size:var(--font-size-2); margin:0; max-width:56ch; }
+
+/* ---- verdict: the one thing to read ---- */
+.verdict {
+  margin:var(--size-6) 0 0; padding:var(--size-4) var(--size-5);
+  border:var(--size-1) solid var(--line); border-left:var(--size-1) solid var(--c-smeme);
+  border-radius:var(--size-2); background:var(--bg-2); box-shadow:var(--shadow);
+}
+.verdict .lab {
+  font-size:var(--font-size-0); font-weight:var(--font-weight-7);
+  letter-spacing:.09em; text-transform:uppercase; color:var(--fg-3);
+}
+.verdict .big {
+  font-size:clamp(1.5rem,1rem + 1.7vw,2.1rem); font-weight:var(--font-weight-9);
+  letter-spacing:-.025em; line-height:1.2; margin:var(--size-2) 0 var(--size-2);
+}
+.verdict .big em { font-style:normal; color:var(--c-smeme); }
+.verdict p { margin:0; color:var(--fg-2); max-width:62ch; }
+
+/* ---- stat strip: rules, not boxes ---- */
+.stats {
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(9.5rem,1fr));
+  gap:var(--size-4) var(--size-5); margin:var(--size-6) 0 0;
+  padding:var(--size-5) 0 0; border-top:1px solid var(--line);
+}
+.stats div { min-width:0; }
+.stats b {
+  display:block; font-size:var(--font-size-5); font-weight:var(--font-weight-9);
+  letter-spacing:-.03em; font-variant-numeric:tabular-nums; line-height:1.15;
+}
+.stats span {
+  display:block; color:var(--fg-3); font-size:var(--font-size-0);
+  font-weight:var(--font-weight-6); letter-spacing:.07em; text-transform:uppercase;
+  margin-top:var(--size-1);
+}
+
+/* ---- charts ---- */
+.fig { margin:var(--size-6) 0 0; }
+.fig svg { display:block; overflow:visible; }
+.sv-t { font-size:12px; font-weight:600; letter-spacing:.06em;
+        text-transform:uppercase; fill:var(--fg-3); }
+.sv-lab { font-size:12.5px; font-weight:600; fill:var(--fg-2); }
+.sv-ax { font-size:10.5px; fill:var(--fg-3);
+         font-variant-numeric:tabular-nums; }
+.sv-grid { stroke:var(--line); stroke-width:1; }
+.sv-base { stroke:var(--line-2); stroke-width:1; }
+.sv-med { stroke:var(--fg); stroke-width:2; stroke-linecap:round; }
+.sv-mv { font-size:10.5px; font-weight:700; fill:var(--fg);
+         font-variant-numeric:tabular-nums; }
+.sv-seg { font-size:13px; font-weight:700; fill:#fff;
+          font-variant-numeric:tabular-nums; }
+.sv-segl { font-size:11px; fill:var(--fg-3); }
+figcaption {
+  color:var(--fg-3); font-size:var(--font-size-0); margin-top:var(--size-3);
+  max-width:70ch;
+}
+
+/* ---- prose ---- */
+h2 {
+  font-size:var(--font-size-3); font-weight:var(--font-weight-7);
+  letter-spacing:-.015em; margin:var(--size-7) 0 var(--size-1);
+}
+.note { color:var(--fg-2); margin:0 0 var(--size-3); max-width:64ch; font-size:.95em; }
+
+/* ---- table ---- */
+.tw { overflow-x:auto; border:1px solid var(--line); border-radius:var(--size-2); }
+table { width:100%; border-collapse:collapse; font-size:.94em; min-width:34rem; }
+thead th {
+  position:sticky; top:0; background:var(--bg-2); text-align:left;
+  font-size:var(--font-size-0); font-weight:var(--font-weight-7);
+  letter-spacing:.07em; text-transform:uppercase; color:var(--fg-3);
+  padding:var(--size-3) var(--size-3); border-bottom:1px solid var(--line-2);
+  white-space:nowrap;
+}
+tbody td { padding:.6rem var(--size-3); border-bottom:1px solid var(--line); }
+tbody tr:last-child td { border-bottom:0; }
+tbody tr { transition:background .12s var(--ease-out-3); }
+tbody tr:hover { background:var(--bg-2); }
+td.num { text-align:right; font-variant-numeric:tabular-nums;
+         white-space:nowrap; }
+.pair { font-weight:var(--font-weight-6); }
+.pair a { color:var(--fg); text-decoration:none; border-bottom:1px solid var(--line-2); }
+.pair a:hover { color:var(--link); border-bottom-color:var(--link); }
+.mint {
+  font-family:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
+  font-size:10.5px; color:var(--fg-3); margin-top:2px;
+  font-weight:var(--font-weight-4);
+}
+
+/* ---- callouts ---- */
+.flag {
+  margin:var(--size-6) 0 0; padding:var(--size-3) var(--size-4);
+  border:1px solid var(--warn-line); border-radius:var(--size-2);
+  background:var(--warn-bg); color:var(--warn-fg); font-size:.94em;
+}
+.flag b { color:var(--warn-fg); }
+.repo {
+  margin:var(--size-6) 0 0; padding:var(--size-4);
+  border:1px solid var(--line); border-radius:var(--size-2);
+  background:var(--bg-2);
+}
+.repo h2 { margin-top:0; }
+.repo ul { margin:0; padding-left:1.1rem; color:var(--fg-2); }
+.repo li { margin:.3em 0; }
+footer {
+  margin-top:var(--size-7); padding-top:var(--size-4);
+  border-top:1px solid var(--line); color:var(--fg-3); font-size:var(--font-size-0);
+  line-height:1.7;
+}
+@media print {
+  .top, .dot { display:none; }
+  body { background:#fff; color:#000; }
+}
 </style></head><body><div class="wrap">
 
-<h1>Meteoran — DLMM beta-class report</h1>
-<p class="sub">Do DLMM LP gates transfer from memecoins to tokenized equity?
-Live pull, 24,000 pools, no wallet, read-only.</p>
-
-<div class="stale"><b>Live.</b> Refreshed every 30 minutes by
-<code>.github/workflows/refresh.yml</code> — figures below are from the most
-recent automated pull, and the bot's commits are in the repo history. Every
-pool name links to its explorer entry, so any number here can be checked
-against chain state.</div>
-
-<div class="kpis">
-  <div class="kpi"><b>57</b><span>stock pools</span></div>
-  <div class="kpi"><b>$486,218</b><span>stock TVL</span></div>
-  <div class="kpi"><b>43</b><span>stock x meme</span></div>
-  <div class="kpi"><b>$145,339</b><span>stock x meme TVL</span></div>
+<div class="top">
+  <div class="brand">Meteoran <span>/ DLMM beta-class</span></div>
+  <div class="pill"><span class="dot"></span>live · refreshes every 30 min</div>
+  <div class="sp"></div>
+  <a href="https://github.com/KJohnson-700/Meteoran">source</a>
+  <a href="https://github.com/KJohnson-700/Meteoran/actions">bot runs</a>
 </div>
 
-<h2>Median APR — live pools only</h2>
-<p class="note">Dead pools excluded: a pool with no 24h volume has no APR to
-compare, and including them drags every median toward zero.</p>
-<div class="cmp">
-  <div class="card"><div class="v">0.110%</div>
-    <div class="k">stock</div><div class="m">n = 40</div></div>
-  <div class="card"><div class="v bad">0.024%</div>
-    <div class="k">stock x memecoin</div>
-    <div class="m">n = 30 — ~5x worse</div></div>
+<h1>Do DLMM LP gates, calibrated on memecoins,
+transfer to <em>tokenized equity?</em></h1>
+<p class="lede">A pool-level cross-section of every Meteora DLMM pool quoting a
+verified equity token. 24,000 pools scanned, no wallet, read-only, standard
+library only.</p>
+
+<div class="verdict">
+  <div class="lab">the finding</div>
+  <div class="big">Stock × memecoin pools pay an LP
+    <em>4.6x lower</em> median APR than stock-quoted pools.</div>
+  <p>Same equity beta in both — the only difference is what the other leg is.
+  When the other leg is a memecoin, the fee share stops covering the variance.
+  Pairing equity with something calmer is the trade, and it is measurable from
+  public data without holding a position.</p>
 </div>
-<p class="note">Meme-paired-with-stock is the worst class for an LP by roughly
-six times. Two correlated betas on one pool, and the fee share does not cover
-the variance.</p>
+
+<div class="stats">
+  <div><b>57</b><span>stock pools</span></div>
+  <div><b>$486,218</b><span>stock TVL</span></div>
+  <div><b>43</b><span>stock × meme</span></div>
+  <div><b>$145,339</b><span>stock × meme TVL</span></div>
+  <div><b>0.110%</b><span>median APR, stock</span></div>
+  <div><b>0.024%</b><span>median APR, stock × meme</span></div>
+</div>
+
+<figure class="fig"><svg viewBox="0 0 760 184" width="100%" role="img" aria-label="every live pool's 24h APR — one dot per pool">
+<text x="0" y="9" class="sv-t">every live pool's 24h APR — one dot per pool</text>
+<line x1="92.0" y1="22" x2="92.0" y2="162" class="sv-grid"/>
+<text x="92.0" y="177" class="sv-ax" text-anchor="middle">0.0001%</text>
+<line x1="191.4" y1="22" x2="191.4" y2="162" class="sv-grid"/>
+<text x="191.4" y="177" class="sv-ax" text-anchor="middle">0.001%</text>
+<line x1="290.8" y1="22" x2="290.8" y2="162" class="sv-grid"/>
+<text x="290.8" y="177" class="sv-ax" text-anchor="middle">0.01%</text>
+<line x1="390.2" y1="22" x2="390.2" y2="162" class="sv-grid"/>
+<text x="390.2" y="177" class="sv-ax" text-anchor="middle">0.1%</text>
+<line x1="489.6" y1="22" x2="489.6" y2="162" class="sv-grid"/>
+<text x="489.6" y="177" class="sv-ax" text-anchor="middle">1%</text>
+<line x1="589.0" y1="22" x2="589.0" y2="162" class="sv-grid"/>
+<text x="589.0" y="177" class="sv-ax" text-anchor="middle">10%</text>
+<line x1="688.4" y1="22" x2="688.4" y2="162" class="sv-grid"/>
+<text x="688.4" y="177" class="sv-ax" text-anchor="middle">100%</text>
+<text x="0" y="60" class="sv-lab">stock</text>
+<line x1="92" y1="56" x2="734" y2="56" class="sv-base"/>
+<circle cx="92.0" cy="56.0" r="3" fill="var(--c-stock)" fill-opacity=".7"/>
+<circle cx="135.5" cy="56.0" r="3" fill="var(--c-stock)" fill-opacity=".7"/>
+<circle cx="157.2" cy="56.0" r="3" fill="var(--c-stock)" fill-opacity=".7"/>
+<circle cx="192.0" cy="56.0" r="3" fill="var(--c-stock)" fill-opacity=".7"/>
+<circle cx="224.2" cy="56.0" r="3" fill="var(--c-stock)" fill-opacity=".7"/>
+<circle cx="273.1" cy="56.0" r="3" fill="var(--c-stock)" fill-opacity=".7"/>
+<circle cx="288.2" cy="56.0" r="3" fill="var(--c-stock)" fill-opacity=".7"/>
+<circle cx="301.9" cy="56.0" r="3" fill="var(--c-stock)" fill-opacity=".7"/>
+<circle cx="327.4" cy="56.0" r="3" fill="var(--c-stock)" fill-opacity=".7"/>
+<circle cx="330.0" cy="56.0" r="3" fill="var(--c-stock)" fill-opacity=".7"/>
+<circle cx="348.3" cy="56.0" r="3" fill="var(--c-stock)" fill-opacity=".7"/>
+<circle cx="357.5" cy="56.0" r="3" fill="var(--c-stock)" fill-opacity=".7"/>
+<circle cx="362.6" cy="56.0" r="3" fill="var(--c-stock)" fill-opacity=".7"/>
+<circle cx="365.7" cy="56.0" r="3" fill="var(--c-stock)" fill-opacity=".7"/>
+<circle cx="369.1" cy="56.0" r="3" fill="var(--c-stock)" fill-opacity=".7"/>
+<circle cx="371.6" cy="56.0" r="3" fill="var(--c-stock)" fill-opacity=".7"/>
+<circle cx="374.3" cy="56.0" r="3" fill="var(--c-stock)" fill-opacity=".7"/>
+<circle cx="377.3" cy="52.6" r="3" fill="var(--c-stock)" fill-opacity=".7"/>
+<circle cx="377.5" cy="52.6" r="3" fill="var(--c-stock)" fill-opacity=".7"/>
+<circle cx="382.1" cy="56.0" r="3" fill="var(--c-stock)" fill-opacity=".7"/>
+<circle cx="394.4" cy="56.0" r="3" fill="var(--c-stock)" fill-opacity=".7"/>
+<circle cx="421.5" cy="52.6" r="3" fill="var(--c-stock)" fill-opacity=".7"/>
+<circle cx="421.8" cy="52.6" r="3" fill="var(--c-stock)" fill-opacity=".7"/>
+<circle cx="432.0" cy="56.0" r="3" fill="var(--c-stock)" fill-opacity=".7"/>
+<circle cx="434.7" cy="56.0" r="3" fill="var(--c-stock)" fill-opacity=".7"/>
+<circle cx="435.9" cy="52.6" r="3" fill="var(--c-stock)" fill-opacity=".7"/>
+<circle cx="436.7" cy="56.0" r="3" fill="var(--c-stock)" fill-opacity=".7"/>
+<circle cx="437.0" cy="52.6" r="3" fill="var(--c-stock)" fill-opacity=".7"/>
+<circle cx="439.1" cy="56.0" r="3" fill="var(--c-stock)" fill-opacity=".7"/>
+<circle cx="446.9" cy="56.0" r="3" fill="var(--c-stock)" fill-opacity=".7"/>
+<circle cx="450.3" cy="56.0" r="3" fill="var(--c-stock)" fill-opacity=".7"/>
+<circle cx="457.0" cy="56.0" r="3" fill="var(--c-stock)" fill-opacity=".7"/>
+<circle cx="460.7" cy="56.0" r="3" fill="var(--c-stock)" fill-opacity=".7"/>
+<circle cx="468.5" cy="56.0" r="3" fill="var(--c-stock)" fill-opacity=".7"/>
+<circle cx="485.1" cy="56.0" r="3" fill="var(--c-stock)" fill-opacity=".7"/>
+<circle cx="493.0" cy="56.0" r="3" fill="var(--c-stock)" fill-opacity=".7"/>
+<circle cx="503.2" cy="56.0" r="3" fill="var(--c-stock)" fill-opacity=".7"/>
+<circle cx="507.6" cy="56.0" r="3" fill="var(--c-stock)" fill-opacity=".7"/>
+<circle cx="542.7" cy="56.0" r="3" fill="var(--c-stock)" fill-opacity=".7"/>
+<circle cx="581.9" cy="56.0" r="3" fill="var(--c-stock)" fill-opacity=".7"/>
+<line x1="394.4" y1="45" x2="394.4" y2="67" class="sv-med"/>
+<text x="394.4" y="39" class="sv-mv" text-anchor="middle">0.110%</text>
+<text x="0" y="124" class="sv-lab">stock x meme</text>
+<line x1="92" y1="120" x2="734" y2="120" class="sv-base"/>
+<circle cx="162.9" cy="120.0" r="3" fill="var(--c-smeme)" fill-opacity=".7"/>
+<circle cx="189.6" cy="120.0" r="3" fill="var(--c-smeme)" fill-opacity=".7"/>
+<circle cx="198.8" cy="120.0" r="3" fill="var(--c-smeme)" fill-opacity=".7"/>
+<circle cx="216.0" cy="120.0" r="3" fill="var(--c-smeme)" fill-opacity=".7"/>
+<circle cx="253.1" cy="120.0" r="3" fill="var(--c-smeme)" fill-opacity=".7"/>
+<circle cx="263.4" cy="120.0" r="3" fill="var(--c-smeme)" fill-opacity=".7"/>
+<circle cx="269.2" cy="120.0" r="3" fill="var(--c-smeme)" fill-opacity=".7"/>
+<circle cx="284.4" cy="120.0" r="3" fill="var(--c-smeme)" fill-opacity=".7"/>
+<circle cx="290.4" cy="120.0" r="3" fill="var(--c-smeme)" fill-opacity=".7"/>
+<circle cx="302.1" cy="116.6" r="3" fill="var(--c-smeme)" fill-opacity=".7"/>
+<circle cx="302.5" cy="120.0" r="3" fill="var(--c-smeme)" fill-opacity=".7"/>
+<circle cx="303.3" cy="120.0" r="3" fill="var(--c-smeme)" fill-opacity=".7"/>
+<circle cx="304.1" cy="116.6" r="3" fill="var(--c-smeme)" fill-opacity=".7"/>
+<circle cx="309.0" cy="120.0" r="3" fill="var(--c-smeme)" fill-opacity=".7"/>
+<circle cx="327.3" cy="120.0" r="3" fill="var(--c-smeme)" fill-opacity=".7"/>
+<circle cx="328.8" cy="120.0" r="3" fill="var(--c-smeme)" fill-opacity=".7"/>
+<circle cx="332.7" cy="120.0" r="3" fill="var(--c-smeme)" fill-opacity=".7"/>
+<circle cx="337.8" cy="120.0" r="3" fill="var(--c-smeme)" fill-opacity=".7"/>
+<circle cx="343.9" cy="120.0" r="3" fill="var(--c-smeme)" fill-opacity=".7"/>
+<circle cx="345.6" cy="120.0" r="3" fill="var(--c-smeme)" fill-opacity=".7"/>
+<circle cx="365.8" cy="116.6" r="3" fill="var(--c-smeme)" fill-opacity=".7"/>
+<circle cx="366.0" cy="116.6" r="3" fill="var(--c-smeme)" fill-opacity=".7"/>
+<circle cx="404.3" cy="120.0" r="3" fill="var(--c-smeme)" fill-opacity=".7"/>
+<circle cx="409.3" cy="120.0" r="3" fill="var(--c-smeme)" fill-opacity=".7"/>
+<circle cx="428.8" cy="120.0" r="3" fill="var(--c-smeme)" fill-opacity=".7"/>
+<circle cx="465.2" cy="120.0" r="3" fill="var(--c-smeme)" fill-opacity=".7"/>
+<circle cx="472.9" cy="120.0" r="3" fill="var(--c-smeme)" fill-opacity=".7"/>
+<circle cx="577.6" cy="120.0" r="3" fill="var(--c-smeme)" fill-opacity=".7"/>
+<circle cx="582.8" cy="120.0" r="3" fill="var(--c-smeme)" fill-opacity=".7"/>
+<circle cx="722.7" cy="120.0" r="3" fill="var(--c-smeme)" fill-opacity=".7"/>
+<line x1="328.8" y1="109" x2="328.8" y2="131" class="sv-med"/>
+<text x="328.8" y="103" class="sv-mv" text-anchor="middle">0.024%</text>
+</svg>
+<figcaption>One dot per pool with 24h volume, on a log scale — the live pools
+span 6.6 orders of magnitude in APR, so on a linear axis almost every
+dot would stack onto the left edge and the two classes would be indistinguishable.
+The tick is the median. Dead pools are excluded: a pool with no volume has no APR
+to compare and would drag both medians toward zero.</figcaption>
+</figure>
+
+<figure class="fig"><svg viewBox="0 0 760 104" width="100%" role="img" aria-label="TVL split by pool class">
+<text x="0" y="9" class="sv-t">TVL by class</text>
+<rect x="0.0" y="20" width="585.1" height="30" rx="5" fill="var(--c-stock)"/>
+<text x="292.6" y="40" class="sv-seg" text-anchor="middle">$486,218</text>
+<text x="292.6" y="66" class="sv-segl" text-anchor="middle">stock-quoted · 77%</text>
+<rect x="585.1" y="20" width="174.9" height="30" rx="5" fill="var(--c-smeme)"/>
+<text x="672.6" y="40" class="sv-seg" text-anchor="middle">$145,339</text>
+<text x="672.6" y="66" class="sv-segl" text-anchor="middle">stock x memecoin · 23%</text>
+<text x="0" y="66" class="sv-segl">$631,557 total · 100 pools</text>
+</svg>
+<figcaption>23% of the capital sits in the class that pays
+4.6x less. The equity leg is the same in both — only the other side of
+the pool changes, and that is enough to move the median by nearly half an order
+of magnitude.</figcaption>
+</figure>
 
 <h2>Stock-quoted pools, by TVL</h2>
-<p class="note">Beta is the listed equity: bounded at ~10%/day, and it arrives
-in a gap at the session boundary rather than continuously.</p>
-<table><thead><tr><th>pair</th><th class="num">TVL</th><th class="num">APR</th>
-<th class="num">vol24/TVL</th><th class="num">holders</th></tr></thead>
-<tbody><tr><td class='pair'><a href='https://solscan.io/account/FCn5zw4gAcfRpQgst5ThFuzBGXbbJ6RocVErgC4vJ9j1' target='_blank' rel='noopener'>NVDAx-SOL</a><div class='mint'>FCn5zw…4vJ9j1</div></td><td class='num'>$128,741</td><td class='num'>1.082%</td><td class='num'>6.01</td><td class='num'>174,588</td></tr>
+<p class="note">Beta is the listed equity: bounded at roughly 10%/day, and it
+arrives in a gap at the session boundary rather than continuously.</p>
+<div class="tw"><table><thead><tr><th>pair</th><th class="num">TVL</th>
+<th class="num">APR</th><th class="num">vol24/TVL</th><th class="num">holders</th>
+</tr></thead><tbody><tr><td class='pair'><a href='https://solscan.io/account/FCn5zw4gAcfRpQgst5ThFuzBGXbbJ6RocVErgC4vJ9j1' target='_blank' rel='noopener'>NVDAx-SOL</a><div class='mint'>FCn5zw…4vJ9j1</div></td><td class='num'>$128,741</td><td class='num'>1.082%</td><td class='num'>6.01</td><td class='num'>174,588</td></tr>
 <tr><td class='pair'><a href='https://solscan.io/account/BEv9D7kzD2aPKuZWHeDHHgkrR4GcUVPqgbGTDo2hssR8' target='_blank' rel='noopener'>PLTRx-SOL</a><div class='mint'>BEv9D7…2hssR8</div></td><td class='num'>$65,773</td><td class='num'>0.470%</td><td class='num'>0.86</td><td class='num'>9,307</td></tr>
 <tr><td class='pair'><a href='https://solscan.io/account/5JWX8pQhJNpFMjPwKhFSSVWRpss4wSyoqgRGnBNJfyuX' target='_blank' rel='noopener'>SPYx-SOL</a><div class='mint'>5JWX8p…NJfyuX</div></td><td class='num'>$48,980</td><td class='num'>0.311%</td><td class='num'>1.37</td><td class='num'>79,393</td></tr>
 <tr><td class='pair'><a href='https://solscan.io/account/CmcVVxuMMCdsevwThLwU4PdESB5NxiZJU4mGrxB6QDE4' target='_blank' rel='noopener'>GOOGLx-SOL</a><div class='mint'>CmcVVx…B6QDE4</div></td><td class='num'>$42,052</td><td class='num'>0.900%</td><td class='num'>5.25</td><td class='num'>56,826</td></tr>
@@ -102,15 +379,15 @@ in a gap at the session boundary rather than continuously.</p>
 <tr><td class='pair'><a href='https://solscan.io/account/E9Axwm4ZJpmKP6mSMeDwLD2jLxctEYJDCQVV7F3XyDuP' target='_blank' rel='noopener'>QQQx-SOL</a><div class='mint'>E9Axwm…3XyDuP</div></td><td class='num'>$6,889</td><td class='num'>0.000%</td><td class='num'>0.00</td><td class='num'>37,602</td></tr>
 <tr><td class='pair'><a href='https://solscan.io/account/8yvEgE72BvZs86ZRr9j6ZHgn1zgVpBz2gTmwq7tMcgyH' target='_blank' rel='noopener'>MSTRx-SOL</a><div class='mint'>8yvEgE…tMcgyH</div></td><td class='num'>$6,009</td><td class='num'>0.053%</td><td class='num'>0.29</td><td class='num'>13,723</td></tr>
 <tr><td class='pair'><a href='https://solscan.io/account/AybtyUsKqm3gUo8c8XXxwTT7HKQcJsdfnpZ7M7quMAUG' target='_blank' rel='noopener'>GLDx-USDC</a><div class='mint'>AybtyU…quMAUG</div></td><td class='num'>$5,171</td><td class='num'>0.057%</td><td class='num'>0.63</td><td class='num'>40,624</td></tr>
-<tr><td class='pair'><a href='https://solscan.io/account/CK751YkvVdjWF6cC3Mcs6ibb16DQ417ohXDZ52CRC4xS' target='_blank' rel='noopener'>MSTRx-USDC</a><div class='mint'>CK751Y…CRC4xS</div></td><td class='num'>$4,860</td><td class='num'>0.061%</td><td class='num'>0.33</td><td class='num'>13,723</td></tr></tbody></table>
+<tr><td class='pair'><a href='https://solscan.io/account/CK751YkvVdjWF6cC3Mcs6ibb16DQ417ohXDZ52CRC4xS' target='_blank' rel='noopener'>MSTRx-USDC</a><div class='mint'>CK751Y…CRC4xS</div></td><td class='num'>$4,860</td><td class='num'>0.061%</td><td class='num'>0.33</td><td class='num'>13,723</td></tr></tbody></table></div>
 
-<h2>Stock x memecoin pools, by TVL</h2>
-<p class="note">Both betas live at once. Note GOOGLx-GOOGLon: the same company
-across two issuers, in two liquidity silos. And STONK-NVDAx: meme-paired-with-
-stock, already live, bottom decile by yield.</p>
-<table><thead><tr><th>pair</th><th class="num">TVL</th><th class="num">APR</th>
-<th class="num">vol24/TVL</th><th class="num">holders</th></tr></thead>
-<tbody><tr><td class='pair'><a href='https://solscan.io/account/6iMKsFAkkvXS6E1Q4hyHARQkLn3HFLrwTo1JStLw5q2p' target='_blank' rel='noopener'>ORE-GLDx</a><div class='mint'>6iMKsF…Lw5q2p</div></td><td class='num'>$85,450</td><td class='num'>0.057%</td><td class='num'>0.20</td><td class='num'>40,624</td></tr>
+<h2>Stock × memecoin pools, by TVL</h2>
+<p class="note">Both betas live at once. Note GOOGLx-GOOGLon — the same company
+across two issuers, in two liquidity silos — and STONK-NVDAx, meme-paired-with-
+stock, already live and in the bottom decile by yield.</p>
+<div class="tw"><table><thead><tr><th>pair</th><th class="num">TVL</th>
+<th class="num">APR</th><th class="num">vol24/TVL</th><th class="num">holders</th>
+</tr></thead><tbody><tr><td class='pair'><a href='https://solscan.io/account/6iMKsFAkkvXS6E1Q4hyHARQkLn3HFLrwTo1JStLw5q2p' target='_blank' rel='noopener'>ORE-GLDx</a><div class='mint'>6iMKsF…Lw5q2p</div></td><td class='num'>$85,450</td><td class='num'>0.057%</td><td class='num'>0.20</td><td class='num'>40,624</td></tr>
 <tr><td class='pair'><a href='https://solscan.io/account/EzgjkXdjyWUYfiCSJ5H7kt1oiXkuZMWLoisjHAxD8HQc' target='_blank' rel='noopener'>SNDK-HOODx</a><div class='mint'>EzgjkX…xD8HQc</div></td><td class='num'>$10,131</td><td class='num'>0.139%</td><td class='num'>0.15</td><td class='num'>13,230</td></tr>
 <tr><td class='pair'><a href='https://solscan.io/account/ExwtCL871L2QhHw7EikDPBHfoEHzadxcepdw1Fs3ofoR' target='_blank' rel='noopener'>CRCLx-MSTRx</a><div class='mint'>ExwtCL…s3ofoR</div></td><td class='num'>$7,725</td><td class='num'>0.013%</td><td class='num'>0.28</td><td class='num'>19,163</td></tr>
 <tr><td class='pair'><a href='https://solscan.io/account/6PsERz8BytYZuN8pKFYZgJG14U2q1NNyKf1dPbVrPBts' target='_blank' rel='noopener'>SPYx-GMEx</a><div class='mint'>6PsERz…VrPBts</div></td><td class='num'>$7,605</td><td class='num'>0.001%</td><td class='num'>0.00</td><td class='num'>79,398</td></tr>
@@ -127,25 +404,35 @@ stock, already live, bottom decile by yield.</p>
 <tr><td class='pair'><a href='https://solscan.io/account/CaXn3BMd41fCyuCsZQwL5j1Tgsnf9DFjhE75ts4RGfAd' target='_blank' rel='noopener'>SPYx-QQQx</a><div class='mint'>CaXn3B…4RGfAd</div></td><td class='num'>$1,435</td><td class='num'>0.005%</td><td class='num'>0.03</td><td class='num'>79,393</td></tr>
 <tr><td class='pair'><a href='https://solscan.io/account/FUYcTkrmtag6HbP5BXySjPeToyewspkKb7Uzo2vvxVPU' target='_blank' rel='noopener'>PFE-NVDAx</a><div class='mint'>FUYcTk…vvxVPU</div></td><td class='num'>$739</td><td class='num'>0.006%</td><td class='num'>0.06</td><td class='num'>174,587</td></tr>
 <tr><td class='pair'><a href='https://solscan.io/account/2fH6EGFyjbnqvt8JsBivroYrbsUZZEUmPgYnHkukEGUT' target='_blank' rel='noopener'>SPYx-QQQx</a><div class='mint'>2fH6EG…ukEGUT</div></td><td class='num'>$493</td><td class='num'>0.023%</td><td class='num'>1.16</td><td class='num'>79,393</td></tr>
-<tr><td class='pair'><a href='https://solscan.io/account/A7QPW9XdCeio57NGpZTMWaWrExTJP8NV821zY2nmEWfJ' target='_blank' rel='noopener'>HIGGS-NVDAx</a><div class='mint'>A7QPW9…nmEWfJ</div></td><td class='num'>$313</td><td class='num'>7.671%</td><td class='num'>6.32</td><td class='num'>174,587</td></tr></tbody></table>
+<tr><td class='pair'><a href='https://solscan.io/account/A7QPW9XdCeio57NGpZTMWaWrExTJP8NV821zY2nmEWfJ' target='_blank' rel='noopener'>HIGGS-NVDAx</a><div class='mint'>A7QPW9…nmEWfJ</div></td><td class='num'>$313</td><td class='num'>7.671%</td><td class='num'>6.32</td><td class='num'>174,587</td></tr></tbody></table></div>
 
-<div class="flag"><b>Data quality.</b> A large fraction of the raw
-<code>/pools</code> pull is structurally corrupt — TVL of 3e-12, APR of 6e13.
-Every figure on this page is post-filter. A single unfiltered row sorts an
-entire table, which is why every public leaderboard on this venue is
-untrustworthy.</div>
+<div class="flag"><b>Data quality, and why it matters here.</b> A large and
+moving fraction of the raw <code>/pools</code> pull is structurally corrupt — TVL
+of 3e-12, APR of 6e13. Every figure on this page is post-filter. A single
+unfiltered row sorts an entire table, which is why a public leaderboard built on
+the same endpoint can look precise and be meaningless.</div>
 
-<h2>What this is not</h2>
-<p class="note">Not a strategy, not a bot, not a ranking product. It is a
-pool-level cross-section from one pull: no wallet-level skill measurement, no
-time series, no persistence test. A first measurement with a direction.</p>
+<div class="repo">
+  <h2>What this is not</h2>
+  <ul>
+    <li>Not a strategy and not a bot. It places nothing and signs nothing.</li>
+    <li>Not a ranking product. No wallet-level skill measurement, no time
+        series, no persistence test — one cross-section from one pull.</li>
+    <li>Not investment advice. It surfaces candidates and the conditions they
+        trade under.</li>
+  </ul>
+</div>
 
-<footer>This is a research tool for finding DLMM pools worth providing liquidity
-to. It surfaces candidates and the conditions they are trading under — it does
-not place anything, and it is not investment advice. Data is pulled from
-Meteora's public DLMM API every 30 minutes by
-<code>tools/stock_pairs.py</code>; read-only, standard library only. Source
+<footer>
+Figures come from Meteora's public DLMM API, pulled every 30 minutes by
+<code>tools/stock_pairs.py</code>; the page itself is rendered by
+<code>tools/stock_report.py</code> from <code>data/stock_pairs.json</code>. Every
+pool name links to its Solscan entry, so any number above can be checked against
+chain state. Reproduce with
+<code>python3 tools/stock_pairs.py 60 &amp;&amp; python3 tools/stock_report.py</code>
+· source at
 <a href="https://github.com/KJohnson-700/Meteoran">github.com/KJohnson-700/Meteoran</a>
-· reproduce with <code>python3 tools/stock_pairs.py 60 &amp;&amp; python3 tools/stock_report.py</code></footer>
+· 24,000 pools scanned, $631,557 TVL in the two classes above.
+</footer>
 
 </div></body></html>

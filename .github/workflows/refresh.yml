@@ -43,6 +43,12 @@ jobs:
       - name: render
         run: python tools/stock_report.py
 
+      # Fails the job if the render stopped being self-contained, lost a chart,
+      # or leaked an unfilled template brace. Runs before the commit on purpose:
+      # a broken page should never reach main in the first place.
+      - name: audit the render
+        run: python tools/_audit.py
+
       - name: commit
         run: |
           git config user.name  'github-actions[bot]'
