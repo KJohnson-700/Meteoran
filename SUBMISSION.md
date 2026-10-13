@@ -1,8 +1,9 @@
 # Submission — Meteora DBC track
 
-Copy from here into the form. Figures below are from the most recent automated
-pull (51 stock pools, $543,476 TVL) and refresh every 30 minutes, so re-check
-`kjohnson-700.github.io/Meteoran/stock-pairs.html` before you submit.
+Copy from here into the form. The paragraph marked `live-figures` is generated,
+not written — run `python3 tools/_summary.py --sync` immediately before you paste
+so the numbers match the page you are recording, then check
+`kjohnson-700.github.io/Meteoran/stock-pairs.html`.
 
 ---
 
@@ -16,7 +17,9 @@ DLMM liquidity tooling, extended to tokenized equity.
 
 Meteoran's gates were calibrated on memecoin DLMM across 111,838 closed positions. The headline result is that impermanent loss isn't the risk — token beta is. Fee capture scales monotonically with outcome, and fees covered IL 3.74x. Which means the gates can't be assumed to carry over to a new asset class without testing them.
 
-Nobody has run that test on tokenized equity. There are 51 stock-quoted DLMM pools holding ~$543k, plus 41 pairing a stock against a memecoin. On pools that actually traded, median APR runs 0.139% for memecoins, 0.113% for stock pairs, and 0.022% for stock×memecoin. Meme-paired-with-stock is about 5x worse than either leg alone — two correlated betas on one pool, and the fee share doesn't cover the variance.
+<!-- live-figures:begin -->
+Nobody has run that test on tokenized equity. Of 24,000 DLMM pools scanned, 57 quote an equity token directly and hold $486,218; 43 pair one against a memecoin. On pools that actually traded, median APR runs 0.110% for stock-quoted pools (n=40) and 0.024% for stock×memecoin (n=30). Pairing a stock with a memecoin pays about 4.6x less — the same equity beta either way, so the whole difference is the other leg. Two correlated betas on one pool, and the fee share stops covering the variance.
+<!-- live-figures:end -->
 
 tools/stock_pairs.py classifies every pool by beta source and ranks it. pool_alert.py tags alerts by class, so you can scan equity pairs only and get a phone push with the pool link instead of watching a browser.
 
@@ -54,10 +57,19 @@ worse) product.
 
 ## Numbers to re-verify before submitting
 
-The 30-minute workflow means these drift. If the live page disagrees with the
-description above, use the page's numbers — a judge who re-runs the tool and
-sees a different count is worse than a slightly stale description.
+The 30-minute workflow means these drift, which is why the description above is
+generated rather than hand-written. Run this once, immediately before you paste:
 
 ```bash
-python3 tools/_summary.py
+python3 tools/_summary.py --sync
+```
+
+It rewrites the `live-figures` paragraph from `data/stock_pairs.json` — the same
+file the page is rendered from — so the copy you paste and the page you record
+cannot disagree. If the live page still differs from what `--sync` just wrote,
+pull first and re-run:
+
+```bash
+python3 tools/stock_pairs.py 60 && python3 tools/stock_report.py && python3 tools/_summary.py --sync
+```
 ```
