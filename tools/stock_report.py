@@ -218,6 +218,8 @@ td.num { text-align:right; font-variant-numeric:tabular-nums;
   background:var(--bg-2);
 }
 .repo h2 { margin-top:0; }
+.repo p { margin:0 0 var(--size-3); color:var(--fg-2); max-width:68ch; }
+.repo p:last-child { margin-bottom:0; }
 .repo ul { margin:0; padding-left:1.1rem; color:var(--fg-2); }
 .repo li { margin:.3em 0; }
 footer {
@@ -424,10 +426,10 @@ def main() -> int:
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="color-scheme" content="light dark">
-<meta name="description" content="Meteoran: do DLMM LP gates calibrated on
-memecoins transfer to tokenized equity? Pool-level cross-section from Meteora's
-public DLMM API.">
-<title>Meteoran — do DLMM gates transfer to tokenized equity?</title>
+<meta name="description" content="Every tokenized-equity DLMM pool on Meteora,
+classified by beta source and ranked by measured 24h yield. Refreshed every 30
+minutes from the public DLMM API. No wallet, no key.">
+<title>Meteoran — which equity DLMM pools are worth providing liquidity to</title>
 <style>{CSS}</style></head><body><div class="wrap">
 
 <div class="top">
@@ -438,11 +440,13 @@ public DLMM API.">
   <a href="https://github.com/KJohnson-700/Meteoran/actions">bot runs</a>
 </div>
 
-<h1>Do DLMM LP gates, calibrated on memecoins,
-transfer to <em>tokenized equity?</em></h1>
-<p class="lede">A pool-level cross-section of every Meteora DLMM pool quoting a
-verified equity token. {scanned:,} pools scanned, no wallet, read-only, standard
-library only.</p>
+<h1>Which tokenized-equity pools on Meteora are
+worth <em>providing liquidity to.</em></h1>
+<p class="lede">Every DLMM pool quoting a verified equity token, classified by
+where its beta comes from and ranked by what it actually paid over 24 hours.
+{scanned:,} pools scanned, {len(stock) + len(smeme)} equity pools found.
+Refreshed every 30 minutes. No wallet, no key, standard library only — open the
+file and it works.</p>
 
 <div class="verdict">
   <div class="lab">the finding</div>
@@ -498,6 +502,20 @@ moving fraction of the raw <code>/pools</code> pull is structurally corrupt — 
 of 3e-12, APR of 6e13. Every figure on this page is post-filter. A single
 unfiltered row sorts an entire table, which is why a public leaderboard built on
 the same endpoint can look precise and be meaningless.</div>
+
+<div class="repo">
+  <h2>Why this was worth measuring</h2>
+  <p>Meteoran's existing LP gates were calibrated on memecoin DLMM across
+  111,838 closed positions. That work concluded impermanent loss is not the risk
+  — token beta is, and fee capture scales monotonically with outcome. Every gate
+  in it was therefore tuned against a market that moves without a schedule.</p>
+  <p>Tokenized equity moves like neither a memecoin nor a normal market: it is
+  bounded at roughly 10%/day, and it arrives in a gap when the underlying reopens
+  rather than continuously. A gate calibrated on continuous, uncorrelated
+  memecoin variance cannot simply be assumed to hold there. Nobody had checked.
+  This page is that check — and the top line is that it does not transfer
+  cleanly.</p>
+</div>
 
 <div class="repo">
   <h2>What this is not</h2>
