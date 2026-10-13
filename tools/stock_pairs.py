@@ -34,9 +34,18 @@ UA = {"User-Agent": "Mozilla/5.0"}
 
 # Equity tickers. The mint is authoritative; this list is only a human label.
 XSTOCK_TICKERS = {
+    # REMOVED "KOx" 2026-10-12. It was added from memory, not from an issuer's
+    # published list, and it is wrong: KOx is a memecoin, and it was being
+    # classified as an equity on three live DLMM pools (KOx-SOL, KOx-USDC,
+    # OFOO-KOx). This is the exact failure CLAUDE.md warns about -- a symbol
+    # list that nobody cross-checked is a guess that becomes a finding.
+    #
+    # Everything below must come from the issuer's published asset list, and the
+    # mint must be verified on explorer.solana.com before it goes in here.
+    # A ticker on an xStocks-style mint does NOT by itself make it an equity.
     "AAPLx", "TSLAx", "NVDAx", "MSFTx", "METAx", "GOOGLx", "AMDAx", "AMDx",
     "AVGOx", "PLTRx", "HOODx", "SPYx", "QQQx", "COINx", "CRCLx", "MSTRx",
-    "ORCLx", "GLDx", "VIDAx", "KOx", "OPENx", "NFLXx", "SBUXx", "TBLLx",
+    "ORCLx", "GLDx", "VIDAx", "OPENx", "NFLXx", "SBUXx", "TBLLx",
 }
 ONDO_TICKERS = {"AAPLon", "MSFTon", "TSLAon", "GOOGLon", "NVDAon", "SPYon",
                 "QQQon", "METAon", "CRCLon"}

@@ -35,6 +35,37 @@ from concurrent.futures import ThreadPoolExecutor
 API = "https://dlmm.datapi.meteora.ag"
 STATE = "data/pool_alert_seen.json"
 
+# --- beta class -------------------------------------------------------
+# This scanner ranks EVERY pool and cannot tell an equity-quoted pool from a
+# memecoin pool, so it pushes NVDAx-SOL and FROG-SOL with identical treatment.
+# Measured 2026-10-12 (tools/stock_pairs.py, 24k-pool pull):
+#
+#   memecoin          median APR 0.129%   n=2117 live
+#   stock             median APR 0.113%   n=  42 live
+#   stock x memecoin  median APR 0.020%   n=  31 live
+#
+# Those are DIFFERENT markets with different beta physics: a listed equity is
+# bounded at ~10%/day and reprices in a gap at the session open, a memecoin is
+# continuous and unbounded. Ranking them together is the same error as sorting
+# a bond book and a memecoin book on one yield column.
+#
+# So: tag every alert with its class, and let the operator run one class or the
+# other. Classification reuses stock_pairs.classify_pair -- one definition of
+# "is this an equity", not two that drift apart.
+try:
+    from stock_pairs import classify_pair
+except ImportError:                      # run from repo root, not tools/
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    from stock_pairs import classify_pair
+
+
+def beta_class(p):
+    """-> 'stock' | 'stock_meme' | 'meme'. Never raises into the scan loop."""
+    try:
+        return classify_pair(p)[0].lower()
+    except Exception:
+        return "unknown"
+
 
 def get(u):
     r = urllib.request.Request(u, headers={"User-Agent": "Mozilla/5.0"})
@@ -165,11 +196,13 @@ def candidates(min_rate, min_tvl):
         holders = int(tk.get("holders") or 0)
         if holders < 500: return None                 # thin holder base = one seller moves it
         if not tk.get("freeze_authority_disabled", True): return None   # can freeze your exit
+        cls, eq_x, eq_y = classify_pair(p)
         return {"name": p.get("name"), "addr": a, "rate": f1, "trend": tr, "tvl": tvl,
                 "off": off, "mv": mv, "bin": cfg.get("bin_step"),
                 "fee": cfg.get("base_fee_pct"), "price": cur,
                 "holders": holders, "mcap": float(tk.get("market_cap") or 0),
-                "v30": v30, "v1": v1}
+                "v30": v30, "v1": v1,
+                "class": cls, "equity": eq_x or eq_y}
     with ThreadPoolExecutor(max_workers=10) as ex:
         return [r for r in ex.map(price, rough) if r]
 
@@ -182,11 +215,17 @@ def main():
     # constraint -- holder count is, and that has its own gate. Lowered 2026-09-27 after
     # the floor hid the better of two MINI-SOL pools (28.4%/day vs the 8.1% one it pushed).
     min_tvl = float(sys.argv[3]) if len(sys.argv) > 3 else 20_000
+    # 4th arg: which beta class to alert on. "any" (default) keeps the old
+    # behaviour. "stock" only pushes equity-quoted pools. "meme" excludes them.
+    # "stock_meme" is the pair that measured ~6x worse than either leg alone.
+    want = (sys.argv[4] if len(sys.argv) > 4 else "any").lower()
     os.makedirs("data", exist_ok=True)
     seen = json.load(open(STATE)) if os.path.exists(STATE) else {}
 
     print(f"  scanning every {mins}min | rate>={min_rate}%/day, TVL>=${min_tvl:,.0f}, "
           f"pullback 15-65%, not decelerating")
+    print(f"  class: {want.upper()}"
+          + ("  (all classes, as before)" if want == "any" else ""))
     print(f"  pushing to ntfy. READ ONLY -- finds pools, places nothing.\n")
     while True:
         c = candidates(min_rate, min_tvl)
@@ -194,22 +233,37 @@ def main():
         if c is None:
             print(f"  [{stamp}] scan FAILED (API) -- not reporting 'nothing found'")
         else:
+            # Beta-class filter. Applied AFTER the gates so the class counts in
+            # the log are always the full qualifying set, not a filtered one.
+            counts = {}
+            for r in c:
+                counts[r.get("class", "unknown")] = counts.get(r.get("class", "unknown"), 0) + 1
+            if want != "any":
+                if want == "meme":
+                    c = [r for r in c if r.get("class") != "stock"]
+                else:
+                    c = [r for r in c if r.get("class") == want]
             c.sort(key=lambda r: -r["rate"])
             fresh = [r for r in c if time.time() - seen.get(r["addr"], 0) > 6 * 3600]
-            print(f"  [{stamp}] {len(c)} qualify, {len(fresh)} fresh")
+            print(f"  [{stamp}] {len(c)} qualify, {len(fresh)} fresh"
+                  + ("  by class: " + ", ".join(f"{k}={v}" for k, v in sorted(counts.items()))
+                     if counts else ""))
             for r in c[:5]:
                 print(f"      {r['name'][:18]:<19}{r['rate']:>6.1f}%/day  trend {r['trend']:>4.2f}x  "
                       f"off high {r['off']:>4.1f}%  24h {r['mv']:>+6.1f}%  ${r['tvl']:>9,.0f}  "
                       f"{r['holders']:,} hldrs  30m vol ${r['v30']:,.0f}")
             for r in fresh[:3]:
-                body = (f"{r['rate']:.1f}%/day now (trend {r['trend']:.2f}x)\n"
+                tag = {"stock": "EQUITY", "stock_meme": "EQUITY x MEME",
+                       "meme": "MEME"}.get(r.get("class"), "")
+                body = (f"[{tag}] {r.get('equity') or 'meme beta'} · "
+                        f"{r['rate']:.1f}%/day now (trend {r['trend']:.2f}x)\n"
                         f"{r['off']:.0f}% off 24h high, 24h move {r['mv']:+.1f}%\n"
                         f"TVL ${r['tvl']:,.0f}  bin {r['bin']}  fee {r['fee']}%\n"
                         f"{r['holders']:,} holders  mcap ${r['mcap']/1e6:.1f}M\n"
                         f"price {r['price']:.9f}\n"
                         f"-50% floor would be {r['price']*0.5:.9f}\n"
                         f"{r['addr']}")
-                push(f"LP entry: {r['name']}", body, "high", "moneybag")
+                push(f"[{tag or 'LP'}] {r['name']}", body, "high", "moneybag")
                 seen[r["addr"]] = time.time()
                 print(f"      -> PUSHED {r['name']}")
             tmp = STATE + ".tmp"
