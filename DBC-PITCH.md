@@ -151,6 +151,40 @@ the string can read *and* post.
 cp tools/notify.example.py tools/notify.py    # then set TOPIC
 ```
 
+### The report and the alerter are different objects, on purpose
+
+They are not two views of one thing, and they deliberately do not share a cadence.
+
+**The report is a map.** Batch scan, renders state, you read it. Refreshed every 30
+minutes by `.github/workflows/refresh.yml` because a human is the consumer and 30
+minutes is fine for a document you look at twice a day.
+
+**The alerter is an alarm.** Continuous loop, fires a phone push **only** when all nine
+measured gates pass, and the interval is the operator's choice:
+
+```bash
+python3 tools/pool_alert.py 20 8 20000 stock   # every 20min, equity-quoted only
+```
+
+Tying an alarm to a document's refresh rate would be the bug. The one is a signal, the
+other is a reference.
+
+**Why the default is 20 minutes and not 5, or 30.** The gates read Meteora's rolling
+`30m`, `1h`, `12h` and `24h` windows. The freshest input is the 30-minute window, so
+polling at 5 minutes samples that same window six times per cycle and learns nothing —
+just six times the API load. Polling at *exactly* 30 is worse: it aliases, sampling the
+window at the same phase every cycle, which can walk straight past the peak.
+
+Twenty minutes puts **two samples inside every 30-minute window**, at different phases.
+That is what the number is for. It is not a round number someone picked.
+
+| | report | alerter |
+|---|---|---|
+| object | map | alarm |
+| fires | never, just renders | only when 9 gates pass |
+| cadence | 30 min batch | 20 min default, operator-set |
+| consumer | a person reading | a phone in a pocket |
+
 ### Live dashboard
 
 `python3 tools/dashboard.py` serves a real browser board on `localhost:8787`, polling
