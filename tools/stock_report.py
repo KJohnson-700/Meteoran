@@ -125,12 +125,11 @@ def main() -> int:
 <p class="sub">Do DLMM LP gates transfer from memecoins to tokenized equity?
 Live pull, {scanned:,} pools, no wallet, read-only.</p>
 
-<div class="stale"><b>Static snapshot.</b> These figures were produced by a single
-run of <code>tools/stock_pairs.py 60</code> and are frozen at that moment — this
-page does not refresh itself. To regenerate, run the tool and re-export, or run
-the live scanner which pushes qualifying pools to a phone instead of a browser.
-Every pool name below links to its explorer entry, so any number here can be
-checked against chain state.</div>
+<div class="stale"><b>Live.</b> Refreshed every 30 minutes by
+<code>.github/workflows/refresh.yml</code> — figures below are from the most
+recent automated pull, and the bot's commits are in the repo history. Every
+pool name links to its explorer entry, so any number here can be checked
+against chain state.</div>
 
 <div class="kpis">
   <div class="kpi"><b>{len(stock)}</b><span>stock pools</span></div>
@@ -179,9 +178,13 @@ untrustworthy.</div>
 pool-level cross-section from one pull: no wallet-level skill measurement, no
 time series, no persistence test. A first measurement with a direction.</p>
 
-<footer>Reproduce: <code>python3 tools/stock_pairs.py 60</code> ·
-Source <a href="https://github.com/KJohnson-700/Meteoran">github.com/KJohnson-700/Meteoran</a> ·
-read-only, standard library only</footer>
+<footer>This is a research tool for finding DLMM pools worth providing liquidity
+to. It surfaces candidates and the conditions they are trading under — it does
+not place anything, and it is not investment advice. Data is pulled from
+Meteora's public DLMM API every 30 minutes by
+<code>tools/stock_pairs.py</code>; read-only, standard library only. Source
+<a href="https://github.com/KJohnson-700/Meteoran">github.com/KJohnson-700/Meteoran</a>
+· reproduce with <code>python3 tools/stock_pairs.py 60 &amp;&amp; python3 tools/stock_report.py</code></footer>
 
 </div></body></html>"""
 
