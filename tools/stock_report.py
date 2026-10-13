@@ -29,6 +29,21 @@ SRC = os.path.join(ROOT, "data", "stock_pairs.json")
 # neither, so it lives in docs/ where it is safe to commit and serve.
 OUT = os.path.join(ROOT, "docs", "stock-pairs.html")
 
+# Minimum TVL for a pool to be ranked.
+#
+# This is the single most important filter in the page and it is not cosmetic.
+# 77 of the 100 equity pools found hold under $5,000 and the median holds $493.
+# Ranked on raw APR, the top earner in the stock x memecoin class was a pool
+# with $19 of TVL printing 221% -- arithmetically true, economically
+# meaningless, and the first thing anyone opening this page would have seen.
+# A yield figure computed on $19 of depth is arithmetic, not a return.
+#
+# $1,000 keeps 40 of the 100 pools and puts a real one at the top. The floor is
+# applied here, at render, rather than in tools/stock_pairs.py, so the captured
+# JSON stays a faithful record of everything that was seen -- nothing is hidden,
+# and the page states how many pools the floor excluded.
+MIN_TVL = 1000.0
+
 # --- Open Props subset (v1.7.7), verbatim values -------------------------
 # https://unpkg.com/open-props@1.7.7/open-props.min.css
 CSS = """
@@ -118,24 +133,7 @@ h1 {
 h1 em { font-style:normal; color:var(--fg-3); }
 .lede { color:var(--fg-2); font-size:var(--font-size-2); margin:0; max-width:56ch; }
 
-/* ---- verdict: the one thing to read ---- */
-.verdict {
-  margin:var(--size-6) 0 0; padding:var(--size-4) var(--size-5);
-  border:var(--size-1) solid var(--line); border-left:var(--size-1) solid var(--c-smeme);
-  border-radius:var(--size-2); background:var(--bg-2); box-shadow:var(--shadow);
-}
-.verdict .lab {
-  font-size:var(--font-size-0); font-weight:var(--font-weight-7);
-  letter-spacing:.09em; text-transform:uppercase; color:var(--fg-3);
-}
-.verdict .big {
-  font-size:clamp(1.5rem,1rem + 1.7vw,2.1rem); font-weight:var(--font-weight-9);
-  letter-spacing:-.025em; line-height:1.2; margin:var(--size-2) 0 var(--size-2);
-}
-.verdict .big em { font-style:normal; color:var(--c-smeme); }
-.verdict p { margin:0; color:var(--fg-2); max-width:62ch; }
-
-/* ---- stat strip: rules, not boxes ---- */
+/* ---- stat strip ---- */
 .stats {
   display:grid; grid-template-columns:repeat(auto-fit,minmax(9.5rem,1fr));
   gap:var(--size-4) var(--size-5); margin:var(--size-6) 0 0;
@@ -363,6 +361,19 @@ def tvl_svg(stock, smeme, w=760, h=104):
 
 
 def rows_html(rows, limit=18):
+    """Ranked by what the pool paid, which is the whole job.
+
+    Sorted on 24h APR descending, NOT on TVL. TVL says how deep a pool is,
+    not what it pays, and a page whose first row is the biggest pool is
+    answering a question nobody opened it to ask. TVL stays as a column so
+    depth is still visible next to yield.
+
+    Only pools at or above MIN_TVL are rankable -- see the note on that
+    constant. Pools with no 24h volume carry no APR and land at the bottom,
+    which is correct: there is nothing to compare about them.
+    """
+    rows = sorted([r for r in rows if r["tvl"] >= MIN_TVL],
+                  key=lambda r: -(r["apr"] if r["apr"] else -1.0))
     out = []
     for r in rows[:limit]:
         tvl = r["tvl"]
@@ -377,11 +388,23 @@ def rows_html(rows, limit=18):
             f"<a href='https://solscan.io/account/{addr}' target='_blank' "
             f"rel='noopener'>{r['name']}</a>"
             f"<div class='mint'>{addr[:6]}…{addr[-6:]}</div></td>"
-            f"<td class='num'>${tvl:,.0f}</td>"
             f"<td class='num'>{apr:.3f}%</td>"
+            f"<td class='num'>${tvl:,.0f}</td>"
             f"<td class='num'>{vtvl:.2f}</td>"
             f"<td class='num'>{h:,}</td></tr>")
     return "\n".join(out)
+
+
+def top_of(rows):
+    """Best-paying RANKABLE pool in a class, or None.
+
+    Ranked within the class on its own terms -- this is the tool doing its job,
+    not a verdict about the class.
+    """
+    livep = [r for r in rows
+             if r.get("volume_24h", 0) > 0 and r["apr"] > 0
+             and r["tvl"] >= MIN_TVL]
+    return max(livep, key=lambda r: r["apr"]) if livep else None
 
 
 def main() -> int:
@@ -394,25 +417,28 @@ def main() -> int:
     smeme = d["buckets"]["STOCK_MEME"]
     scanned = d["scanned"]
 
-    stock_live = [r["apr"] for r in live(stock)]
-    smeme_live = [r["apr"] for r in live(smeme)]
-    stock_tvl = sum(r["tvl"] for r in stock)
-    smeme_tvl = sum(r["tvl"] for r in smeme)
+    # Everything downstream ranks and charts the rankable subset. The dropped
+    # count is reported on the page -- a filter that silently shrinks the
+    # universe is how a page ends up quietly wrong.
+    def rankable(rows):
+        return [r for r in rows if r["tvl"] >= MIN_TVL]
+
+    s_rank, m_rank = rankable(stock), rankable(smeme)
+    dropped = len(stock) + len(smeme) - len(s_rank) - len(m_rank)
+
+    stock_live = [r["apr"] for r in live(s_rank)]
+    smeme_live = [r["apr"] for r in live(m_rank)]
+    stock_tvl = sum(r["tvl"] for r in s_rank)
+    smeme_tvl = sum(r["tvl"] for r in m_rank)
     total_tvl = stock_tvl + smeme_tvl
 
     ms, mm = med(stock_live), med(smeme_live)
-    ratio = ms / mm if mm > 0 else float("nan")
-    p75s, p25s = pct(stock_live, .75), pct(stock_live, .25)
-    p75m, p25m = pct(smeme_live, .75), pct(smeme_live, .25)
 
     strip = strip_svg([
         ("stock", "var(--c-stock)", stock_live),
         ("stock x meme", "var(--c-smeme)", smeme_live),
     ], title="every live pool's 24h APR — one dot per pool")
-    bar = tvl_svg(stock, smeme)
-
-    ratio_txt = (f"{ratio:.0f}x" if ratio >= 10 else f"{ratio:.1f}x") \
-        if ratio == ratio else "n/a"
+    bar = tvl_svg(s_rank, m_rank)
 
     # Both captions below state a measured quantity, so both are computed here
     # rather than written by hand. A caption that drifts from its own chart is
@@ -421,6 +447,32 @@ def main() -> int:
     pos = [v for v in every if v > 0]
     decades = (math.log10(max(pos) / min(pos)) if len(pos) > 1 else 0.0)
     smeme_share = (smeme_tvl / total_tvl * 100) if total_tvl else 0.0
+
+    # What the floor actually removed, named from the current pull. Hardcoding
+    # an example here would go stale within one refresh and quietly start
+    # describing a pool that is no longer in the data.
+    sub = [r for r in (stock + smeme)
+           if r["tvl"] < MIN_TVL and r.get("volume_24h", 0) > 0 and r["apr"] > 0]
+    if sub:
+        w = max(sub, key=lambda r: r["apr"])
+        floor_evidence = (f"Ranked on raw APR the top earner across those was "
+                          f"<b>{w['name']}</b> at {w['apr']:.3f}% on "
+                          f"${w['tvl']:,.0f} of TVL")
+    else:
+        floor_evidence = "Every pool below the floor had no 24h volume"
+
+    # Each class leads with its own best payer. Ranked within the class, not
+    # against each other -- cross-class comparison is analysis, and analysis
+    # belongs in the writeup, not on the tool.
+    def lead(rows):
+        t = top_of(rows)
+        if not t:
+            return "No pool in this class traded in the last 24 hours."
+        return (f"Best right now: <b>{t['name']}</b> at {t['apr']:.3f}% on "
+                f"${t['tvl']:,.0f}.")
+
+    top_stock_line = lead(stock)
+    top_smeme_line = lead(smeme)
 
     html = f"""<!doctype html>
 <html lang="en"><head><meta charset="utf-8">
@@ -444,28 +496,25 @@ minutes from the public DLMM API. No wallet, no key.">
 worth <em>providing liquidity to.</em></h1>
 <p class="lede">Every DLMM pool quoting a verified equity token, classified by
 where its beta comes from and ranked by what it actually paid over 24 hours.
-{scanned:,} pools scanned, {len(stock) + len(smeme)} equity pools found.
-Refreshed every 30 minutes. No wallet, no key, standard library only — open the
-file and it works.</p>
-
-<div class="verdict">
-  <div class="lab">the finding</div>
-  <div class="big">Stock × memecoin pools pay an LP
-    <em>{ratio_txt.lower()} lower</em> median APR than stock-quoted pools.</div>
-  <p>Same equity beta in both — the only difference is what the other leg is.
-  When the other leg is a memecoin, the fee share stops covering the variance.
-  Pairing equity with something calmer is the trade, and it is measurable from
-  public data without holding a position.</p>
-</div>
+{scanned:,} pools scanned, {len(stock) + len(smeme)} equity pools found,
+{len(s_rank) + len(m_rank)} of them rankable. Refreshed every 30 minutes. No
+wallet, no key, standard library only — open the file and it works.</p>
 
 <div class="stats">
-  <div><b>{len(stock)}</b><span>stock pools</span></div>
+  <div><b>{len(s_rank)}</b><span>stock pools</span></div>
   <div><b>${stock_tvl:,.0f}</b><span>stock TVL</span></div>
-  <div><b>{len(smeme)}</b><span>stock × meme</span></div>
+  <div><b>{len(m_rank)}</b><span>stock × meme</span></div>
   <div><b>${smeme_tvl:,.0f}</b><span>stock × meme TVL</span></div>
   <div><b>{ms:.3f}%</b><span>median APR, stock</span></div>
   <div><b>{mm:.3f}%</b><span>median APR, stock × meme</span></div>
 </div>
+
+<div class="flag"><b>Why {dropped} of the {len(stock) + len(smeme)} pools are
+not ranked.</b> They hold under ${MIN_TVL:,.0f}. {floor_evidence} — a yield
+computed on depth that small is arithmetic rather than a return. Pools below the
+floor are kept in <code>data/stock_pairs.json</code> and counted above, not
+deleted; raise <code>MIN_TVL</code> in <code>tools/stock_report.py</code> to
+change the cutoff.</div>
 
 <figure class="fig">{strip}
 <figcaption>One dot per pool with 24h volume, on a log scale — the live pools
@@ -476,25 +525,25 @@ to compare and would drag both medians toward zero.</figcaption>
 </figure>
 
 <figure class="fig">{bar}
-<figcaption>{smeme_share:.0f}% of the capital sits in the class that pays
-{ratio_txt} less. The equity leg is the same in both — only the other side of
-the pool changes, and that is enough to move the median by nearly half an order
-of magnitude.</figcaption>
+<figcaption>Capital by class: {len(m_rank)} stock×memecoin pools hold
+${smeme_tvl:,.0f} of ${total_tvl:,.0f} ({smeme_share:.0f}%), {len(s_rank)}
+stock-quoted pools hold ${stock_tvl:,.0f}.</figcaption>
 </figure>
 
-<h2>Stock-quoted pools, by TVL</h2>
-<p class="note">Beta is the listed equity: bounded at roughly 10%/day, and it
-arrives in a gap at the session boundary rather than continuously.</p>
-<div class="tw"><table><thead><tr><th>pair</th><th class="num">TVL</th>
-<th class="num">APR</th><th class="num">vol24/TVL</th><th class="num">holders</th>
+<h2>Stock-quoted pools — best 24h APR first</h2>
+<p class="note">Beta is the listed equity. It is bounded rather than uncapped,
+and it moves on the underlying's schedule instead of continuously.
+{top_stock_line}</p>
+<div class="tw"><table><thead><tr><th>pair</th><th class="num">APR</th>
+<th class="num">TVL</th><th class="num">vol24/TVL</th><th class="num">holders</th>
 </tr></thead><tbody>{rows_html(stock)}</tbody></table></div>
 
-<h2>Stock × memecoin pools, by TVL</h2>
-<p class="note">Both betas live at once. Note GOOGLx-GOOGLon — the same company
-across two issuers, in two liquidity silos — and STONK-NVDAx, meme-paired-with-
-stock, already live and in the bottom decile by yield.</p>
-<div class="tw"><table><thead><tr><th>pair</th><th class="num">TVL</th>
-<th class="num">APR</th><th class="num">vol24/TVL</th><th class="num">holders</th>
+<h2>Stock × memecoin pools — best 24h APR first</h2>
+<p class="note">Both betas live at once, ranked on the same terms.
+{top_smeme_line} GOOGLx-GOOGLon is the same company across two issuers, in two
+liquidity silos.</p>
+<div class="tw"><table><thead><tr><th>pair</th><th class="num">APR</th>
+<th class="num">TVL</th><th class="num">vol24/TVL</th><th class="num">holders</th>
 </tr></thead><tbody>{rows_html(smeme)}</tbody></table></div>
 
 <div class="flag"><b>Data quality, and why it matters here.</b> A large and
@@ -504,27 +553,25 @@ unfiltered row sorts an entire table, which is why a public leaderboard built on
 the same endpoint can look precise and be meaningless.</div>
 
 <div class="repo">
-  <h2>Why this was worth measuring</h2>
-  <p>Meteoran's existing LP gates were calibrated on memecoin DLMM across
-  111,838 closed positions. That work concluded impermanent loss is not the risk
-  — token beta is, and fee capture scales monotonically with outcome. Every gate
-  in it was therefore tuned against a market that moves without a schedule.</p>
-  <p>Tokenized equity moves like neither a memecoin nor a normal market: it is
-  bounded at roughly 10%/day, and it arrives in a gap when the underlying reopens
-  rather than continuously. A gate calibrated on continuous, uncorrelated
-  memecoin variance cannot simply be assumed to hold there. Nobody had checked.
-  This page is that check — and the top line is that it does not transfer
-  cleanly.</p>
+  <h2>How these pools are classified</h2>
+  <p>A pool is <b>stock</b> if either leg is a verified equity token — matched on
+  mint family, issuer and ticker rather than on the pool's name, because pool
+  names are user-supplied and one wrong ticker in an allowlist was enough to
+  misclassify three live pools before this was caught.</p>
+  <p><b>stock × memecoin</b> is the same test with a memecoin on the other leg.
+  Both legs carry beta at once, which is why the two are tracked separately
+  rather than pooled together.</p>
 </div>
 
 <div class="repo">
   <h2>What this is not</h2>
   <ul>
     <li>Not a strategy and not a bot. It places nothing and signs nothing.</li>
-    <li>Not a ranking product. No wallet-level skill measurement, no time
-        series, no persistence test — one cross-section from one pull.</li>
+    <li>Not a ranking of quality. No wallet-level skill measurement, no time
+        series, no persistence test — one cross-section from one pull, so a
+        pool's position here is a snapshot and not a track record.</li>
     <li>Not investment advice. It surfaces candidates and the conditions they
-        trade under.</li>
+        trade under. Every figure is here so it can be argued with.</li>
   </ul>
 </div>
 

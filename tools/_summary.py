@@ -21,6 +21,13 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC = os.path.join(ROOT, "data", "stock_pairs.json")
 SUB = os.path.join(ROOT, "SUBMISSION.md")
 
+# Imported, not duplicated. The report ranks pools at or above this floor, so
+# the copy pasted into the submission form has to use the same number -- a
+# --sync that reported different figures from the page it is describing would
+# be worse than having no sync at all.
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from stock_report import MIN_TVL
+
 BEGIN = "<!-- live-figures:begin -->"
 END = "<!-- live-figures:end -->"
 
@@ -34,7 +41,9 @@ def med(xs):
 
 
 def figures(d):
-    s, m = d["buckets"]["STOCK"], d["buckets"]["STOCK_MEME"]
+    # Same floor the page ranks with, so these numbers and the page agree.
+    rank = lambda rows: [r for r in rows if r["tvl"] >= MIN_TVL]
+    s, m = rank(d["buckets"]["STOCK"]), rank(d["buckets"]["STOCK_MEME"])
     sl, ml = live(s), live(m)
     ms, mm = med(sl), med(ml)
     ratio = ms / mm if mm > 0 else 0.0
@@ -46,6 +55,7 @@ def figures(d):
         "ratio": ratio,
         "ratio_txt": (f"{ratio:.0f}x" if ratio >= 10 else f"{ratio:.1f}x")
         if ratio == ratio else "n/a",
+        "floor": MIN_TVL,
     }
 
 
@@ -59,15 +69,15 @@ def paragraph(f):
     return (
         f"{BEGIN}\n"
         f"Nobody has run that test on tokenized equity. Of "
-        f"{f['scanned']:,} DLMM pools scanned, {f['s_n']} quote an equity "
-        f"token directly and hold ${f['s_tvl']:,.0f}; {f['m_n']} pair one "
-        f"against a memecoin. On pools that actually traded, median APR runs "
-        f"{f['s_med']:.3f}% for stock-quoted pools (n={f['s_live']}) and "
-        f"{f['m_med']:.3f}% for stock×memecoin (n={f['m_live']}). Pairing a "
-        f"stock with a memecoin pays about {f['ratio_txt']} less — the same "
-        f"equity beta either way, so the whole difference is the other leg. "
-        f"Two correlated betas on one pool, and the fee share stops covering "
-        f"the variance.\n"
+        f"{f['scanned']:,} DLMM pools scanned, {f['s_n'] + f['m_n']} hold at "
+        f"least ${f['floor']:,.0f} and quote an equity token: {f['s_n']} "
+        f"stock-quoted, {f['m_n']} pairing a stock against a memecoin. On "
+        f"pools that actually traded, median APR runs {f['s_med']:.3f}% for "
+        f"stock-quoted pools (n={f['s_live']}) and {f['m_med']:.3f}% for "
+        f"stock×memecoin (n={f['m_live']}). Pairing a stock with a memecoin "
+        f"pays about {f['ratio_txt']} less — the same equity beta either way, "
+        f"so the whole difference is the other leg. Two correlated betas on "
+        f"one pool, and the fee share stops covering the variance.\n"
         f"{END}"
     )
 
@@ -106,10 +116,11 @@ def main() -> int:
     print(f"median APR stock       {f['s_med']:.3f}%  (n={f['s_live']})")
     print(f"median APR stockxmeme  {f['m_med']:.3f}%  (n={f['m_live']})")
     print(f"ratio                  {f['ratio_txt']}")
-    print("\ntop 6 by TVL:")
-    for r in sorted(d["buckets"]["STOCK"] + d["buckets"]["STOCK_MEME"],
-                    key=lambda r: -r["tvl"])[:6]:
-        print(f"  {r['name']:<18} ${r['tvl']:>10,.0f}  {r['apr']:>6.3f}%")
+    print("\ntop 6 by APR:")
+    rank = lambda rows: [r for r in rows if r["tvl"] >= MIN_TVL]
+    for r in sorted(rank(d["buckets"]["STOCK"] + rank(d["buckets"]["STOCK_MEME"])),
+                    key=lambda r: -r["apr"])[:6]:
+        print(f"  {r['name']:<18} {r['apr']:>7.3f}%  ${r['tvl']:>10,.0f}")
     return 0
 
 

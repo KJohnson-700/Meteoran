@@ -18,7 +18,7 @@ DLMM liquidity tooling, extended to tokenized equity.
 Meteoran's gates were calibrated on memecoin DLMM across 111,838 closed positions. The headline result is that impermanent loss isn't the risk — token beta is. Fee capture scales monotonically with outcome, and fees covered IL 3.74x. Which means the gates can't be assumed to carry over to a new asset class without testing them.
 
 <!-- live-figures:begin -->
-Nobody has run that test on tokenized equity. Of 24,000 DLMM pools scanned, 57 quote an equity token directly and hold $486,218; 43 pair one against a memecoin. On pools that actually traded, median APR runs 0.110% for stock-quoted pools (n=40) and 0.024% for stock×memecoin (n=30). Pairing a stock with a memecoin pays about 4.6x less — the same equity beta either way, so the whole difference is the other leg. Two correlated betas on one pool, and the fee share stops covering the variance.
+Nobody has run that test on tokenized equity. Of 24,000 DLMM pools scanned, 40 hold at least $1,000 and quote an equity token: 25 stock-quoted, 15 pairing a stock against a memecoin. On pools that actually traded, median APR runs 0.295% for stock-quoted pools (n=24) and 0.026% for stock×memecoin (n=14). Pairing a stock with a memecoin pays about 11x less — the same equity beta either way, so the whole difference is the other leg. Two correlated betas on one pool, and the fee share stops covering the variance.
 <!-- live-figures:end -->
 
 tools/stock_pairs.py classifies every pool by beta source and ranks it. pool_alert.py tags alerts by class, so you can scan equity pairs only and get a phone push with the pool link instead of watching a browser.
