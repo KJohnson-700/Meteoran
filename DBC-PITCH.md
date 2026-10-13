@@ -81,9 +81,12 @@ STONK-NVDAx     1,734  0.245%            0.27   174,794   <- meme x stock
   fragmentation problem, now measurable.
 - **`STONK-NVDAx` is live.** Meme-paired-with-stock already ships on DLMM. It is in the
   bottom decile by yield.
-- **75% of the raw `/pools` pull is corrupt** — `tvl = 3e-12`, `apr = 6e13`. This is
-  CLAUDE.md rule confirmed against live data, and it is why a single unfiltered row sorts a
-  whole table. Every number here is post-filter.
+- **A large and unstable share of the raw `/pools` pull is corrupt** — `tvl = 3e-12`,
+  `apr = 6e13`. Observed between **31.8% and 75.1%** across pulls, and that spread is itself
+  the finding: the scan sorts by `fee_tvl_ratio_24h:desc`, so rows with absurd ratios land at
+  the very top of the list. The corruption concentrates in exactly the rows a naive fee/TVL
+  ranking would promote. This is why every number here is post-filter, and why the
+  repository's own pre-existing notes already put 41% corrupt rows on the Meteora P&L API.
 
 ---
 
@@ -137,7 +140,8 @@ python3 tools/stock_pairs.py 60     # 24,000 pools -> data/stock_pairs.json
 python3 tools/stock_report.py       # -> docs/stock-pairs.html
 ```
 
-24,000 pools pulled · 75.1% dropped as corrupt · 79 classified · every figure above
+24,000 pools pulled · a large fraction dropped as corrupt (varies by pull, see above) · 79
+classified · every figure above
 regenerates from those two commands.
 
 ### Notifications
