@@ -1,0 +1,56 @@
+name: refresh beta-class report
+
+# Keeps docs/stock-pairs.html honest. Without this the page is a snapshot
+# frozen at whatever minute someone last ran the tool by hand, which is the
+# one thing a measurement project cannot afford.
+#
+# No secrets. The Meteora datapi is public and these tools are standard
+# library only, so there is nothing to store and nothing to rotate.
+
+on:
+  schedule:
+    # every 30 minutes. GitHub disables scheduled runs on repos with no
+    # activity for 60 days, and on public forks it is throttled -- if the
+    # numbers ever go stale, check this ran.
+    - cron: '*/30 * * * *'
+  workflow_dispatch: {}          # manual run from the Actions tab
+
+permissions:
+  contents: write                # so it can commit the refreshed output
+
+concurrency:
+  group: refresh-report
+  cancel-in-progress: true       # a slow run must not stack behind a newer one
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25          # 60 pages x 400 pools; do not hang the job
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      # Meteora's datapi is rate-sensitive. The tools already retry, but a
+      # failed pull must fail the job loudly rather than commit yesterday's
+      # numbers back over today's.
+      - name: pull + classify
+        run: python tools/stock_pairs.py 60
+
+      - name: render
+        run: python tools/stock_report.py
+
+      - name: commit
+        run: |
+          git config user.name  'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/stock_pairs.json docs/stock-pairs.html
+          if git diff --staged --quiet; then
+            echo "no change -- nothing to commit"
+            exit 0
+          fi
+          git commit -m "refresh: beta-class pull $(date -u +%Y-%m-%dT%H:%MZ)"
+          git push
