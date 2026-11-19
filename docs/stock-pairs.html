@@ -216,21 +216,21 @@ worth <em>providing liquidity to.</em></h1>
 <p class="lede">Every DLMM pool quoting a verified equity token, classified by
 where its beta comes from and ranked on what it actually paid — over the last 30
 minutes, hour, four hours, day, and every window between.
-24,000 pools scanned, 74 equity pools found,
+24,000 pools scanned, 96 equity pools found,
 43 of them rankable. Refreshed every 30 minutes. No
 wallet, no key, standard library only — open the file and it works.</p>
 
 <div class="stats">
-  <div><b>29</b><span>stock pools</span></div>
-  <div><b>$602,719</b><span>stock TVL</span></div>
-  <div><b>14</b><span>stock × meme</span></div>
-  <div><b>$296,272</b><span>stock × meme TVL</span></div>
-  <div><b>0.012%</b><span>median 1h yield, stock</span></div>
-  <div><b>0.003%</b><span>median 1h yield, stock × meme</span></div>
+  <div><b>28</b><span>stock pools</span></div>
+  <div><b>$582,237</b><span>stock TVL</span></div>
+  <div><b>15</b><span>stock × meme</span></div>
+  <div><b>$298,336</b><span>stock × meme TVL</span></div>
+  <div><b>0.004%</b><span>median 1h yield, stock</span></div>
+  <div><b>0.000%</b><span>median 1h yield, stock × meme</span></div>
 </div>
 
-<div class="flag"><b>Why 31 of the 74 pools are
-not ranked.</b> They hold under $1,000. Ranked on raw 24h yield the top earner across those was <b>BACKERS-METAx</b> at 4% on $271 of TVL — a yield
+<div class="flag"><b>Why 53 of the 96 pools are
+not ranked.</b> They hold under $1,000. Ranked on raw 24h yield the top earner across those was <b>NVDAx-SPCX</b> at 5,917% on $0.002478 of TVL — a yield
 computed on depth that small is arithmetic rather than a return. Pools below the
 floor are kept in <code>data/stock_pairs.json</code> and counted above, not
 deleted; raise <code>MIN_TVL</code> in <code>tools/stock_report.py</code> to
@@ -240,58 +240,48 @@ change the cutoff.</div>
 <text x="0" y="9" class="sv-t">1h yield per pool — one dot per pool that earned anything</text>
 <line x1="148.0" y1="22" x2="148.0" y2="162" class="sv-grid"/>
 <text x="148.0" y="177" class="sv-ax" text-anchor="middle">0.0001%</text>
-<line x1="306.6" y1="22" x2="306.6" y2="162" class="sv-grid"/>
-<text x="306.6" y="177" class="sv-ax" text-anchor="middle">0.001%</text>
-<line x1="465.2" y1="22" x2="465.2" y2="162" class="sv-grid"/>
-<text x="465.2" y="177" class="sv-ax" text-anchor="middle">0.01%</text>
-<line x1="623.7" y1="22" x2="623.7" y2="162" class="sv-grid"/>
-<text x="623.7" y="177" class="sv-ax" text-anchor="middle">0.1%</text>
-<text x="0" y="60" class="sv-lab">stock — 3/29 zero</text>
+<line x1="308.7" y1="22" x2="308.7" y2="162" class="sv-grid"/>
+<text x="308.7" y="177" class="sv-ax" text-anchor="middle">0.001%</text>
+<line x1="469.3" y1="22" x2="469.3" y2="162" class="sv-grid"/>
+<text x="469.3" y="177" class="sv-ax" text-anchor="middle">0.01%</text>
+<line x1="630.0" y1="22" x2="630.0" y2="162" class="sv-grid"/>
+<text x="630.0" y="177" class="sv-ax" text-anchor="middle">0.1%</text>
+<text x="0" y="60" class="sv-lab">stock — 9/28 zero</text>
 <line x1="148" y1="56" x2="734" y2="56" class="sv-base"/>
 <circle cx="148.0" cy="56.0" r="3" fill="var(--c-stock)" fill-opacity=".7"/>
-<circle cx="181.2" cy="56.0" r="3" fill="var(--c-stock)" fill-opacity=".7"/>
-<circle cx="336.7" cy="56.0" r="3" fill="var(--c-stock)" fill-opacity=".7"/>
-<circle cx="343.9" cy="56.0" r="3" fill="var(--c-stock)" fill-opacity=".7"/>
-<circle cx="381.5" cy="56.0" r="3" fill="var(--c-stock)" fill-opacity=".7"/>
-<circle cx="401.9" cy="52.6" r="3" fill="var(--c-stock)" fill-opacity=".7"/>
-<circle cx="403.2" cy="52.6" r="3" fill="var(--c-stock)" fill-opacity=".7"/>
-<circle cx="411.7" cy="56.0" r="3" fill="var(--c-stock)" fill-opacity=".7"/>
-<circle cx="421.8" cy="56.0" r="3" fill="var(--c-stock)" fill-opacity=".7"/>
-<circle cx="458.1" cy="56.0" r="3" fill="var(--c-stock)" fill-opacity=".7"/>
-<circle cx="466.0" cy="56.0" r="3" fill="var(--c-stock)" fill-opacity=".7"/>
-<circle cx="475.3" cy="56.0" r="3" fill="var(--c-stock)" fill-opacity=".7"/>
-<circle cx="478.0" cy="56.0" r="3" fill="var(--c-stock)" fill-opacity=".7"/>
-<circle cx="487.5" cy="56.0" r="3" fill="var(--c-stock)" fill-opacity=".7"/>
-<circle cx="493.2" cy="56.0" r="3" fill="var(--c-stock)" fill-opacity=".7"/>
-<circle cx="494.6" cy="56.0" r="3" fill="var(--c-stock)" fill-opacity=".7"/>
-<circle cx="504.3" cy="56.0" r="3" fill="var(--c-stock)" fill-opacity=".7"/>
-<circle cx="508.1" cy="56.0" r="3" fill="var(--c-stock)" fill-opacity=".7"/>
-<circle cx="526.6" cy="56.0" r="3" fill="var(--c-stock)" fill-opacity=".7"/>
-<circle cx="538.6" cy="56.0" r="3" fill="var(--c-stock)" fill-opacity=".7"/>
-<circle cx="540.2" cy="56.0" r="3" fill="var(--c-stock)" fill-opacity=".7"/>
-<circle cx="549.8" cy="56.0" r="3" fill="var(--c-stock)" fill-opacity=".7"/>
-<circle cx="558.0" cy="56.0" r="3" fill="var(--c-stock)" fill-opacity=".7"/>
-<circle cx="618.5" cy="56.0" r="3" fill="var(--c-stock)" fill-opacity=".7"/>
-<circle cx="706.3" cy="56.0" r="3" fill="var(--c-stock)" fill-opacity=".7"/>
-<circle cx="715.9" cy="56.0" r="3" fill="var(--c-stock)" fill-opacity=".7"/>
-<line x1="487.5" y1="45" x2="487.5" y2="67" class="sv-med"/>
-<text x="487.5" y="39" class="sv-mv" text-anchor="middle">0.014%</text>
-<text x="0" y="124" class="sv-lab">stock x meme — 2/14 zero</text>
+<circle cx="276.6" cy="56.0" r="3" fill="var(--c-stock)" fill-opacity=".7"/>
+<circle cx="302.3" cy="56.0" r="3" fill="var(--c-stock)" fill-opacity=".7"/>
+<circle cx="350.0" cy="56.0" r="3" fill="var(--c-stock)" fill-opacity=".7"/>
+<circle cx="392.9" cy="56.0" r="3" fill="var(--c-stock)" fill-opacity=".7"/>
+<circle cx="397.8" cy="56.0" r="3" fill="var(--c-stock)" fill-opacity=".7"/>
+<circle cx="417.2" cy="56.0" r="3" fill="var(--c-stock)" fill-opacity=".7"/>
+<circle cx="423.5" cy="56.0" r="3" fill="var(--c-stock)" fill-opacity=".7"/>
+<circle cx="430.0" cy="56.0" r="3" fill="var(--c-stock)" fill-opacity=".7"/>
+<circle cx="435.4" cy="56.0" r="3" fill="var(--c-stock)" fill-opacity=".7"/>
+<circle cx="453.4" cy="56.0" r="3" fill="var(--c-stock)" fill-opacity=".7"/>
+<circle cx="459.0" cy="56.0" r="3" fill="var(--c-stock)" fill-opacity=".7"/>
+<circle cx="481.7" cy="56.0" r="3" fill="var(--c-stock)" fill-opacity=".7"/>
+<circle cx="510.1" cy="56.0" r="3" fill="var(--c-stock)" fill-opacity=".7"/>
+<circle cx="575.4" cy="56.0" r="3" fill="var(--c-stock)" fill-opacity=".7"/>
+<circle cx="589.4" cy="56.0" r="3" fill="var(--c-stock)" fill-opacity=".7"/>
+<circle cx="612.1" cy="56.0" r="3" fill="var(--c-stock)" fill-opacity=".7"/>
+<circle cx="648.7" cy="56.0" r="3" fill="var(--c-stock)" fill-opacity=".7"/>
+<circle cx="715.7" cy="56.0" r="3" fill="var(--c-stock)" fill-opacity=".7"/>
+<line x1="435.4" y1="45" x2="435.4" y2="67" class="sv-med"/>
+<text x="435.4" y="39" class="sv-mv" text-anchor="middle">0.006%</text>
+<text x="0" y="124" class="sv-lab">stock x meme — 6/15 zero</text>
 <line x1="148" y1="120" x2="734" y2="120" class="sv-base"/>
-<circle cx="165.1" cy="120.0" r="3" fill="var(--c-smeme)" fill-opacity=".7"/>
-<circle cx="191.4" cy="120.0" r="3" fill="var(--c-smeme)" fill-opacity=".7"/>
-<circle cx="243.9" cy="120.0" r="3" fill="var(--c-smeme)" fill-opacity=".7"/>
-<circle cx="305.9" cy="120.0" r="3" fill="var(--c-smeme)" fill-opacity=".7"/>
-<circle cx="316.0" cy="120.0" r="3" fill="var(--c-smeme)" fill-opacity=".7"/>
-<circle cx="379.5" cy="120.0" r="3" fill="var(--c-smeme)" fill-opacity=".7"/>
-<circle cx="418.7" cy="120.0" r="3" fill="var(--c-smeme)" fill-opacity=".7"/>
-<circle cx="434.4" cy="120.0" r="3" fill="var(--c-smeme)" fill-opacity=".7"/>
-<circle cx="443.6" cy="120.0" r="3" fill="var(--c-smeme)" fill-opacity=".7"/>
-<circle cx="471.0" cy="120.0" r="3" fill="var(--c-smeme)" fill-opacity=".7"/>
-<circle cx="497.6" cy="116.6" r="3" fill="var(--c-smeme)" fill-opacity=".7"/>
-<circle cx="498.0" cy="116.6" r="3" fill="var(--c-smeme)" fill-opacity=".7"/>
-<line x1="418.7" y1="109" x2="418.7" y2="131" class="sv-med"/>
-<text x="418.7" y="103" class="sv-mv" text-anchor="middle">0.005%</text>
+<circle cx="148.0" cy="120.0" r="3" fill="var(--c-smeme)" fill-opacity=".7"/>
+<circle cx="148.0" cy="120.0" r="3" fill="var(--c-smeme)" fill-opacity=".7"/>
+<circle cx="148.0" cy="120.0" r="3" fill="var(--c-smeme)" fill-opacity=".7"/>
+<circle cx="148.0" cy="120.0" r="3" fill="var(--c-smeme)" fill-opacity=".7"/>
+<circle cx="194.0" cy="120.0" r="3" fill="var(--c-smeme)" fill-opacity=".7"/>
+<circle cx="327.2" cy="120.0" r="3" fill="var(--c-smeme)" fill-opacity=".7"/>
+<circle cx="388.1" cy="120.0" r="3" fill="var(--c-smeme)" fill-opacity=".7"/>
+<circle cx="462.4" cy="120.0" r="3" fill="var(--c-smeme)" fill-opacity=".7"/>
+<circle cx="612.8" cy="120.0" r="3" fill="var(--c-smeme)" fill-opacity=".7"/>
+<line x1="194.0" y1="109" x2="194.0" y2="131" class="sv-med"/>
+<text x="194.0" y="103" class="sv-mv" text-anchor="middle">0.000%</text>
 </svg>
 <figcaption>One dot per pool that earned anything on the 1h window,
 on a log scale — zero cannot be plotted on a log axis, so pools sitting at
@@ -304,67 +294,68 @@ does not apply one either.</figcaption>
 
 <figure class="fig"><svg viewBox="0 0 760 104" width="100%" role="img" aria-label="TVL split by pool class">
 <text x="0" y="9" class="sv-t">TVL by class</text>
-<rect x="0.0" y="20" width="509.5" height="30" rx="5" fill="var(--c-stock)"/>
-<text x="254.8" y="40" class="sv-seg" text-anchor="middle">$602,719</text>
-<text x="254.8" y="66" class="sv-segl" text-anchor="middle">stock-quoted · 67%</text>
-<rect x="509.5" y="20" width="250.5" height="30" rx="5" fill="var(--c-smeme)"/>
-<text x="634.8" y="40" class="sv-seg" text-anchor="middle">$296,272</text>
-<text x="634.8" y="66" class="sv-segl" text-anchor="middle">stock x memecoin · 33%</text>
-<text x="0" y="66" class="sv-segl">$898,991 total · 43 pools</text>
+<rect x="0.0" y="20" width="502.5" height="30" rx="5" fill="var(--c-stock)"/>
+<text x="251.3" y="40" class="sv-seg" text-anchor="middle">$582,237</text>
+<text x="251.3" y="66" class="sv-segl" text-anchor="middle">stock-quoted · 66%</text>
+<rect x="502.5" y="20" width="257.5" height="30" rx="5" fill="var(--c-smeme)"/>
+<text x="631.3" y="40" class="sv-seg" text-anchor="middle">$298,336</text>
+<text x="631.3" y="66" class="sv-segl" text-anchor="middle">stock x memecoin · 34%</text>
+<text x="0" y="66" class="sv-segl">$880,573 total · 43 pools</text>
 </svg>
-<figcaption>Capital by class: 14 stock×memecoin pools hold
-$296,272 of $898,991 (33%), 29
-stock-quoted pools hold $602,719.</figcaption>
+<figcaption>Capital by class: 15 stock×memecoin pools hold
+$298,336 of $880,573 (34%), 28
+stock-quoted pools hold $582,237.</figcaption>
 </figure>
 
 <h2>Stock-quoted pools</h2>
 <p class="note">Beta is the listed equity. It is bounded rather than uncapped,
 and it moves on the underlying's schedule instead of continuously.
-Best on the 1h window: <b>AVGOx-USDC</b> at 0.381% on $3,848 (24h: 4.574%).</p>
+Best on the 1h window: <b>AVGOx-USDC</b> at 0.342% on $3,591 (24h: 5.045%).</p>
 <p class="hint">Every window is a sort header — click one to re-rank this table.
 Ranked on 1h to match the rolling windows the gates read; the
 disagreement between windows is the signal.</p>
-<div class="tw"><table><thead><tr><th>pair</th><th class='num sort' data-w='30m'>30m<span class='car'>▾</span></th><th class='num sort' data-w='1h'>1h<span class='car'>▾</span></th><th class='num sort' data-w='2h'>2h<span class='car'>▾</span></th><th class='num sort' data-w='4h'>4h<span class='car'>▾</span></th><th class='num sort' data-w='12h'>12h<span class='car'>▾</span></th><th class='num sort' data-w='24h'>24h<span class='car'>▾</span></th><th class='num sort' data-w='__tvl'>TVL<span class='car'>▾</span></th><th class='num'>holders</th></tr></thead><tbody><tr><td class='pair'><a href='https://solscan.io/account/Dprwg5xHQ8jJryfh3okeTDCZK16Gz1wtX47JeZZv3HXZ' target='_blank' rel='noopener'>AVGOx-USDC</a><div class='mint'>Dprwg5…Zv3HXZ</div></td><td class='num' data-y='0.239198'>0.239%</td><td class='num' data-y='0.381417'>0.381%</td><td class='num' data-y='1.042654'>1.043%</td><td class='num' data-y='1.190580'>1.191%</td><td class='num' data-y='1.993304'>1.993%</td><td class='num' data-y='4.574176'>4.574%</td><td class='num' data-y='3847.709185'>$3,848</td><td class='num'>12,710</td></tr>
-<tr><td class='pair'><a href='https://solscan.io/account/DsxZiQTsdJbGJojzbdAy9yK7absibgAgUnMLTdNaWr4c' target='_blank' rel='noopener'>AMDx-USDC</a><div class='mint'>DsxZiQ…NaWr4c</div></td><td class='num' data-y='0.061160'>0.061%</td><td class='num' data-y='0.331877'>0.332%</td><td class='num' data-y='0.374985'>0.375%</td><td class='num' data-y='0.374985'>0.375%</td><td class='num' data-y='0.403981'>0.404%</td><td class='num' data-y='0.501845'>0.502%</td><td class='num' data-y='2457.999566'>$2,458</td><td class='num'>3,462</td></tr>
-<tr><td class='pair'><a href='https://solscan.io/account/Ad36eQiYRSJEKdTjCYR1UhFBKkWWr9MUf3iG4zM5pwHB' target='_blank' rel='noopener'>SPYx-SOL</a><div class='mint'>Ad36eQ…M5pwHB</div></td><td class='num' data-y='0.022595'>0.023%</td><td class='num' data-y='0.092670'>0.093%</td><td class='num' data-y='0.165753'>0.166%</td><td class='num' data-y='0.246531'>0.247%</td><td class='num' data-y='0.379048'>0.379%</td><td class='num' data-y='0.729894'>0.730%</td><td class='num' data-y='52214.895328'>$52,215</td><td class='num'>84,621</td></tr>
-<tr><td class='pair'><a href='https://solscan.io/account/7i9rB1v9ck6bWJEaqRBAHowShyuFzev6QPcZ3ARCReMD' target='_blank' rel='noopener'>AVGOx-SOL</a><div class='mint'>7i9rB1…RCReMD</div></td><td class='num' data-y='0.016893'>0.017%</td><td class='num' data-y='0.038481'>0.038%</td><td class='num' data-y='0.100421'>0.100%</td><td class='num' data-y='0.125955'>0.126%</td><td class='num' data-y='0.271812'>0.272%</td><td class='num' data-y='0.474658'>0.475%</td><td class='num' data-y='1455.275038'>$1,455</td><td class='num'>12,710</td></tr>
-<tr><td class='pair'><a href='https://solscan.io/account/8Xx3VeN92DsZksHs2nXMiJUcR5JBofqmbXqacoeUTj2g' target='_blank' rel='noopener'>NVDAx-USDC</a><div class='mint'>8Xx3Ve…eUTj2g</div></td><td class='num' data-y='0.008339'>0.008%</td><td class='num' data-y='0.034204'>0.034%</td><td class='num' data-y='0.086614'>0.087%</td><td class='num' data-y='0.095683'>0.096%</td><td class='num' data-y='0.117492'>0.117%</td><td class='num' data-y='0.185745'>0.186%</td><td class='num' data-y='109601.574982'>$109,602</td><td class='num'>216,354</td></tr>
-<tr><td class='pair'><a href='https://solscan.io/account/DQ8fjmP2haYxyyJRU99aCaHznK1GSihYyBRZxfP9sfbU' target='_blank' rel='noopener'>HOODx-SOL</a><div class='mint'>DQ8fjm…P9sfbU</div></td><td class='num' data-y='0.009030'>0.009%</td><td class='num' data-y='0.029745'>0.030%</td><td class='num' data-y='0.080910'>0.081%</td><td class='num' data-y='0.100833'>0.101%</td><td class='num' data-y='0.128219'>0.128%</td><td class='num' data-y='0.622872'>0.623%</td><td class='num' data-y='1652.491253'>$1,652</td><td class='num'>13,659</td></tr>
-<tr><td class='pair'><a href='https://solscan.io/account/5A4DRzPED7eAQPKwbeNjQiiKeAnZqZn5St5jfCNXeHHU' target='_blank' rel='noopener'>GLDx-USDC</a><div class='mint'>5A4DRz…NXeHHU</div></td><td class='num' data-y='0.029058'>0.029%</td><td class='num' data-y='0.029058'>0.029%</td><td class='num' data-y='0.029058'>0.029%</td><td class='num' data-y='0.029058'>0.029%</td><td class='num' data-y='0.033987'>0.034%</td><td class='num' data-y='0.102280'>0.102%</td><td class='num' data-y='1379.892864'>$1,380</td><td class='num'>42,949</td></tr>
-<tr><td class='pair'><a href='https://solscan.io/account/FCn5zw4gAcfRpQgst5ThFuzBGXbbJ6RocVErgC4vJ9j1' target='_blank' rel='noopener'>NVDAx-SOL</a><div class='mint'>FCn5zw…4vJ9j1</div></td><td class='num' data-y='0.010277'>0.010%</td><td class='num' data-y='0.024388'>0.024%</td><td class='num' data-y='0.108037'>0.108%</td><td class='num' data-y='0.142516'>0.143%</td><td class='num' data-y='0.191229'>0.191%</td><td class='num' data-y='0.321313'>0.321%</td><td class='num' data-y='174092.017316'>$174,092</td><td class='num'>216,354</td></tr>
-<tr><td class='pair'><a href='https://solscan.io/account/ARABCijrKikX1C6KWgsmseyNj1cfneQajbYLNdw6LGaA' target='_blank' rel='noopener'>GLDx-SOL</a><div class='mint'>ARABCi…w6LGaA</div></td><td class='num' data-y='0.000000'>0.000%</td><td class='num' data-y='0.018647'>0.019%</td><td class='num' data-y='0.037510'>0.038%</td><td class='num' data-y='0.056102'>0.056%</td><td class='num' data-y='0.093364'>0.093%</td><td class='num' data-y='0.148731'>0.149%</td><td class='num' data-y='20087.613499'>$20,088</td><td class='num'>42,949</td></tr>
-<tr><td class='pair'><a href='https://solscan.io/account/Em6JaFdurNtinmzt8HtCdTe3db1NXnKokP7Wm1CBw4NR' target='_blank' rel='noopener'>MSFTx-SOL</a><div class='mint'>Em6JaF…CBw4NR</div></td><td class='num' data-y='0.003790'>0.004%</td><td class='num' data-y='0.017649'>0.018%</td><td class='num' data-y='0.038567'>0.039%</td><td class='num' data-y='0.055294'>0.055%</td><td class='num' data-y='0.081115'>0.081%</td><td class='num' data-y='0.160735'>0.161%</td><td class='num' data-y='1322.722324'>$1,323</td><td class='num'>43,293</td></tr>
-<tr><td class='pair'><a href='https://solscan.io/account/F4inHs4RQARpASmvLpj45QjGLdkukeGQrtQ22pimVy2a' target='_blank' rel='noopener'>NVDAx-USDC</a><div class='mint'>F4inHs…imVy2a</div></td><td class='num' data-y='0.004047'>0.004%</td><td class='num' data-y='0.015341'>0.015%</td><td class='num' data-y='0.050356'>0.050%</td><td class='num' data-y='0.051777'>0.052%</td><td class='num' data-y='0.067734'>0.068%</td><td class='num' data-y='0.123756'>0.124%</td><td class='num' data-y='30514.113339'>$30,514</td><td class='num'>216,354</td></tr>
-<tr><td class='pair'><a href='https://solscan.io/account/5wA2qjsigK29arVDutgC3JScvpoBGiE2Xy3z4K3Mf3RJ' target='_blank' rel='noopener'>NVDAx-SOL</a><div class='mint'>5wA2qj…3Mf3RJ</div></td><td class='num' data-y='0.006588'>0.007%</td><td class='num' data-y='0.015020'>0.015%</td><td class='num' data-y='0.052236'>0.052%</td><td class='num' data-y='0.063268'>0.063%</td><td class='num' data-y='0.114012'>0.114%</td><td class='num' data-y='0.221841'>0.222%</td><td class='num' data-y='28801.789778'>$28,802</td><td class='num'>216,354</td></tr>
-<tr><td class='pair'><a href='https://solscan.io/account/AmLoKiXopoFkyDMFeqxTcx7xH15zu4EvYhzwq7axybTQ' target='_blank' rel='noopener'>MSFTx-USDC</a><div class='mint'>AmLoKi…axybTQ</div></td><td class='num' data-y='0.004873'>0.005%</td><td class='num' data-y='0.013842'>0.014%</td><td class='num' data-y='0.034993'>0.035%</td><td class='num' data-y='0.041425'>0.041%</td><td class='num' data-y='0.051387'>0.051%</td><td class='num' data-y='0.062227'>0.062%</td><td class='num' data-y='5395.139796'>$5,395</td><td class='num'>43,293</td></tr>
-<tr><td class='pair'><a href='https://solscan.io/account/CHGfdEfKFYDWGPASCsZnpkDzvpLKNEVoAb4UEorPPkGK' target='_blank' rel='noopener'>TSLAx-SOL</a><div class='mint'>CHGfdE…rPPkGK</div></td><td class='num' data-y='0.002972'>0.003%</td><td class='num' data-y='0.012052'>0.012%</td><td class='num' data-y='0.024177'>0.024%</td><td class='num' data-y='0.034074'>0.034%</td><td class='num' data-y='0.046131'>0.046%</td><td class='num' data-y='0.084420'>0.084%</td><td class='num' data-y='3756.494409'>$3,756</td><td class='num'>62,495</td></tr>
-<tr><td class='pair'><a href='https://solscan.io/account/HgerAhee6opeBQZSLYALL87kBAe9sa3gXM3qj7S4Jdk5' target='_blank' rel='noopener'>GOOGLx-USDC</a><div class='mint'>HgerAh…S4Jdk5</div></td><td class='num' data-y='0.000051'>0.000%</td><td class='num' data-y='0.011583'>0.012%</td><td class='num' data-y='0.023195'>0.023%</td><td class='num' data-y='0.023195'>0.023%</td><td class='num' data-y='0.031219'>0.031%</td><td class='num' data-y='0.032234'>0.032%</td><td class='num' data-y='1225.773299'>$1,226</td><td class='num'>62,991</td></tr>
-<tr><td class='pair'><a href='https://solscan.io/account/8yvEgE72BvZs86ZRr9j6ZHgn1zgVpBz2gTmwq7tMcgyH' target='_blank' rel='noopener'>MSTRx-SOL</a><div class='mint'>8yvEgE…tMcgyH</div></td><td class='num' data-y='0.004354'>0.004%</td><td class='num' data-y='0.010118'>0.010%</td><td class='num' data-y='0.056104'>0.056%</td><td class='num' data-y='0.064535'>0.065%</td><td class='num' data-y='0.088514'>0.089%</td><td class='num' data-y='0.153806'>0.154%</td><td class='num' data-y='7933.631742'>$7,934</td><td class='num'>15,664</td></tr>
-<tr><td class='pair'><a href='https://solscan.io/account/BCZLEgknvcyCsJ9ERRN38U4gBTNn4ftU11fEtV3XHnK2' target='_blank' rel='noopener'>TSLAx-USDC</a><div class='mint'>BCZLEg…3XHnK2</div></td><td class='num' data-y='0.002983'>0.003%</td><td class='num' data-y='0.009021'>0.009%</td><td class='num' data-y='0.027045'>0.027%</td><td class='num' data-y='0.027048'>0.027%</td><td class='num' data-y='0.035947'>0.036%</td><td class='num' data-y='0.062701'>0.063%</td><td class='num' data-y='1749.962173'>$1,750</td><td class='num'>62,495</td></tr>
-<tr><td class='pair'><a href='https://solscan.io/account/BEv9D7kzD2aPKuZWHeDHHgkrR4GcUVPqgbGTDo2hssR8' target='_blank' rel='noopener'>PLTRx-SOL</a><div class='mint'>BEv9D7…2hssR8</div></td><td class='num' data-y='0.000000'>0.000%</td><td class='num' data-y='0.005325'>0.005%</td><td class='num' data-y='0.077240'>0.077%</td><td class='num' data-y='0.086006'>0.086%</td><td class='num' data-y='0.120870'>0.121%</td><td class='num' data-y='0.171350'>0.171%</td><td class='num' data-y='33495.344701'>$33,495</td><td class='num'>10,902</td></tr></tbody></table></div>
+<div class="tw"><table><thead><tr><th>pair</th><th class='num sort' data-w='30m'>30m<span class='car'>▾</span></th><th class='num sort' data-w='1h'>1h<span class='car'>▾</span></th><th class='num sort' data-w='2h'>2h<span class='car'>▾</span></th><th class='num sort' data-w='4h'>4h<span class='car'>▾</span></th><th class='num sort' data-w='12h'>12h<span class='car'>▾</span></th><th class='num sort' data-w='24h'>24h<span class='car'>▾</span></th><th class='num sort' data-w='__tvl'>TVL<span class='car'>▾</span></th><th class='num'>holders</th></tr></thead><tbody><tr><td class='pair'><a href='https://solscan.io/account/Dprwg5xHQ8jJryfh3okeTDCZK16Gz1wtX47JeZZv3HXZ' target='_blank' rel='noopener'>AVGOx-USDC</a><div class='mint'>Dprwg5…Zv3HXZ</div></td><td class='num' data-y='0.099742'>0.100%</td><td class='num' data-y='0.341539'>0.342%</td><td class='num' data-y='0.529421'>0.529%</td><td class='num' data-y='1.000083'>1.000%</td><td class='num' data-y='3.513889'>3.514%</td><td class='num' data-y='5.045103'>5.045%</td><td class='num' data-y='3591.326874'>$3,591</td><td class='num'>12,663</td></tr>
+<tr><td class='pair'><a href='https://solscan.io/account/3oJpVmbKATLWbKg4G3o1VBfDSMXQJwMv9VqgnS7yXf4R' target='_blank' rel='noopener'>AAPLx-SOL</a><div class='mint'>3oJpVm…7yXf4R</div></td><td class='num' data-y='0.061108'>0.061%</td><td class='num' data-y='0.130702'>0.131%</td><td class='num' data-y='0.140112'>0.140%</td><td class='num' data-y='0.147622'>0.148%</td><td class='num' data-y='0.169495'>0.169%</td><td class='num' data-y='0.183067'>0.183%</td><td class='num' data-y='10676.151435'>$10,676</td><td class='num'>52,670</td></tr>
+<tr><td class='pair'><a href='https://solscan.io/account/CHcTjbnaBMHQFwyA6KpAqgte9GqvnEvWP5jGzDE7e3At' target='_blank' rel='noopener'>GLDx-SOL</a><div class='mint'>CHcTjb…E7e3At</div></td><td class='num' data-y='0.076435'>0.076%</td><td class='num' data-y='0.077425'>0.077%</td><td class='num' data-y='0.077846'>0.078%</td><td class='num' data-y='0.227762'>0.228%</td><td class='num' data-y='0.474428'>0.474%</td><td class='num' data-y='0.801158'>0.801%</td><td class='num' data-y='22715.254577'>$22,715</td><td class='num'>42,923</td></tr>
+<tr><td class='pair'><a href='https://solscan.io/account/7i9rB1v9ck6bWJEaqRBAHowShyuFzev6QPcZ3ARCReMD' target='_blank' rel='noopener'>AVGOx-SOL</a><div class='mint'>7i9rB1…RCReMD</div></td><td class='num' data-y='0.019623'>0.020%</td><td class='num' data-y='0.055932'>0.056%</td><td class='num' data-y='0.097602'>0.098%</td><td class='num' data-y='0.197188'>0.197%</td><td class='num' data-y='0.580717'>0.581%</td><td class='num' data-y='0.818555'>0.819%</td><td class='num' data-y='1445.040118'>$1,445</td><td class='num'>12,663</td></tr>
+<tr><td class='pair'><a href='https://solscan.io/account/Ad36eQiYRSJEKdTjCYR1UhFBKkWWr9MUf3iG4zM5pwHB' target='_blank' rel='noopener'>SPYx-SOL</a><div class='mint'>Ad36eQ…M5pwHB</div></td><td class='num' data-y='0.000000'>0.000%</td><td class='num' data-y='0.045725'>0.046%</td><td class='num' data-y='0.121909'>0.122%</td><td class='num' data-y='0.203341'>0.203%</td><td class='num' data-y='0.597396'>0.597%</td><td class='num' data-y='0.920550'>0.921%</td><td class='num' data-y='48370.539891'>$48,371</td><td class='num'>84,615</td></tr>
+<tr><td class='pair'><a href='https://solscan.io/account/ARABCijrKikX1C6KWgsmseyNj1cfneQajbYLNdw6LGaA' target='_blank' rel='noopener'>GLDx-SOL</a><div class='mint'>ARABCi…w6LGaA</div></td><td class='num' data-y='0.017927'>0.018%</td><td class='num' data-y='0.017927'>0.018%</td><td class='num' data-y='0.017928'>0.018%</td><td class='num' data-y='0.035994'>0.036%</td><td class='num' data-y='0.129149'>0.129%</td><td class='num' data-y='0.203762'>0.204%</td><td class='num' data-y='20016.179256'>$20,016</td><td class='num'>42,923</td></tr>
+<tr><td class='pair'><a href='https://solscan.io/account/FCn5zw4gAcfRpQgst5ThFuzBGXbbJ6RocVErgC4vJ9j1' target='_blank' rel='noopener'>NVDAx-SOL</a><div class='mint'>FCn5zw…4vJ9j1</div></td><td class='num' data-y='0.004551'>0.005%</td><td class='num' data-y='0.011939'>0.012%</td><td class='num' data-y='0.023656'>0.024%</td><td class='num' data-y='0.046853'>0.047%</td><td class='num' data-y='0.245893'>0.246%</td><td class='num' data-y='0.339521'>0.340%</td><td class='num' data-y='174792.174653'>$174,792</td><td class='num'>216,272</td></tr>
+<tr><td class='pair'><a href='https://solscan.io/account/Em6JaFdurNtinmzt8HtCdTe3db1NXnKokP7Wm1CBw4NR' target='_blank' rel='noopener'>MSFTx-SOL</a><div class='mint'>Em6JaF…CBw4NR</div></td><td class='num' data-y='0.002213'>0.002%</td><td class='num' data-y='0.008630'>0.009%</td><td class='num' data-y='0.015752'>0.016%</td><td class='num' data-y='0.105854'>0.106%</td><td class='num' data-y='0.203316'>0.203%</td><td class='num' data-y='0.264206'>0.264%</td><td class='num' data-y='1305.780519'>$1,306</td><td class='num'>43,544</td></tr>
+<tr><td class='pair'><a href='https://solscan.io/account/DQ8fjmP2haYxyyJRU99aCaHznK1GSihYyBRZxfP9sfbU' target='_blank' rel='noopener'>HOODx-SOL</a><div class='mint'>DQ8fjm…P9sfbU</div></td><td class='num' data-y='0.004608'>0.005%</td><td class='num' data-y='0.007961'>0.008%</td><td class='num' data-y='0.010151'>0.010%</td><td class='num' data-y='0.040791'>0.041%</td><td class='num' data-y='0.206400'>0.206%</td><td class='num' data-y='0.676012'>0.676%</td><td class='num' data-y='1620.697311'>$1,621</td><td class='num'>13,675</td></tr>
+<tr><td class='pair'><a href='https://solscan.io/account/BEv9D7kzD2aPKuZWHeDHHgkrR4GcUVPqgbGTDo2hssR8' target='_blank' rel='noopener'>PLTRx-SOL</a><div class='mint'>BEv9D7…2hssR8</div></td><td class='num' data-y='0.003078'>0.003%</td><td class='num' data-y='0.006153'>0.006%</td><td class='num' data-y='0.006153'>0.006%</td><td class='num' data-y='0.012954'>0.013%</td><td class='num' data-y='0.135142'>0.135%</td><td class='num' data-y='0.197454'>0.197%</td><td class='num' data-y='33017.840084'>$33,018</td><td class='num'>10,916</td></tr>
+<tr><td class='pair'><a href='https://solscan.io/account/AWAtaqijrijPhuAS3sxEsq8PfA91GPD9p8uudUGLxo9H' target='_blank' rel='noopener'>NVDAx-SOL</a><div class='mint'>AWAtaq…GLxo9H</div></td><td class='num' data-y='0.005692'>0.006%</td><td class='num' data-y='0.005692'>0.006%</td><td class='num' data-y='0.005692'>0.006%</td><td class='num' data-y='0.005692'>0.006%</td><td class='num' data-y='0.023970'>0.024%</td><td class='num' data-y='0.039602'>0.040%</td><td class='num' data-y='16225.117843'>$16,225</td><td class='num'>216,272</td></tr>
+<tr><td class='pair'><a href='https://solscan.io/account/CmcVVxuMMCdsevwThLwU4PdESB5NxiZJU4mGrxB6QDE4' target='_blank' rel='noopener'>GOOGLx-SOL</a><div class='mint'>CmcVVx…B6QDE4</div></td><td class='num' data-y='0.002090'>0.002%</td><td class='num' data-y='0.005182'>0.005%</td><td class='num' data-y='0.008778'>0.009%</td><td class='num' data-y='0.020355'>0.020%</td><td class='num' data-y='0.073390'>0.073%</td><td class='num' data-y='0.110408'>0.110%</td><td class='num' data-y='25064.938773'>$25,065</td><td class='num'>62,977</td></tr>
+<tr><td class='pair'><a href='https://solscan.io/account/8Xx3VeN92DsZksHs2nXMiJUcR5JBofqmbXqacoeUTj2g' target='_blank' rel='noopener'>NVDAx-USDC</a><div class='mint'>8Xx3Ve…eUTj2g</div></td><td class='num' data-y='0.002302'>0.002%</td><td class='num' data-y='0.004738'>0.005%</td><td class='num' data-y='0.014262'>0.014%</td><td class='num' data-y='0.039505'>0.040%</td><td class='num' data-y='0.220641'>0.221%</td><td class='num' data-y='0.277242'>0.277%</td><td class='num' data-y='95409.319371'>$95,409</td><td class='num'>216,272</td></tr>
+<tr><td class='pair'><a href='https://solscan.io/account/CHGfdEfKFYDWGPASCsZnpkDzvpLKNEVoAb4UEorPPkGK' target='_blank' rel='noopener'>TSLAx-SOL</a><div class='mint'>CHGfdE…rPPkGK</div></td><td class='num' data-y='0.000717'>0.001%</td><td class='num' data-y='0.003587'>0.004%</td><td class='num' data-y='0.007172'>0.007%</td><td class='num' data-y='0.016382'>0.016%</td><td class='num' data-y='0.061329'>0.061%</td><td class='num' data-y='0.091008'>0.091%</td><td class='num' data-y='3879.353750'>$3,879</td><td class='num'>62,458</td></tr>
+<tr><td class='pair'><a href='https://solscan.io/account/5wA2qjsigK29arVDutgC3JScvpoBGiE2Xy3z4K3Mf3RJ' target='_blank' rel='noopener'>NVDAx-SOL</a><div class='mint'>5wA2qj…3Mf3RJ</div></td><td class='num' data-y='0.001235'>0.001%</td><td class='num' data-y='0.003343'>0.003%</td><td class='num' data-y='0.009867'>0.010%</td><td class='num' data-y='0.019883'>0.020%</td><td class='num' data-y='0.133182'>0.133%</td><td class='num' data-y='0.232477'>0.232%</td><td class='num' data-y='24794.507280'>$24,795</td><td class='num'>216,272</td></tr>
+<tr><td class='pair'><a href='https://solscan.io/account/DUKmnaXkB6AoYBUkeeb25Arfq4oeK4XPf4gkYe7evwkh' target='_blank' rel='noopener'>METAx-SOL</a><div class='mint'>DUKmna…7evwkh</div></td><td class='num' data-y='0.000000'>0.000%</td><td class='num' data-y='0.001810'>0.002%</td><td class='num' data-y='0.004272'>0.004%</td><td class='num' data-y='0.006600'>0.007%</td><td class='num' data-y='0.031153'>0.031%</td><td class='num' data-y='0.039099'>0.039%</td><td class='num' data-y='17832.149972'>$17,832</td><td class='num'>42,558</td></tr>
+<tr><td class='pair'><a href='https://solscan.io/account/8yvEgE72BvZs86ZRr9j6ZHgn1zgVpBz2gTmwq7tMcgyH' target='_blank' rel='noopener'>MSTRx-SOL</a><div class='mint'>8yvEgE…tMcgyH</div></td><td class='num' data-y='0.000913'>0.001%</td><td class='num' data-y='0.000913'>0.001%</td><td class='num' data-y='0.003470'>0.003%</td><td class='num' data-y='0.014297'>0.014%</td><td class='num' data-y='0.118708'>0.119%</td><td class='num' data-y='0.160967'>0.161%</td><td class='num' data-y='7737.132900'>$7,737</td><td class='num'>15,676</td></tr>
+<tr><td class='pair'><a href='https://solscan.io/account/F4inHs4RQARpASmvLpj45QjGLdkukeGQrtQ22pimVy2a' target='_blank' rel='noopener'>NVDAx-USDC</a><div class='mint'>F4inHs…imVy2a</div></td><td class='num' data-y='0.000370'>0.000%</td><td class='num' data-y='0.000631'>0.001%</td><td class='num' data-y='0.001618'>0.002%</td><td class='num' data-y='0.002786'>0.003%</td><td class='num' data-y='0.088590'>0.089%</td><td class='num' data-y='0.120431'>0.120%</td><td class='num' data-y='29173.249505'>$29,173</td><td class='num'>216,272</td></tr></tbody></table></div>
 
 <h2>Stock × memecoin pools</h2>
 <p class="note">Both betas live at once, ranked on the same terms.
-Best on the 1h window: <b>TSLA-TSLAx</b> at 0.016% on $47,424 (24h: 0.034%). GOOGLx-GOOGLon is the same company across two issuers, in two
+Best on the 1h window: <b>OPENAI-MSFTx</b> at 0.078% on $1,330 (24h: 0.510%). GOOGLx-GOOGLon is the same company across two issuers, in two
 liquidity silos.</p>
-<div class="tw"><table><thead><tr><th>pair</th><th class='num sort' data-w='30m'>30m<span class='car'>▾</span></th><th class='num sort' data-w='1h'>1h<span class='car'>▾</span></th><th class='num sort' data-w='2h'>2h<span class='car'>▾</span></th><th class='num sort' data-w='4h'>4h<span class='car'>▾</span></th><th class='num sort' data-w='12h'>12h<span class='car'>▾</span></th><th class='num sort' data-w='24h'>24h<span class='car'>▾</span></th><th class='num sort' data-w='__tvl'>TVL<span class='car'>▾</span></th><th class='num'>holders</th></tr></thead><tbody><tr><td class='pair'><a href='https://solscan.io/account/8k2c9Kiavx5pbWc2dmzhL7vFp11sLgMcKFfSueq8haAh' target='_blank' rel='noopener'>TSLA-TSLAx</a><div class='mint'>8k2c9K…q8haAh</div></td><td class='num' data-y='0.001641'>0.002%</td><td class='num' data-y='0.016099'>0.016%</td><td class='num' data-y='0.018256'>0.018%</td><td class='num' data-y='0.019628'>0.020%</td><td class='num' data-y='0.020900'>0.021%</td><td class='num' data-y='0.033748'>0.034%</td><td class='num' data-y='47424.134455'>$47,424</td><td class='num'>62,495</td></tr>
-<tr><td class='pair'><a href='https://solscan.io/account/Aq7nhS8pDPRvPA2uWotwyk79aG8Hfegf5CdA3iXABxAR' target='_blank' rel='noopener'>NVDA-NVDAx</a><div class='mint'>Aq7nhS…XABxAR</div></td><td class='num' data-y='0.003800'>0.004%</td><td class='num' data-y='0.016025'>0.016%</td><td class='num' data-y='0.042526'>0.043%</td><td class='num' data-y='0.049861'>0.050%</td><td class='num' data-y='0.073644'>0.074%</td><td class='num' data-y='0.119645'>0.120%</td><td class='num' data-y='40474.363368'>$40,474</td><td class='num'>216,354</td></tr>
-<tr><td class='pair'><a href='https://solscan.io/account/CaXn3BMd41fCyuCsZQwL5j1Tgsnf9DFjhE75ts4RGfAd' target='_blank' rel='noopener'>SPYx-QQQx</a><div class='mint'>CaXn3B…4RGfAd</div></td><td class='num' data-y='0.000000'>0.000%</td><td class='num' data-y='0.010883'>0.011%</td><td class='num' data-y='0.014540'>0.015%</td><td class='num' data-y='0.014540'>0.015%</td><td class='num' data-y='0.021996'>0.022%</td><td class='num' data-y='0.039193'>0.039%</td><td class='num' data-y='1910.190414'>$1,910</td><td class='num'>84,621</td></tr>
-<tr><td class='pair'><a href='https://solscan.io/account/2YAewxH8qce5g7Z6F139LcurXZDEFbWi56NFJjSKXzWS' target='_blank' rel='noopener'>GOOGLx-GOOGLon</a><div class='mint'>2YAewx…SKXzWS</div></td><td class='num' data-y='0.007317'>0.007%</td><td class='num' data-y='0.007317'>0.007%</td><td class='num' data-y='0.020413'>0.020%</td><td class='num' data-y='0.025788'>0.026%</td><td class='num' data-y='0.032071'>0.032%</td><td class='num' data-y='0.032665'>0.033%</td><td class='num' data-y='1894.807670'>$1,895</td><td class='num'>62,991</td></tr>
-<tr><td class='pair'><a href='https://solscan.io/account/9recKYbZfBZm38bTf38Fzh28gBTY7iEFBLzdvFRGYLF' target='_blank' rel='noopener'>TSLAx-SPCXx</a><div class='mint'>9recKY…FRGYLF</div></td><td class='num' data-y='0.000000'>0.000%</td><td class='num' data-y='0.006397'>0.006%</td><td class='num' data-y='0.020060'>0.020%</td><td class='num' data-y='0.024112'>0.024%</td><td class='num' data-y='0.027116'>0.027%</td><td class='num' data-y='0.038752'>0.039%</td><td class='num' data-y='6821.505522'>$6,822</td><td class='num'>62,495</td></tr>
-<tr><td class='pair'><a href='https://solscan.io/account/EzgjkXdjyWUYfiCSJ5H7kt1oiXkuZMWLoisjHAxD8HQc' target='_blank' rel='noopener'>SNDK-HOODx</a><div class='mint'>EzgjkX…xD8HQc</div></td><td class='num' data-y='0.001467'>0.001%</td><td class='num' data-y='0.005096'>0.005%</td><td class='num' data-y='0.019421'>0.019%</td><td class='num' data-y='0.021528'>0.022%</td><td class='num' data-y='0.022962'>0.023%</td><td class='num' data-y='0.024427'>0.024%</td><td class='num' data-y='5933.717266'>$5,934</td><td class='num'>13,659</td></tr>
-<tr><td class='pair'><a href='https://solscan.io/account/ExwtCL871L2QhHw7EikDPBHfoEHzadxcepdw1Fs3ofoR' target='_blank' rel='noopener'>CRCLx-MSTRx</a><div class='mint'>ExwtCL…s3ofoR</div></td><td class='num' data-y='0.000000'>0.000%</td><td class='num' data-y='0.002883'>0.003%</td><td class='num' data-y='0.016103'>0.016%</td><td class='num' data-y='0.016753'>0.017%</td><td class='num' data-y='0.020414'>0.020%</td><td class='num' data-y='0.036913'>0.037%</td><td class='num' data-y='5110.049674'>$5,110</td><td class='num'>19,987</td></tr>
-<tr><td class='pair'><a href='https://solscan.io/account/6iMKsFAkkvXS6E1Q4hyHARQkLn3HFLrwTo1JStLw5q2p' target='_blank' rel='noopener'>ORE-GLDx</a><div class='mint'>6iMKsF…Lw5q2p</div></td><td class='num' data-y='0.000385'>0.000%</td><td class='num' data-y='0.001146'>0.001%</td><td class='num' data-y='0.002880'>0.003%</td><td class='num' data-y='0.003805'>0.004%</td><td class='num' data-y='0.014903'>0.015%</td><td class='num' data-y='0.055927'>0.056%</td><td class='num' data-y='160119.700769'>$160,120</td><td class='num'>42,949</td></tr>
-<tr><td class='pair'><a href='https://solscan.io/account/BgwPpa9ZoCiwZVJoHSmuLyvGo28N7tr1a2xHDdYLCNR4' target='_blank' rel='noopener'>XAUt0-GLDx</a><div class='mint'>BgwPpa…YLCNR4</div></td><td class='num' data-y='0.000990'>0.001%</td><td class='num' data-y='0.000990'>0.001%</td><td class='num' data-y='0.001089'>0.001%</td><td class='num' data-y='0.001467'>0.001%</td><td class='num' data-y='0.001729'>0.002%</td><td class='num' data-y='0.002971'>0.003%</td><td class='num' data-y='2025.869417'>$2,026</td><td class='num'>42,949</td></tr>
-<tr><td class='pair'><a href='https://solscan.io/account/9u6gCwPRVmcf7P61ActRqJBhJrqZEftL6FpfsndhPNp' target='_blank' rel='noopener'>QQQx-AMZNx</a><div class='mint'>9u6gCw…ndhPNp</div></td><td class='num' data-y='0.000033'>0.000%</td><td class='num' data-y='0.000402'>0.000%</td><td class='num' data-y='0.001071'>0.001%</td><td class='num' data-y='0.001161'>0.001%</td><td class='num' data-y='0.001457'>0.001%</td><td class='num' data-y='0.002970'>0.003%</td><td class='num' data-y='1714.074964'>$1,714</td><td class='num'>41,694</td></tr>
-<tr><td class='pair'><a href='https://solscan.io/account/8is7SBzMYLUTUtVU5H4QEPkgeQP7WaM7rQ6QPxXTa4PB' target='_blank' rel='noopener'>NVDAx-TSLAx</a><div class='mint'>8is7SB…XTa4PB</div></td><td class='num' data-y='0.000045'>0.000%</td><td class='num' data-y='0.000188'>0.000%</td><td class='num' data-y='0.000791'>0.001%</td><td class='num' data-y='0.000840'>0.001%</td><td class='num' data-y='0.001027'>0.001%</td><td class='num' data-y='0.001794'>0.002%</td><td class='num' data-y='4348.814406'>$4,349</td><td class='num'>216,354</td></tr>
-<tr><td class='pair'><a href='https://solscan.io/account/DuRgqBRK4Q61aSZewy4QNJ3W38Sn78zLebgm9mMP3Wkr' target='_blank' rel='noopener'>AAPLx-SPYx</a><div class='mint'>DuRgqB…MP3Wkr</div></td><td class='num' data-y='0.000000'>0.000%</td><td class='num' data-y='0.000128'>0.000%</td><td class='num' data-y='0.000590'>0.001%</td><td class='num' data-y='0.000590'>0.001%</td><td class='num' data-y='0.000713'>0.001%</td><td class='num' data-y='0.000777'>0.001%</td><td class='num' data-y='3876.892779'>$3,877</td><td class='num'>52,122</td></tr>
-<tr><td class='pair'><a href='https://solscan.io/account/Dk9YqpRdd8UkALuGcXrPhEck64Bkr68QoKBYn8A8stVe' target='_blank' rel='noopener'>SPYx-SPYon</a><div class='mint'>Dk9Yqp…A8stVe</div></td><td class='num' data-y='0.000000'>0.000%</td><td class='num' data-y='0.000000'>0.000%</td><td class='num' data-y='0.000000'>0.000%</td><td class='num' data-y='0.000000'>0.000%</td><td class='num' data-y='0.000000'>0.000%</td><td class='num' data-y='0.000122'>0.000%</td><td class='num' data-y='13086.800162'>$13,087</td><td class='num'>84,622</td></tr>
-<tr><td class='pair'><a href='https://solscan.io/account/7ewoMLikDo72qg7veAFGvP4ywYx5HanNLgBH3zeBkM14' target='_blank' rel='noopener'>OPENAI-MSFTx</a><div class='mint'>7ewoML…eBkM14</div></td><td class='num' data-y='0.000000'>0.000%</td><td class='num' data-y='0.000000'>0.000%</td><td class='num' data-y='0.021672'>0.022%</td><td class='num' data-y='0.021672'>0.022%</td><td class='num' data-y='0.021672'>0.022%</td><td class='num' data-y='0.021672'>0.022%</td><td class='num' data-y='1530.917836'>$1,531</td><td class='num'>43,293</td></tr></tbody></table></div>
+<div class="tw"><table><thead><tr><th>pair</th><th class='num sort' data-w='30m'>30m<span class='car'>▾</span></th><th class='num sort' data-w='1h'>1h<span class='car'>▾</span></th><th class='num sort' data-w='2h'>2h<span class='car'>▾</span></th><th class='num sort' data-w='4h'>4h<span class='car'>▾</span></th><th class='num sort' data-w='12h'>12h<span class='car'>▾</span></th><th class='num sort' data-w='24h'>24h<span class='car'>▾</span></th><th class='num sort' data-w='__tvl'>TVL<span class='car'>▾</span></th><th class='num'>holders</th></tr></thead><tbody><tr><td class='pair'><a href='https://solscan.io/account/7ewoMLikDo72qg7veAFGvP4ywYx5HanNLgBH3zeBkM14' target='_blank' rel='noopener'>OPENAI-MSFTx</a><div class='mint'>7ewoML…eBkM14</div></td><td class='num' data-y='0.078188'>0.078%</td><td class='num' data-y='0.078188'>0.078%</td><td class='num' data-y='0.109895'>0.110%</td><td class='num' data-y='0.109895'>0.110%</td><td class='num' data-y='0.509650'>0.510%</td><td class='num' data-y='0.509650'>0.510%</td><td class='num' data-y='1330.302785'>$1,330</td><td class='num'>43,544</td></tr>
+<tr><td class='pair'><a href='https://solscan.io/account/6iMKsFAkkvXS6E1Q4hyHARQkLn3HFLrwTo1JStLw5q2p' target='_blank' rel='noopener'>ORE-GLDx</a><div class='mint'>6iMKsF…Lw5q2p</div></td><td class='num' data-y='0.000586'>0.001%</td><td class='num' data-y='0.009049'>0.009%</td><td class='num' data-y='0.021404'>0.021%</td><td class='num' data-y='0.023585'>0.024%</td><td class='num' data-y='0.030504'>0.031%</td><td class='num' data-y='0.056342'>0.056%</td><td class='num' data-y='158752.313651'>$158,752</td><td class='num'>42,923</td></tr>
+<tr><td class='pair'><a href='https://solscan.io/account/Aq7nhS8pDPRvPA2uWotwyk79aG8Hfegf5CdA3iXABxAR' target='_blank' rel='noopener'>NVDA-NVDAx</a><div class='mint'>Aq7nhS…XABxAR</div></td><td class='num' data-y='0.001775'>0.002%</td><td class='num' data-y='0.003123'>0.003%</td><td class='num' data-y='0.010178'>0.010%</td><td class='num' data-y='0.018333'>0.018%</td><td class='num' data-y='0.100941'>0.101%</td><td class='num' data-y='0.137604'>0.138%</td><td class='num' data-y='44379.743315'>$44,380</td><td class='num'>216,272</td></tr>
+<tr><td class='pair'><a href='https://solscan.io/account/ExwtCL871L2QhHw7EikDPBHfoEHzadxcepdw1Fs3ofoR' target='_blank' rel='noopener'>CRCLx-MSTRx</a><div class='mint'>ExwtCL…s3ofoR</div></td><td class='num' data-y='0.001303'>0.001%</td><td class='num' data-y='0.001305'>0.001%</td><td class='num' data-y='0.006141'>0.006%</td><td class='num' data-y='0.008988'>0.009%</td><td class='num' data-y='0.037851'>0.038%</td><td class='num' data-y='0.045682'>0.046%</td><td class='num' data-y='4829.332840'>$4,829</td><td class='num'>20,066</td></tr>
+<tr><td class='pair'><a href='https://solscan.io/account/8k2c9Kiavx5pbWc2dmzhL7vFp11sLgMcKFfSueq8haAh' target='_blank' rel='noopener'>TSLA-TSLAx</a><div class='mint'>8k2c9K…q8haAh</div></td><td class='num' data-y='0.000092'>0.000%</td><td class='num' data-y='0.000193'>0.000%</td><td class='num' data-y='0.000586'>0.001%</td><td class='num' data-y='0.005786'>0.006%</td><td class='num' data-y='0.040455'>0.040%</td><td class='num' data-y='0.045530'>0.046%</td><td class='num' data-y='46359.355995'>$46,359</td><td class='num'>62,458</td></tr>
+<tr><td class='pair'><a href='https://solscan.io/account/9u6gCwPRVmcf7P61ActRqJBhJrqZEftL6FpfsndhPNp' target='_blank' rel='noopener'>QQQx-AMZNx</a><div class='mint'>9u6gCw…ndhPNp</div></td><td class='num' data-y='0.000089'>0.000%</td><td class='num' data-y='0.000090'>0.000%</td><td class='num' data-y='0.000297'>0.000%</td><td class='num' data-y='0.000526'>0.001%</td><td class='num' data-y='0.002857'>0.003%</td><td class='num' data-y='0.003968'>0.004%</td><td class='num' data-y='1666.797073'>$1,667</td><td class='num'>41,711</td></tr>
+<tr><td class='pair'><a href='https://solscan.io/account/8is7SBzMYLUTUtVU5H4QEPkgeQP7WaM7rQ6QPxXTa4PB' target='_blank' rel='noopener'>NVDAx-TSLAx</a><div class='mint'>8is7SB…XTa4PB</div></td><td class='num' data-y='0.000033'>0.000%</td><td class='num' data-y='0.000048'>0.000%</td><td class='num' data-y='0.000209'>0.000%</td><td class='num' data-y='0.000403'>0.000%</td><td class='num' data-y='0.001546'>0.002%</td><td class='num' data-y='0.001909'>0.002%</td><td class='num' data-y='4132.540990'>$4,133</td><td class='num'>216,272</td></tr>
+<tr><td class='pair'><a href='https://solscan.io/account/DuRgqBRK4Q61aSZewy4QNJ3W38Sn78zLebgm9mMP3Wkr' target='_blank' rel='noopener'>AAPLx-SPYx</a><div class='mint'>DuRgqB…MP3Wkr</div></td><td class='num' data-y='0.000006'>0.000%</td><td class='num' data-y='0.000007'>0.000%</td><td class='num' data-y='0.000249'>0.000%</td><td class='num' data-y='0.000371'>0.000%</td><td class='num' data-y='0.001221'>0.001%</td><td class='num' data-y='0.001347'>0.001%</td><td class='num' data-y='3805.956424'>$3,806</td><td class='num'>52,669</td></tr>
+<tr><td class='pair'><a href='https://solscan.io/account/2YAewxH8qce5g7Z6F139LcurXZDEFbWi56NFJjSKXzWS' target='_blank' rel='noopener'>GOOGLx-GOOGLon</a><div class='mint'>2YAewx…SKXzWS</div></td><td class='num' data-y='0.000000'>0.000%</td><td class='num' data-y='0.000000'>0.000%</td><td class='num' data-y='0.000000'>0.000%</td><td class='num' data-y='0.000000'>0.000%</td><td class='num' data-y='0.036919'>0.037%</td><td class='num' data-y='0.037533'>0.038%</td><td class='num' data-y='1830.224183'>$1,830</td><td class='num'>62,977</td></tr>
+<tr><td class='pair'><a href='https://solscan.io/account/Dk9YqpRdd8UkALuGcXrPhEck64Bkr68QoKBYn8A8stVe' target='_blank' rel='noopener'>SPYx-SPYon</a><div class='mint'>Dk9Yqp…A8stVe</div></td><td class='num' data-y='0.000000'>0.000%</td><td class='num' data-y='0.000000'>0.000%</td><td class='num' data-y='0.000000'>0.000%</td><td class='num' data-y='0.000000'>0.000%</td><td class='num' data-y='0.103499'>0.103%</td><td class='num' data-y='0.103580'>0.104%</td><td class='num' data-y='13133.201547'>$13,133</td><td class='num'>84,615</td></tr>
+<tr><td class='pair'><a href='https://solscan.io/account/9recKYbZfBZm38bTf38Fzh28gBTY7iEFBLzdvFRGYLF' target='_blank' rel='noopener'>TSLAx-SPCXx</a><div class='mint'>9recKY…FRGYLF</div></td><td class='num' data-y='0.000000'>0.000%</td><td class='num' data-y='0.000000'>0.000%</td><td class='num' data-y='0.000000'>0.000%</td><td class='num' data-y='0.003263'>0.003%</td><td class='num' data-y='0.035025'>0.035%</td><td class='num' data-y='0.037986'>0.038%</td><td class='num' data-y='6698.848233'>$6,699</td><td class='num'>62,458</td></tr>
+<tr><td class='pair'><a href='https://solscan.io/account/EzgjkXdjyWUYfiCSJ5H7kt1oiXkuZMWLoisjHAxD8HQc' target='_blank' rel='noopener'>SNDK-HOODx</a><div class='mint'>EzgjkX…xD8HQc</div></td><td class='num' data-y='0.000000'>0.000%</td><td class='num' data-y='0.000000'>0.000%</td><td class='num' data-y='0.000000'>0.000%</td><td class='num' data-y='0.000726'>0.001%</td><td class='num' data-y='0.026195'>0.026%</td><td class='num' data-y='0.027730'>0.028%</td><td class='num' data-y='5543.242907'>$5,543</td><td class='num'>13,675</td></tr>
+<tr><td class='pair'><a href='https://solscan.io/account/2WNiNdco2ZrgGp161FESimPqfg17j6wtxy5ZhjSdvjGg' target='_blank' rel='noopener'>XAUt0-GLDx</a><div class='mint'>2WNiNd…SdvjGg</div></td><td class='num' data-y='0.000000'>0.000%</td><td class='num' data-y='0.000000'>0.000%</td><td class='num' data-y='0.000000'>0.000%</td><td class='num' data-y='0.000866'>0.001%</td><td class='num' data-y='0.003822'>0.004%</td><td class='num' data-y='0.003822'>0.004%</td><td class='num' data-y='2005.684139'>$2,006</td><td class='num'>42,923</td></tr>
+<tr><td class='pair'><a href='https://solscan.io/account/BgwPpa9ZoCiwZVJoHSmuLyvGo28N7tr1a2xHDdYLCNR4' target='_blank' rel='noopener'>XAUt0-GLDx</a><div class='mint'>BgwPpa…YLCNR4</div></td><td class='num' data-y='0.000000'>0.000%</td><td class='num' data-y='0.000000'>0.000%</td><td class='num' data-y='0.000000'>0.000%</td><td class='num' data-y='0.001012'>0.001%</td><td class='num' data-y='0.004636'>0.005%</td><td class='num' data-y='0.005635'>0.006%</td><td class='num' data-y='2001.467485'>$2,001</td><td class='num'>42,923</td></tr>
+<tr><td class='pair'><a href='https://solscan.io/account/CaXn3BMd41fCyuCsZQwL5j1Tgsnf9DFjhE75ts4RGfAd' target='_blank' rel='noopener'>SPYx-QQQx</a><div class='mint'>CaXn3B…4RGfAd</div></td><td class='num' data-y='0.000000'>0.000%</td><td class='num' data-y='0.000000'>0.000%</td><td class='num' data-y='0.000862'>0.001%</td><td class='num' data-y='0.006173'>0.006%</td><td class='num' data-y='0.032121'>0.032%</td><td class='num' data-y='0.051018'>0.051%</td><td class='num' data-y='1866.983303'>$1,867</td><td class='num'>84,615</td></tr></tbody></table></div>
 
 <div class="flag"><b>Why one window is not enough.</b> A pool's 24h figure is an
 average over a day in which it may have been idle for most of it. On this pull
-the highest-24h stock pool paid <b>AVGOx-USDC</b> 4.574% over 24h against 0.381% over 1h — its yield had already fallen
+the highest-24h stock pool paid <b>AVGOx-USDC</b> 5.045% over 24h against 0.342% over 1h — its yield had already fallen
 away by the time the day was done, and a 24h-only ranking would still have put
 it first. Conversely a pool that sat quiet all day and woke up an hour ago has
 no 24h volume at all, so a 24h-only view drops exactly the pool someone scanning
@@ -408,7 +399,7 @@ chain state. Reproduce with
 <code>python3 tools/stock_pairs.py 60 &amp;&amp; python3 tools/stock_report.py</code>
 · source at
 <a href="https://github.com/KJohnson-700/Meteoran">github.com/KJohnson-700/Meteoran</a>
-· 24,000 pools scanned, $898,991 TVL in the two classes above.
+· 24,000 pools scanned, $880,573 TVL in the two classes above.
 </footer>
 
 </div>
